@@ -15,7 +15,6 @@
     }
 
     $nombre = readline('Entrer en nombre : ');
-
     echo factorielle($nombre);
     
     

@@ -34,14 +34,14 @@
      * @param array $tableau
      * @return void
      */
-    function AfficherTableau ($tableau){
+    function AfficherTableauAssociatif ($tableau){
         foreach($tableau as $key => $val){
             echo $key." ".$val."\n";
         }
     }
     // $tableau = CreerTableauAssociatif(5);
     $tableau = array(1=>"un", 2=>"deux", 3=>"trois", 4=>"quatre", 5=>"cinq");
-    AfficherTableau($tableau);
+    AfficherTableauAssociatif($tableau);
 
 
     
