@@ -1,5 +1,11 @@
 <?php
 
+    /**
+     * calcul la factorielle du nombre en parametre
+     *
+     * @param int $nombre
+     * @return int
+     */
     function factorielle($nombre) {
         if($nombre == 0){
             return 1;
