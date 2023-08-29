@@ -14,7 +14,20 @@
         }    
     }
 
-    $nombre = readline('Entrer en nombre : ');
+        /**
+     * saisir une valeur et verifie que c'est bien un entier
+     *
+     * @param string $invite
+     * @return void
+     */
+    function SaisirEntier(string $invite,bool $positif = false){
+        do{
+            $nombre = readline("$invite ");
+        }while(!preg_match("/^(-)?[\d]+$/", $nombre) || ($positif && $nombre < 0));   
+        return $nombre ;
+    }
+
+    $nombre = SaisirEntier('Entrer en nombre : ',true);
     echo factorielle($nombre);
     
     

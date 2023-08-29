@@ -6,10 +6,10 @@
      * @param string $mot
      * @return void
      */
-    function epele(string $mot) {
+    function epeler(string $mot) {
         if($mot != ""){
             echo $mot[0]." ";
-            epele(substr($mot,1));
+            epeler(substr($mot,1));
         }
     }
     
