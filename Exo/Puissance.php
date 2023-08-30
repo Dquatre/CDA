@@ -55,7 +55,25 @@
         }
     }
 
-    function VerifieGagne($tableau){
+    /**
+     * demande dans quel colone metre la piece, verifie que la saisie est valide 
+     * et replit le tableeau en parametre
+     *
+     * @param array $tableau
+     * @return void
+     */
+    function ajoutPiece($tableau){
+
+    }
+
+    /**
+     * verifie si un joueur a
+     *
+     * @param array $tableau
+     * @param integer $nbGagnan
+     * @return bool
+     */
+    function verifieGagne($tableau,int $nbGagnan){
 
     }
 
