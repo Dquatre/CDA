@@ -13,7 +13,6 @@
             return $nombre*factorielle($nombre-1);
         }    
     }
-
         /**
      * saisir une valeur et verifie que c'est bien un entier
      *

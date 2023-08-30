@@ -60,9 +60,9 @@
         for($j=0;$j<= $taille;$j++){
             
             // $tre = $tre."----------------";
-            $tre = $tre."----";
+            $tre = $tre."-----";
         }
-        return $tre."-";
+        return $tre."----";
     }
 
     /**
@@ -74,35 +74,19 @@
     function afficherTableauDeuxD ($tableau){
         $tre = dessinerTre(sizeof($tableau[0]));
         
-        echo "$tre\n|   | ";
+        echo "$tre\n|     |";
         for($i=0;$i< sizeof($tableau[0]);$i++){
-            echo chr(65+$i)." | ";
+            echo str_pad(chr(65+$i), 5," ",STR_PAD_BOTH)."|";
         }
         echo "\n$tre";
         
         for($i=0;$i< sizeof($tableau);$i++){
-            echo"\n| ".($i+1)." | ";
+            echo"\n|".str_pad(($i+1), 5," ",STR_PAD_BOTH)."|";
             for($j=0;$j< sizeof($tableau[$i]);$j++){
-                echo $tableau[$i][$j]." | ";
+                echo str_pad($tableau[$i][$j], 5," ",STR_PAD_BOTH)."|";
             }
             echo"\n$tre"; 
         }
-
-        //version avec tabulation
-
-        // echo "$tre\n|\t\t|\t";
-        // for($i=0;$i< sizeof($tableau[0]);$i++){
-        //     echo chr(65+$i)."\t|\t";
-        // }
-        // echo "\n$tre";
-        
-        // for($i=0;$i< sizeof($tableau);$i++){
-        //     echo"\n|\t".($i+1)."\t|\t";
-        //     for($j=0;$j< sizeof($tableau[$i]);$j++){
-        //         echo $tableau[$i][$j]."\t|\t";
-        //     }
-        //     echo"\n$tre"; 
-        // }
     }
 
     /**
