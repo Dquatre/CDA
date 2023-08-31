@@ -16,6 +16,7 @@
     function enterWord(){
         return $mot;
     }
+
     /**
      * demande de saisir un chiffre entre 1,2 ou 3
      * raport a la difficulté du jeu
@@ -38,10 +39,10 @@
     /**
      * Undocumented function
      *
-     * @param string $word
+     * @param string $solution
      * @return array $secretWord
      */
-    function wordBuider(string $word,int $level): array{
+    function wordBuider(string $solution,int $level): array{
         return $secretWord;
     }
 
@@ -112,12 +113,13 @@
      * Undocumented function
      *
      * @param string $letter
+     * @param string $solution
      * @param array $secretword
      * @param array $proposition
      * @param integer $failedAttempt
      * @return void
      */
-    function update(string $letter,string $word,array $secretword, array $proposition, int $failedAttempt){
+    function update(string $letter,string $solution,array $secretword, array $proposition, int $failedAttempt){
 
     }
 
@@ -127,5 +129,5 @@
      * @return void
      */
     function main(){
-
+        
     }

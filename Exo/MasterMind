@@ -1,0 +1,107 @@
+<?php
+
+    /**
+     * contient toutes les fonction qui entre les parametre du jeu
+     *
+     * @return array
+     */
+    function init(){
+    
+    }
+
+    /**
+     * saisir le nombre de Joueur
+     *
+     * @return int nbJoueur
+     */
+    function saisirNbJoueur(){
+    
+    }
+
+    /**
+     * saisir le nombre de caracter dans la suite
+     *
+     * @return int
+     */
+    function saisirLongSuite(){
+    
+    }
+
+    /**
+     * genere une suite de la longueur en parametre
+     *
+     * @param integer $longSuite
+     * @return array
+     */
+    function genereSuite(int $longSuite){
+    
+    }
+
+    /**
+     * contient la boucle de jeu
+     *
+     * @param integer $nbJoueur
+     * @param array $suite
+     * @return int
+     */
+    function run(int $nbJoueur,string $suite){
+    
+    }
+
+    /**
+     * saisir une suite
+     *
+     * @return string suitePropose
+     */
+    function saisirSuitePropose(string $longSuite){
+    
+    }
+
+    /**
+     * affiche tout les 
+     *
+     * @param array $tabSuitePropos
+     * @param array $tabIndice
+     * @return void
+     */
+    function affichage(array $tabSuitePropos,array $tabIndice){
+    
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param array $tabSuitePropos
+     * @param array $tabIndice
+     * @return bool
+     */
+    function estGagnant(string $suitePropos,string $suite){
+    
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $suitePropos
+     * @param string $suite
+     * @return string 
+     */
+    function genereIndice(string $suitePropos,string $suite){
+
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    function fin(){
+
+    }
+
+
+
+
+
+
+
