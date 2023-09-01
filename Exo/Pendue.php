@@ -14,6 +14,7 @@
      * @return string $mot
      */
     function enterWord(){
+        
         return $mot;
     }
 
