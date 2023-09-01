@@ -63,15 +63,17 @@ function determinerMotAChercher(){
 function jeu($mot,$difficulte,$nbJoueur,$nbVie){
     $motCode = coderMot($mot,$difficulte);
     $joueurEnCours = 1;
-    afficherMotCode($motCode);
+    $propositions = "";
     do {
-        
-        $propositions = saisirLettre($joueurEnCours);
-        if (estCorrecte($propositions,$motcode,$mot)) {
+        affichageGlobal($nbVie,$motCode,$joueurEnCours,$propositions);
+        $lettre = saisirLettre($joueurEnCours);
+        if (estCorrecte($lettre,$motcode,$mot)) {
             ajouterLettre($lettre, $motcode, $mot, $difficulte);
         }else{
             $NbVie--;
             joueurSuivant($nbJoueur,$joueurEnCours);
+            $propositions += $lettre." ";
+
         }
         $flag = estGagne($motcode,$nbVie,$nbJoueur);
     } while ($flag == 0);
@@ -213,6 +215,11 @@ function ajouterLettre(string $lettre, array $motcode, string $mot, int $difficu
 function affichageGlobal(int $nbVie, array $motCode, int $joueurEnCours, string $propositions){
     affichageVie($nbVie);
     afficherMotCode($motCode);
+    afficherProposition($propositions);
+}
+
+function afficherProposition(string $propositions){
+    echo $propositions;
 }
 
 /**
