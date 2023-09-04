@@ -67,15 +67,15 @@ function jeu($mot,$difficulte,$nbJoueur,$nbVie){
     do {
         affichageGlobal($nbVie,$motCode,$joueurEnCours,$propositions);
         $lettre = saisirLettre($joueurEnCours);
-        if (estCorrecte($lettre,$motcode,$mot)) {
-            ajouterLettre($lettre, $motcode, $mot, $difficulte);
+        if (estCorrecte($lettre,$motCode,$mot)) {
+            $motCode = ajouterLettre($lettre, $motCode, $mot, $difficulte);
         }else{
-            $NbVie--;
-            joueurSuivant($nbJoueur,$joueurEnCours);
-            $propositions += $lettre." ";
+            $nbVie--;
+            $joueurEnCours = joueurSuivant($nbJoueur,$joueurEnCours);
+            $propositions = $propositions." ".$lettre;
 
         }
-        $flag = estGagne($motcode,$nbVie,$nbJoueur);
+        $flag = estGagne($motCode,$nbVie,$joueurEnCours);
     } while ($flag == 0);
     return $flag;
 }
@@ -91,11 +91,11 @@ function coderMot(string $mot, int $difficulte){
     for ($i=0; $i < strlen($mot); $i++) { 
         $motCode[$i]= "_";
     }
-    if ($difficulte > 1) {
+    if ($difficulte < 3) {
         $motCode[0]= $mot[0];
     }
 
-    if ($difficulte > 2) {
+    if ($difficulte < 2) {
         $motCode[sizeof($motCode)-1]= $mot[strlen($mot)-1];
     } 
     return $motCode;   
@@ -112,6 +112,7 @@ function afficherMotCode(array $motCode){
     foreach ($motCode as $value) {
         echo $value." ";
     }
+    echo "\n";
 }
 
 
@@ -139,9 +140,9 @@ function joueurSuivant(int $nbJoueur, int $joueurEnCours){
  */
 function saisirLettre(int $joueurEnCours){
     do{
-        $propositions = readline("Joueur ".$joueurEnCours.", Veuiller entrer une lettre : ");
-    }while(!preg_match("/^[a-zA-Z]$/", $propositions));   
-    return $lettre ;
+        $lettre = readline("Joueur ".$joueurEnCours.", Veuiller entrer une lettre : ");
+    }while(!preg_match("/^[a-zA-Z]$/", $lettre));   
+    return strtoupper($lettre) ;
 }
 
 /**
@@ -166,14 +167,15 @@ function verifierLettre(string $lettre, array $motCode, string $mot, int $diffic
  * @param string $mot
  * @return bool
  */
-function estCorrecte(string $propositions, array $motcode, string $mot){
+function estCorrecte(string $lettre, array $motCode, string $mot){
+    $flag = false;
     for ($i=0; $i < strlen($mot); $i++) { 
-        if ($propositions == $mot[$i]) {
+        if ($lettre == $mot[$i]) {
             $flag = true;
         }
     }
-    for ($i=0; $i < sizeof($motcode); $i++) { 
-        if ($propositions == $motcode[$i]) {
+    for ($i=0; $i < sizeof($motCode); $i++) { 
+        if ($lettre == $motCode[$i]) {
             $flag = false;
         }
     }
@@ -189,18 +191,18 @@ function estCorrecte(string $propositions, array $motcode, string $mot){
  * @param integer $difficulte
  * @return array Le mot codé
  */
-function ajouterLettre(string $lettre, array $motcode, string $mot, int $difficulte){
+function ajouterLettre(string $lettre, array $motCode, string $mot, int $difficulte){
     $i=0;
     while($i < strlen($mot)){
-        if ($propositions == $mot[$i]) {
-            $motcode[$i] = $propositions;
+        if ($lettre == $mot[$i]) {
+            $motCode[$i] = $lettre;
             if($difficulte > 2){
-                $i < strlen($mot);
+                $i = strlen($mot);
             }
         }
         $i++;
     }
-
+    return $motCode;
 }
 
 /**
@@ -219,7 +221,7 @@ function affichageGlobal(int $nbVie, array $motCode, int $joueurEnCours, string 
 }
 
 function afficherProposition(string $propositions){
-    echo $propositions;
+    echo $propositions."\n";
 }
 
 /**
@@ -229,24 +231,27 @@ function afficherProposition(string $propositions){
  * @return void
  */
 function affichageVie(int $nbVie){
-    echo $nbVie;
+    for ($i=0; $i < $nbVie; $i++) { 
+        echo "♥";
+    }
+    echo "\n";
 }
 
 /**
  * Undocumented function
  *
  * @param array $motCode
- * @return int Etat de la partie (0 -1 1
+ * @return int Etat de la partie (0 -1 1)
  * 0 = en cours
  * -1 = perdu
  * 1 = gagne
  * */
 function estGagne(array $motCode,int $nbVie,int $nbJoueur){
-    if (in_array("_",$motCode)) {
-        $flag = 0;
-    }elseif ($nbVie == 0) {
+    if ($nbVie == 0) {
         $flag = -1;
-    }else {
+    }elseif (in_array("_",$motCode)) {
+        $flag = 0;
+    } else {
         $flag = $nbJoueur;
     }
     return $flag;
