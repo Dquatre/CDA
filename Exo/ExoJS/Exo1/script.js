@@ -11,6 +11,12 @@
 
 
 
-document.getElementById("amp").addEventListener('click', function() {
-    document.getElementById("amp").scr = "IMG/ampoule allumee.png";
+document.querySelector("#amp").addEventListener('click', function() {
+    if (document.querySelector("#amp").src == "file:///U:/59011-82-07/Exo/ExoJS/Exo1/IMG/ampoule%20eteinte.PNG") {
+        document.querySelector("#amp").src = "IMG/ampoule allumee.png";
+    }else{
+        document.querySelector("#amp").src = "IMG/ampoule eteinte.PNG";
+    }
+    
+    
 });
