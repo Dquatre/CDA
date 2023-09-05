@@ -16,7 +16,5 @@ document.querySelector("#amp").addEventListener('click', function() {
         document.querySelector("#amp").src = "IMG/ampoule allumee.png";
     }else{
         document.querySelector("#amp").src = "IMG/ampoule eteinte.PNG";
-    }
-    
-    
+    } 
 });
