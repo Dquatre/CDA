@@ -1,52 +1,59 @@
+const deplacement = document.querySelector("#perso");
+var abscisse = 0;
+var ordonnee = 0;
+var isDown = false;
 
 document.querySelector("#down").addEventListener('click', function() {
-    var deplacement = document.querySelector("#perso");
-    var marge = deplacement.style.marginTop+10;
-    deplacement.style.marginTop = parseInt(marge) + 10 +"px" ;
+    ordonnee+=10;
+    deplacement.style.top = ordonnee +"px" ;
 });
 
 document.querySelector("#up").addEventListener('click', function() {
-    var deplacement = document.querySelector("#perso");
-    var marge = deplacement.style.marginTop+10;
-    deplacement.style.marginTop = parseInt(marge) - 10 +"px" ;
+    ordonnee-=10;
+    deplacement.style.top = ordonnee +"px" ;
 });
 
 document.querySelector("#right").addEventListener('click', function() {
-    var deplacement = document.querySelector("#perso");
-    var marge = deplacement.style.marginLeft+10;
-    deplacement.style.marginLeft = parseInt(marge) + 10 +"px" ;
+    abscisse+=10;
+    deplacement.style.left = abscisse +"px" ;
 });
 
 document.querySelector("#left").addEventListener('click', function() {
-    var deplacement = document.querySelector("#perso");
-    var marge = deplacement.style.marginLeft+10;
-    deplacement.style.marginLeft = parseInt(marge) - 10 +"px" ;
+    abscisse-=10;
+    deplacement.style.left = abscisse +"px" ;
 });
 
 document.addEventListener('keydown',function (e) {
     if (e.key === "ArrowLeft") {
-        var deplacement = document.querySelector("#perso");
-        var marge = deplacement.style.marginLeft+10;
-        deplacement.style.marginLeft = parseInt(marge) - 10 +"px" ;
+        abscisse-=10;
+        deplacement.style.left = abscisse +"px" ;
     }
-    if (e.key === "ArrowUp") {
-        var deplacement = document.querySelector("#perso");
-        var marge = deplacement.style.marginTop+10;
-        deplacement.style.marginTop = parseInt(marge) - 10 +"px" ;
+    if (e.key === "ArrowUp") {    
+        ordonnee-=10;
+        deplacement.style.top = ordonnee +"px" ;
     }
     if (e.key === "ArrowRight") {
-        var deplacement = document.querySelector("#perso");
-        var marge = deplacement.style.marginLeft+10;
-        deplacement.style.marginLeft = parseInt(marge) + 10 +"px" ;
+        abscisse+=10;
+        deplacement.style.left = abscisse +"px" ;
     }
     if (e.key === "ArrowDown") {
-        var deplacement = document.querySelector("#perso");
-        var marge = deplacement.style.marginTop+10;
-        deplacement.style.marginTop = parseInt(marge) + 10 +"px" ;
+        ordonnee+=10;
+        deplacement.style.top = ordonnee +"px" ;
     }
-})
+});
 
-document.querySelector("#perso").addEventListener('mousedown',function () {
-    
-})
+document.querySelector("#perso").addEventListener('mousedown',function (e) {
+    isDown =true;
+});
+document.querySelector("#perso").addEventListener('mouseup',function () {
+    isDown =false;
+});
 
+document.addEventListener("mousemove",function (e) {
+    if (isDown) {
+        abscisse = e.clientX;
+        ordonnee = e.clientY;
+        deplacement.style.left = abscisse+"px";
+        deplacement.style.top = ordonnee+"px";
+    }    
+});

@@ -1,4 +1,7 @@
 #perso{
+    position: absolute;
+    left: 0px;
+    top: 0px;
     width: 100px;
     height: 100px;
     background-color: chartreuse;
@@ -9,8 +12,4 @@ footer{
     align-items: center;
     display: inline-block;
     font-size: xx-large;
-}
-button{
-    width: 190px;
-    height: 90px;
 }
