@@ -1,15 +1,506 @@
-#perso{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100px;
-    height: 100px;
-    background-color: chartreuse;
-}
 footer{
     position: absolute;
     bottom: 0px;
     align-items: center;
     display: inline-block;
     font-size: xx-large;
+}
+
+#perso{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: chartreuse;
+}
+.mur{
+    position: absolute;
+    background-color: crimson;
+}
+#mur1{   
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 900px;  
+}
+#mur2{
+    left: 0px;
+    top: 0px;
+    width: 910px;
+    height: 10px;
+}
+#mur3{
+    left: 0px;
+    top: 900px;
+    width: 910px;
+    height: 10px;
+}
+#mur4{
+    left: 900px;
+    top: 0px;
+    width: 10px;
+    height: 850px;
+}
+#mur5{
+    left: 60px;
+    top: 0px;
+    width: 10px;
+    height: 180px;
+}
+#mur6{
+    left: 60px;
+    top: 180px;
+    width: 190px;
+    height: 10px;
+}
+#mur7{
+    left: 120px;
+    top: 60px;
+    width: 250px;
+    height: 10px;
+}
+#mur8{
+    left: 120px;
+    top: 120px;
+    width: 190px;
+    height: 10px;
+}
+#mur9{
+    left: 120px;
+    top: 60px;
+    width: 10px;
+    height: 60px;
+}
+#mur10{
+    left: 300px;
+    top: 120px;
+    width: 10px;
+    height: 310px;
+}
+#mur11{
+    left: 0px;
+    top: 240px;
+    width: 130px;
+    height: 10px;
+}
+#mur12{
+    left: 120px;
+    top: 240px;
+    width: 10px;
+    height: 130px;
+}
+#mur13{
+    left: 180px;
+    top: 240px;
+    width: 10px;
+    height: 190px;
+}
+#mur14{
+    left: 180px;
+    top: 240px;
+    width: 70px;
+    height: 10px;
+}
+#mur15{
+    left: 60px;
+    top: 420px;
+    width: 190px;
+    height: 10px;
+}
+#mur16{
+    left: 60px;
+    top: 300px;
+    width: 10px;
+    height: 310px;
+}
+#mur17{
+    left: 240px;
+    top: 300px;
+    width: 10px;
+    height: 550px;
+}
+#mur18{
+    left: 120px;
+    top: 480px;
+    width: 10px;
+    height: 190px;
+}
+#mur19{
+    left: 180px;
+    top: 480px;
+    width: 10px;
+    height: 420px;
+}
+#mur20{
+    left: 0px;
+    top: 660px;
+    width: 130px;
+    height: 10px;
+}
+#mur21{
+    left: 60px;
+    top: 720px;
+    width: 130px;
+    height: 10px;
+}
+#mur22{
+    left: 60px;
+    top: 720px;
+    width: 10px;
+    height: 130px;
+}
+#mur23{
+    left: 60px;
+    top: 840px;
+    width: 70px;
+    height: 10px;
+}
+#mur24{
+    left: 120px;
+    top: 780px;
+    width: 10px;
+    height: 70px;
+}
+#mur25{
+    left: 240px;
+    top: 840px;
+    width: 130px;
+    height: 10px;
+}
+#mur26{
+    left: 420px;
+    top: 780px;
+    width: 10px;
+    height: 130px;
+}
+#mur27{
+    left: 360px;
+    top: 660px;
+    width: 10px;
+    height: 130px;
+}
+#mur28{
+    left: 360px;
+    top: 720px;
+    width: 190px;
+    height: 10px;
+}
+#mur29{
+    left: 300px;
+    top: 480px;
+    width: 10px;
+    height: 250px;
+}
+#mur30{
+    left: 360px;
+    top: 60px;
+    width: 10px;
+    height: 130px;
+}
+#mur31{
+    left: 360px;
+    top: 120px;
+    width: 130px;
+    height: 10px;
+}
+#mur32{
+    left: 420px;
+    top: 0px;
+    width: 10px;
+    height: 70px;
+}
+#mur33{
+    left: 420px;
+    top: 0px;
+    width: 10px;
+    height: 70px;
+}
+#mur34{
+    left: 480px;
+    top: 120px;
+    width: 10px;
+    height: 70px;
+}
+#mur35{
+    left: 360px;
+    top: 240px;
+    width: 130px;
+    height: 10px;
+}
+#mur36{
+    left: 420px;
+    top: 180px;
+    width: 130px;
+    height: 10px;
+}
+#mur37{
+    left: 420px;
+    top: 60px;
+    width: 130px;
+    height: 10px;
+}
+#mur38{
+    left: 540px;
+    top: 60px;
+    width: 10px;
+    height: 70px;
+}
+#mur39{
+    left: 540px;
+    top: 120px;
+    width: 130px;
+    height: 10px;
+}
+#mur40{
+    left: 600px;
+    top: 0px;
+    width: 10px;
+    height: 70px;
+}
+#mur41{
+    left: 600px;
+    top: 0px;
+    width: 10px;
+    height: 70px;
+}
+#mur42{
+    left: 600px;
+    top: 180px;
+    width: 70px;
+    height: 10px;
+}
+#mur43{
+    left: 660px;
+    top: 60px;
+    width: 10px;
+    height: 70px;
+}
+#mur44{
+    left: 660px;
+    top: 180px;
+    width: 10px;
+    height: 190px;
+}
+#mur45{
+    left: 660px;
+    top: 240px;
+    width: 130px;
+    height: 10px;
+}
+#mur46{
+    left: 840px;
+    top: 240px;
+    width: 70px;
+    height: 10px;
+}
+#mur47{
+    left: 840px;
+    top: 240px;
+    width: 10px;
+    height: 70px;
+}
+#mur48{
+    left: 720px;
+    top: 300px;
+    width: 130px;
+    height: 10px;
+}
+#mur49{
+    left: 720px;
+    top: 300px;
+    width: 10px;
+    height: 70px;
+}
+#mur50{
+    left: 600px;
+    top: 240px;
+    width: 10px;
+    height: 130px;
+}
+#mur51{
+    left: 540px;
+    top: 240px;
+    width: 70px;
+    height: 10px;
+}
+#mur52{
+    left: 540px;
+    top: 420px;
+    width: 250px;
+    height: 10px;
+}
+#mur53{
+    left: 600px;
+    top: 360px;
+    width: 70px;
+    height: 10px;
+}
+#mur53{
+    left: 600px;
+    top: 360px;
+    width: 70px;
+    height: 10px;
+}
+#mur54{
+    left: 720px;
+    top: 360px;
+    width: 130px;
+    height: 10px;
+}
+#mur55{
+    left: 300px;
+    top: 480px;
+    width: 310px;
+    height: 10px;
+}
+#mur56{
+    left: 300px;
+    top: 420px;
+    width: 130px;
+    height: 10px;
+}
+#mur57{
+    left: 480px;
+    top: 300px;
+    width: 10px;
+    height: 130px;
+}
+#mur58{
+    left: 540px;
+    top: 300px;
+    width: 10px;
+    height: 130px;
+}
+#mur59{
+    left: 420px;
+    top: 240px;
+    width: 10px;
+    height: 130px;
+}
+#mur60{
+    left: 360px;
+    top: 300px;
+    width: 130px;
+    height: 10px;
+}
+#mur61{
+    left: 840px;
+    top: 840px;
+    width: 70px;
+    height: 10px;
+}
+#mur62{
+    left: 660px;
+    top: 840px;
+    width: 130px;
+    height: 10px;
+}
+#mur63{
+    left: 720px;
+    top: 840px;
+    width: 10px;
+    height: 70px;
+}
+#mur64{
+    left: 840px;
+    top: 660px;
+    width: 10px;
+    height: 190px;
+}
+#mur65{
+    left: 780px;
+    top: 720px;
+    width: 10px;
+    height: 130px;
+}
+#mur66{
+    left: 480px;
+    top: 660px;
+    width: 10px;
+    height: 190px;
+}
+#mur67{
+    left: 480px;
+    top: 780px;
+    width: 250px;
+    height: 10px;
+}
+#mur68{
+    left: 480px;
+    top: 840px;
+    width: 130px;
+    height: 10px;
+}
+#mur69{
+    left: 660px;
+    top: 660px;
+    width: 130px;
+    height: 10px;
+}
+#mur70{
+    left: 600px;
+    top: 720px;
+    width: 190px;
+    height: 10px;
+}
+#mur71{
+    left: 840px;
+    top: 360px;
+    width: 10px;
+    height: 250px;
+}
+#mur72{
+    left: 600px;
+    top: 600px;
+    width: 10px;
+    height: 130px;
+}
+#mur73{
+    left: 360px;
+    top: 600px;
+    width: 250px;
+    height: 10px;
+}
+#mur74{
+    left: 420px;
+    top: 540px;
+    width: 10px;
+    height: 130px;
+}
+#mur74{
+    left: 420px;
+    top: 540px;
+    width: 10px;
+    height: 130px;
+}
+#mur75{
+    left: 480px;
+    top: 540px;
+    width: 370px;
+    height: 10px;
+}
+#mur76{
+    left: 660px;
+    top: 420px;
+    width: 10px;
+    height: 70px;
+}
+#mur77{
+    left: 720px;
+    top: 480px;
+    width: 130px;
+    height: 10px;
+}
+#mur78{
+    left: 660px;
+    top: 600px;
+    width: 130px;
+    height: 10px;
+}
+#mur79{
+    left: 720px;
+    top: 540px;
+    width: 10px;
+    height: 130px;
 }
