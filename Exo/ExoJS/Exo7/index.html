@@ -9,11 +9,12 @@
     <body>
         <div id="main">
             <form>
-                <input type="text" placeholder="Nom" class="">
-                <input type="tel" placeholder="Numéro de téléphone">
-                <input type="number" placeholder="Code postal">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Mot de passe">
+                <input type="text" placeholder="Nom" class="nom" pattern="^\w{2,}">
+                <input type="tel" placeholder="Numéro de téléphone" class="tel" pattern="^(0[1-68])(?:[ _.-]?(\d{2})){4}" maxlength="10">
+                <input type="text" placeholder="Code postal" class="cp" pattern="^[0-9]{5}"maxlength="5">
+                <input type="email" placeholder="Email" class="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+">
+                <input type="password" placeholder="Mot de passe" class="mdp" pattern="^\w{8,}">
+                <input type="submit" id="sub">
             </form>
         </div>
         

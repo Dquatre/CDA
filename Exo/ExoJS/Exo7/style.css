@@ -1,10 +1,33 @@
+body{
+    background-image:url(img/oui.jpg); 
+}
 #main{
     margin: auto;
+    background-image: linear-gradient(to right,rgba(40, 66, 167, 0.5), rgba(79, 159, 216, 0.5));
+    margin-top: 15%;
     width: 80%;
+    height: 100%;
+    box-shadow: 5px 5px 5px #000343;
+    border-radius: 25px;
 }
 input{
-    margin: 5px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     padding: 20px;
     font-size: 30px;
     width: 45%;
+    background-color: rgba(156, 165, 202, 0.8);
+}
+.rouge{
+    background-color: rgba(202, 59, 68, 0.8);
+}
+
+#sub{
+    background-color: rgba(251, 39, 166, 0.8);
+    text-shadow: 2px 2px 5px red;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    background-image: url(img/kirby.png);
 }
