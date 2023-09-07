@@ -1,4 +1,5 @@
 const deplacement = document.querySelector("#perso");
+const sprite = document.querySelector("#link");
 var isDown = false;
 var noclip = false;
 
@@ -34,34 +35,43 @@ function depl_ok(tob, lob, wob, hob, t, l, w, h) {
 }
 
 document.querySelector("#down").addEventListener('click', function() {
+    sprite.src = "img/linkBas.png";
     deplace(0, 10); 
 });
 
 document.querySelector("#up").addEventListener('click', function() {
+    sprite.src = "img/linkHaut.png";
     deplace(0, -10);  
 });
 
 document.querySelector("#right").addEventListener('click', function() {
+    sprite.src = "img/linkGauche.png";
+    sprite.style.transform = "scaleX(-1)";
     deplace(10, 0); 
 });
 
 document.querySelector("#left").addEventListener('click', function() {
+    sprite.src = "img/linkGauche.png";
     deplace(-10, 0);
 });
 
 document.addEventListener('keydown',function (e) {
     if (e.key === "ArrowLeft") {
+        sprite.src = "img/linkGauche.png";
+        sprite.style.transform = "scaleX(1)";
         deplace(-10, 0);
-        // abscisse-=10;
-        // deplacement.style.left = abscisse +"px" ;
     }
-    if (e.key === "ArrowUp") {  
+    if (e.key === "ArrowUp") { 
+        sprite.src = "img/linkHaut.png"; 
         deplace(0, -10);     
     }
     if (e.key === "ArrowRight") {
+        sprite.src = "img/linkGauche.png";
+        sprite.style.transform = "scaleX(-1)";
         deplace(10, 0); 
     }
     if (e.key === "ArrowDown") {
+        sprite.src = "img/linkBas.png";
         deplace(0, 10); 
     }
     if (e.key === "c") {

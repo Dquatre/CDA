@@ -10,10 +10,15 @@ footer{
     position: absolute;
     left: 20px;
     top: 20px;
-    width: 30px;
-    height: 30px;
-    background-color: chartreuse;
+    width: 20px;
+    height: 25px;
 }
+#link{
+    position: absolute;
+    left: 1px;
+    top: 0px;
+}
+
 .mur{
     position: absolute;
     background-color: crimson;
