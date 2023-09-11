@@ -3,31 +3,35 @@ body{
 }
 #main{
     margin: auto;
-    background-image: linear-gradient(to right,rgba(40, 66, 167, 0.5), rgba(79, 159, 216, 0.5));
-    margin-top: 15%;
+    background-image: linear-gradient(100deg,rgba(165, 28, 152, 0.5), rgba(35, 175, 188, 0.5), rgba(79, 159, 216, 0.5));
+    margin-top: 5%;
     width: 80%;
     height: 100%;
-    box-shadow: 5px 5px 5px #000343;
+    box-shadow: 5px 5px 5px #9ea1dc;
     border-radius: 25px;
 }
 input{
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 3%;
     margin-top: 25px;
     margin-bottom: 15px;
     padding: 20px;
     font-size: 30px;
-    width: 45%;
+    width: 90%;
     background-color: rgba(156, 165, 202, 0.8);
 }
 .rouge{
     background-color: rgba(202, 59, 68, 0.8);
 }
 
-#sub{
+input[type="submit"]:enabled{
     background-color: rgba(251, 39, 166, 0.8);
     text-shadow: 2px 2px 5px red;
     font-size: 40px;
     color: rgb(255, 255, 255);
     background-image: url(img/kirby.png);
+}
+input[type="submit"]:disabled {
+    color: rgb(68, 68, 68);
+    background-color: #636363;
 }
