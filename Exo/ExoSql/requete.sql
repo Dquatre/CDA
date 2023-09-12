@@ -29,6 +29,9 @@ select substring(last_name, 1,5)  from employee
 select last_name, position('r' in last_name) from employee 
 select last_name, upper(last_name) ,lower(last_name)  from employee where last_name like 'vrante'
 select last_name, length(last_name) from employee
+
+
+
 select * from employee e join department d on e.department_id = d.id 
 select department_id as n°department,d."name" as departement ,last_name as nom from employee e join department d on e.department_id = d.id order by department_id 
 select last_name as nom from employee e join department d on e.department_id = d.id where d."name" like 'distribution'
@@ -50,6 +53,15 @@ select max(salary) , min(salary) , (max(salary) - min(salary)) as difference fro
 select count(distinct  title)  from employee 
 select title , count(title)  from employee group by title
 select d."name" , count(title)  from employee e join department d on e.department_id  = d.id  group by d."name"
+select title , avg(salary)  from employee group by title having avg(salary) > any (select avg(salary)from employee e group by title having title like 'représentant')
+select count(salary),count(commission_rate)  from employee
+
+
+
+select * from client where first_name like 'Muriel' and password like encode(digest('test11','sha1'),'hex') 
+select  last_name from order_line group by last_name having count(last_name) >1 
+update order_line set total_price = (unit_price * quantity)
+select order_id,sum(total_price)  from order_line group by order_id order by order_id 
 
 
 
