@@ -63,6 +63,48 @@ select  last_name from order_line group by last_name having count(last_name) >1
 update order_line set total_price = (unit_price * quantity)
 select order_id,sum(total_price)  from order_line group by order_id order by order_id 
 
+select co.id ,sum(total_price),co.purchase_date  ,c.last_name ,c.first_name 
+from customer_order co 
+join client c 
+on c.id = co.client_id 
+join order_line ol 
+on co.id = ol.order_id 
+group by co.id ,c.id 
+order by co.id;
+
+select sum(total_price)
+from customer_order co 
+join order_line ol 
+on co.id = ol.order_id 
+group by extract (month FROM co.purchase_date);
+
+select sum(total_price),c.last_name ,c.first_name 
+from customer_order co 
+join client c 
+on c.id = co.client_id 
+join order_line ol 
+on co.id = ol.order_id 
+group by c.id 
+order by sum(total_price) desc limit 10 ;
+
+select sum(total_price)
+from customer_order co 
+join order_line ol 
+on co.id = ol.order_id 
+group by co.purchase_date;
+
+ALTER TABLE customer_order
+ADD COLUMN category int4;
+
+
+
+
+
+
+
+
+
+
 
 
 
