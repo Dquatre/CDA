@@ -96,9 +96,98 @@ group by co.purchase_date;
 ALTER TABLE customer_order
 ADD COLUMN category int4;
 
+UPDATE customer_order co1
+SET total_price_cache = 
+(select sum(ol.total_price) 
+from customer_order co
+join order_line ol 
+on co.id = ol.order_id 
+where co.id = co1.id 
+group by co.id);
 
 
+UPDATE customer_order 
+SET category = CASE
+WHEN total_price_cache < 200 THEN 1
+WHEN total_price_cache >= 200 and total_price_cache < 500 THEN 2
+WHEN total_price_cache >= 500 and total_price_cache < 1000 THEN 3
+ELSE 4
+end;
 
+select distinct id ,name,address ,postal_code ,city ,contact_name ,satisfaction_index  
+from supplier s 
+join sale_offer so 
+on s.id = so.supplier_id 
+where so.delivery_time <=15
+
+select distinct s.id ,s.name,s.address ,s.postal_code ,s.city ,s.contact_name ,s.satisfaction_index  
+from supplier s 
+join sale_offer so 
+on s.id = so.supplier_id 
+group by s.id
+having  count(*) > 2 ;
+
+select distinct o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join order_line ol 
+on ol.order_id = o.id 
+where ol.ordered_quantity > ol.delivered_quantity or ol.delivered_quantity is null
+
+select i.id ,i.item_code ,i."name" ,i.stock_alert ,i.stock ,i.yearly_consumption ,i.unit 
+from item i  
+join sale_offer so 
+on so.item_id  = i.id 
+join supplier s 
+on s.id  = so.supplier_id  
+where s."name" like 'DICOBOL';
+
+select distinct o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join order_line ol 
+on ol.order_id = o.id 
+where o."date" > date'2021-01-10' and  o."date" < date'2021-01-20'
+
+select distinct o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join order_line ol 
+on o.id  = ol.order_id 
+join item i 
+on ol.item_id = i.id
+group by o.id
+having  count(*) > 2 ;
+
+select distinct id ,name,address ,postal_code ,city ,contact_name ,satisfaction_index  
+from supplier s 
+join sale_offer so 
+on s.id = so.supplier_id 
+where so.delivery_time <=15
+
+select o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join supplier s 
+on s.id = o.supplier_id 
+join sale_offer so 
+on s.id = so.supplier_id 
+join order_line ol 
+on o.id = ol.order_id 
+join item i 
+on i.id = ol.item_id 
+where so.delivery_time <=15
+
+select distinct  o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join order_line ol 
+on o.id = ol.order_id 
+join item i 
+on i.id = ol.item_id 
+where i.stock < i.stock_alert 
+
+select  o.id ,o.supplier_id ,o."date" ,o."comments" 
+from "order" o 
+join order_line ol 
+on o.id = ol.order_id 
+group by o.id 
+order by sum(ol.ordered_quantity*ol.unit_price) desc limit 1 ;
 
 
 
