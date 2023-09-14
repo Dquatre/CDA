@@ -231,12 +231,61 @@ END;
 $$
 
 
+CREATE OR REPLACE FUNCTION satisfaction_string(satisfaction_index integer)
+RETURNS varchar(50)
+LANGUAGE plpgsql
+AS $$
+declare
+satisfaction varchar(50);
+begin
+if satisfaction_index is null then
+	satisfaction = 'Sans commentaire';
+elsif satisfaction_index <3 then
+	satisfaction = 'Mauvais';
+elsif satisfaction_index <5 then
+	satisfaction = 'Passable';
+elsif satisfaction_index <7 then
+	satisfaction = 'Moyen';
+elsif satisfaction_index <9 then
+	satisfaction = 'Bon';
+else 
+	satisfaction = 'Excellent';
+end if;
+return satisfaction;
+END;
+$$
 
 
+select 
+	id, 
+	"name",
+	satisfaction_string(satisfaction_index) as satisfaction
+from 
+	supplier ;
 
 
-
-
-
-
+CREATE OR REPLACE FUNCTION satisfaction_string_case(satisfaction_index integer)
+RETURNS varchar(50)
+LANGUAGE plpgsql
+AS $$
+declare
+satisfaction varchar(50);
+begin
+CASE 	
+	when satisfaction_index < 3 then
+		satisfaction = 'Mauvais';
+	when satisfaction_index < 5 then
+		satisfaction = 'Passable';
+	when satisfaction_index < 7 then
+		satisfaction = 'Moyen';
+	when satisfaction_index < 9 then
+		satisfaction = 'Bon';
+	when satisfaction_index <= 10 then
+		satisfaction = 'Excellent';
+    else
+		satisfaction = 'Sans commentaire';
+    end case;
+return satisfaction;
+END;
+$$
 
