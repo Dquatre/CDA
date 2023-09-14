@@ -190,7 +190,45 @@ group by o.id
 order by sum(ol.ordered_quantity*ol.unit_price) desc limit 1 ;
 
 
+select 
+	id ,
+	supplier_id ,
+	format_date("date",'-') ,
+	"comments" 
+from "order" o 
 
+CREATE OR REPLACE FUNCTION get_items_count()
+RETURNS integer
+LANGUAGE plpgsql
+AS $$
+declare
+items_count integer;
+time_now time = now();
+begin
+select count(id)
+into items_count
+from item;
+raise notice '% articles à %', items_count, time_now;
+return items_count;
+END;
+$$
+
+
+CREATE OR REPLACE FUNCTION best_supplier()
+RETURNS integer
+LANGUAGE plpgsql
+AS $$
+declare
+supplier integer;
+begin
+select supplier_id 
+into supplier
+from "order"
+group by supplier_id 
+order by count(id) desc limit 1;
+return supplier;
+END;
+$$
 
 
 
