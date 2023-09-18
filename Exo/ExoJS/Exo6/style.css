@@ -18,6 +18,11 @@ footer{
     left: 1px;
     top: 0px;
 }
+#boss{
+    position: absolute;
+    left: 730px;
+    top: 20px;
+}
 
 .mur{
     position: absolute;
