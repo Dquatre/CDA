@@ -5,7 +5,9 @@ footer{
     display: inline-block;
     font-size: xx-large;
 }
-
+body{
+    background-image: url(img/gazon.png);
+}
 #perso{
     position: absolute;
     left: 48px;
@@ -23,10 +25,9 @@ footer{
     left: 1216px;
     top: 32px;
 }
-
 .mur{
     position: absolute;
-    background-color: crimson;
+    background-image: url(img/brick.png);
 }
 #mur1{   
     left: 0px;

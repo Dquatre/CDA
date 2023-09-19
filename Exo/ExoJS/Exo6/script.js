@@ -10,7 +10,7 @@ function deplace(dx, dy) {
     var l = parseInt(stylePerso.left);
     var w = parseInt(stylePerso.width);
     var h = parseInt(stylePerso.height);
-    var listeObs = document.querySelectorAll('.mur');
+    var listeObs = document.querySelectorAll('.obstacle');
     listeObs.forEach(function (elt) {
         var styleObst = window.getComputedStyle(elt, null);
         var tob = parseInt(styleObst.top);
@@ -52,6 +52,7 @@ document.querySelector("#right").addEventListener('click', function() {
 
 document.querySelector("#left").addEventListener('click', function() {
     sprite.src = "img/linkGauche.png";
+    sprite.style.transform = "scaleX(1)";
     deplace(-8, 0);
 });
 
@@ -63,6 +64,7 @@ document.addEventListener('keydown',function (e) {
     }
     if (e.key === "ArrowUp") { 
         sprite.src = "img/linkHaut.png"; 
+        sprite.style.transform = "scaleX(1)";
         deplace(0, -8);     
     }
     if (e.key === "ArrowRight") {
@@ -72,6 +74,7 @@ document.addEventListener('keydown',function (e) {
     }
     if (e.key === "ArrowDown") {
         sprite.src = "img/linkBas.png";
+        sprite.style.transform = "scaleX(1)";
         deplace(0, 8); 
     }
     if (e.key === "c") {
