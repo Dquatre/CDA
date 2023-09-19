@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <?php include 'geneform.php';?>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -8,20 +8,20 @@ footer{
 
 #perso{
     position: absolute;
-    left: 20px;
-    top: 20px;
-    width: 20px;
-    height: 25px;
+    left: 48px;
+    top: 48px;
+    width: 16px;
+    height: 16px;
 }
 #link{
     position: absolute;
-    left: 1px;
-    top: 0px;
+    left: -1px;
+    bottom: 0px;
 }
 #boss{
     position: absolute;
-    left: 730px;
-    top: 20px;
+    left: 1216px;
+    top: 32px;
 }
 
 .mur{
@@ -31,486 +31,486 @@ footer{
 #mur1{   
     left: 0px;
     top: 0px;
-    width: 10px;
-    height: 900px;  
+    width: 16px;
+    height: 1440px;  
 }
 #mur2{
     left: 0px;
     top: 0px;
-    width: 910px;
-    height: 10px;
+    width: 1456px;
+    height: 16px;
 }
 #mur3{
     left: 0px;
-    top: 900px;
-    width: 910px;
-    height: 10px;
+    top: 1440px;
+    width: 1456px;
+    height: 16px;
 }
 #mur4{
-    left: 900px;
+    left: 1440px;
     top: 0px;
-    width: 10px;
-    height: 850px;
+    width: 16px;
+    height: 1360px;
 }
 #mur5{
-    left: 60px;
+    left: 96px;
     top: 0px;
-    width: 10px;
-    height: 180px;
+    width: 16px;
+    height: 288px;
 }
 #mur6{
-    left: 60px;
-    top: 180px;
-    width: 190px;
-    height: 10px;
+    left: 96px;
+    top: 288px;
+    width: 304px;
+    height: 16px;
 }
 #mur7{
-    left: 120px;
-    top: 60px;
-    width: 250px;
-    height: 10px;
+    left: 192px;
+    top: 96px;
+    width: 400px;
+    height: 16px;
 }
 #mur8{
-    left: 120px;
-    top: 120px;
-    width: 190px;
-    height: 10px;
+    left: 192px;
+    top: 192px;
+    width: 304px;
+    height: 16px;
 }
 #mur9{
-    left: 120px;
-    top: 60px;
-    width: 10px;
-    height: 60px;
+    left: 192px;
+    top: 96px;
+    width: 16px;
+    height: 96px;
 }
 #mur10{
-    left: 300px;
-    top: 120px;
-    width: 10px;
-    height: 310px;
+    left: 480px;
+    top: 192px;
+    width: 16px;
+    height: 496px;
 }
 #mur11{
     left: 0px;
-    top: 240px;
-    width: 130px;
-    height: 10px;
+    top: 384px;
+    width: 208px;
+    height: 16px;
 }
 #mur12{
-    left: 120px;
-    top: 240px;
-    width: 10px;
-    height: 130px;
+    left: 192px;
+    top: 384px;
+    width: 16px;
+    height: 208px;
 }
 #mur13{
-    left: 180px;
-    top: 240px;
-    width: 10px;
-    height: 190px;
+    left: 288px;
+    top: 384px;
+    width: 16px;
+    height: 304px;
 }
 #mur14{
-    left: 180px;
-    top: 240px;
-    width: 70px;
-    height: 10px;
+    left: 288px;
+    top: 384px;
+    width: 112px;
+    height: 16px;
 }
 #mur15{
-    left: 60px;
-    top: 420px;
-    width: 190px;
-    height: 10px;
+    left: 96px;
+    top: 672px;
+    width:  304px;
+    height: 16px;
 }
 #mur16{
-    left: 60px;
-    top: 300px;
-    width: 10px;
-    height: 310px;
+    left: 96px;
+    top: 480px;
+    width: 16px;
+    height: 496px;
 }
 #mur17{
-    left: 240px;
-    top: 300px;
-    width: 10px;
-    height: 550px;
+    left: 384px;
+    top: 480px;
+    width: 16px;
+    height: 880px;
 }
 #mur18{
-    left: 120px;
-    top: 480px;
-    width: 10px;
-    height: 190px;
+    left: 192px;
+    top: 768px;
+    width: 16px;
+    height: 304px;
 }
 #mur19{
-    left: 180px;
-    top: 480px;
-    width: 10px;
-    height: 420px;
+    left: 288px;
+    top: 768px;
+    width: 16px;
+    height: 672px;
 }
 #mur20{
     left: 0px;
-    top: 660px;
-    width: 130px;
-    height: 10px;
+    top: 1056px;
+    width: 208px;
+    height: 16px;
 }
 #mur21{
-    left: 60px;
-    top: 720px;
-    width: 130px;
-    height: 10px;
+    left: 96px;
+    top: 1152px;
+    width: 208px;
+    height: 16px;
 }
 #mur22{
-    left: 60px;
-    top: 720px;
-    width: 10px;
-    height: 130px;
+    left: 96px;
+    top: 1152px;
+    width: 16px;
+    height: 208px;
 }
 #mur23{
-    left: 60px;
-    top: 840px;
-    width: 70px;
-    height: 10px;
+    left: 96px;
+    top: 1344px;
+    width: 112px;
+    height: 16px;
 }
 #mur24{
-    left: 120px;
-    top: 780px;
-    width: 10px;
-    height: 70px;
+    left: 192px;
+    top: 1248px;
+    width: 16px;
+    height: 112px;
 }
 #mur25{
-    left: 240px;
-    top: 840px;
-    width: 130px;
-    height: 10px;
+    left: 384px;
+    top: 1344px;
+    width: 208px;
+    height: 16px;
 }
 #mur26{
-    left: 420px;
-    top: 780px;
-    width: 10px;
-    height: 130px;
+    left: 672px;
+    top: 1248px;
+    width: 16px;
+    height: 208px;
 }
 #mur27{
-    left: 360px;
-    top: 660px;
-    width: 10px;
-    height: 130px;
+    left: 576px;
+    top: 1056px;
+    width: 16px;
+    height: 208px;
 }
 #mur28{
-    left: 360px;
-    top: 720px;
-    width: 190px;
-    height: 10px;
+    left: 576px;
+    top: 1152px;
+    width: 304px;
+    height: 16px;
 }
 #mur29{
-    left: 300px;
-    top: 480px;
-    width: 10px;
-    height: 250px;
+    left: 480px;
+    top: 768px;
+    width: 16px;
+    height: 400px;
 }
 #mur30{
-    left: 360px;
-    top: 60px;
-    width: 10px;
-    height: 130px;
+    left: 576px;
+    top: 96px;
+    width: 16px;
+    height: 208px;
 }
 #mur31{
-    left: 360px;
-    top: 120px;
-    width: 130px;
-    height: 10px;
+    left: 576px;
+    top: 192px;
+    width: 208px;
+    height: 16px;
 }
 #mur32{
-    left: 420px;
+    left: 672px;
     top: 0px;
-    width: 10px;
-    height: 70px;
+    width: 16px;
+    height: 112px;
 }
 #mur33{
-    left: 420px;
+    left: 672px;
     top: 0px;
-    width: 10px;
+    width: 16px;
     height: 70px;
 }
 #mur34{
-    left: 480px;
-    top: 120px;
-    width: 10px;
-    height: 70px;
+    left: 768px;
+    top: 192px;
+    width: 16px;
+    height: 112px;
 }
 #mur35{
-    left: 360px;
-    top: 240px;
-    width: 130px;
-    height: 10px;
+    left: 576px;
+    top: 384px;
+    width: 208px;
+    height: 16px;
 }
 #mur36{
-    left: 420px;
-    top: 180px;
-    width: 130px;
-    height: 10px;
+    left: 672px;
+    top: 288px;
+    width: 208px;
+    height: 16px;
 }
 #mur37{
-    left: 420px;
-    top: 60px;
-    width: 130px;
-    height: 10px;
+    left:  672px;
+    top: 96px;
+    width: 208px;
+    height: 16px;
 }
 #mur38{
-    left: 540px;
-    top: 60px;
-    width: 10px;
-    height: 70px;
+    left: 864px;
+    top: 96px;
+    width: 16px;
+    height: 112px;
 }
 #mur39{
-    left: 540px;
-    top: 120px;
-    width: 130px;
-    height: 10px;
+    left: 864px;
+    top: 192px;
+    width: 208px;
+    height: 16px;
 }
 #mur40{
-    left: 600px;
+    left: 960px;
     top: 0px;
-    width: 10px;
-    height: 70px;
+    width: 16px;
+    height: 112px;
 }
 #mur41{
-    left: 600px;
+    left: 960px;
     top: 0px;
-    width: 10px;
-    height: 70px;
+    width: 16px;
+    height: 112px;
 }
 #mur42{
-    left: 600px;
-    top: 180px;
-    width: 70px;
-    height: 10px;
+    left: 960px;
+    top: 288px;
+    width: 112px;
+    height: 16px;
 }
 #mur43{
-    left: 660px;
-    top: 60px;
-    width: 10px;
-    height: 70px;
+    left: 1056px;
+    top: 96px;
+    width: 16px;
+    height: 112px;
 }
 #mur44{
-    left: 660px;
-    top: 180px;
-    width: 10px;
-    height: 190px;
+    left: 1056px;
+    top: 288px;
+    width: 16px;
+    height: 304px;
 }
 #mur45{
-    left: 660px;
-    top: 240px;
-    width: 130px;
-    height: 10px;
+    left: 1056px;
+    top: 384px;
+    width: 208px;
+    height: 16px;
 }
 #mur46{
-    left: 840px;
-    top: 240px;
-    width: 70px;
-    height: 10px;
+    left: 1344px;
+    top: 384px;
+    width: 112px;
+    height: 16px;
 }
 #mur47{
-    left: 840px;
-    top: 240px;
-    width: 10px;
-    height: 70px;
+    left: 1344px;
+    top: 384px;
+    width: 16px;
+    height: 112px;
 }
 #mur48{
-    left: 720px;
-    top: 300px;
-    width: 130px;
-    height: 10px;
+    left: 1152px;
+    top: 480px;
+    width: 208px;
+    height: 16px;
 }
 #mur49{
-    left: 720px;
-    top: 300px;
-    width: 10px;
-    height: 70px;
+    left: 1152px;
+    top: 480px;
+    width: 16px;
+    height: 112px;
 }
 #mur50{
-    left: 600px;
-    top: 240px;
-    width: 10px;
-    height: 130px;
+    left: 960px;
+    top: 384px;
+    width: 16px;
+    height: 208px;
 }
 #mur51{
-    left: 540px;
-    top: 240px;
-    width: 70px;
-    height: 10px;
+    left: 864px;
+    top: 384px;
+    width: 112px;
+    height: 16px;
 }
 #mur52{
-    left: 540px;
-    top: 420px;
-    width: 250px;
-    height: 10px;
+    left: 864px;
+    top: 672px;
+    width: 400px;
+    height: 16px;
 }
 #mur53{
-    left: 600px;
-    top: 360px;
-    width: 70px;
-    height: 10px;
+    left: 960px;
+    top: 576px;
+    width: 112px;
+    height: 16px;
 }
 #mur53{
-    left: 600px;
-    top: 360px;
-    width: 70px;
-    height: 10px;
+    left: 960px;
+    top: 576px;
+    width: 112px;
+    height: 16px;
 }
 #mur54{
-    left: 720px;
-    top: 360px;
-    width: 130px;
-    height: 10px;
+    left: 1152px;
+    top: 576px;
+    width: 208px;
+    height: 16px;
 }
 #mur55{
-    left: 300px;
-    top: 480px;
-    width: 310px;
-    height: 10px;
+    left: 480px;
+    top: 768px;
+    width: 496px;
+    height: 16px;
 }
 #mur56{
-    left: 300px;
-    top: 420px;
-    width: 130px;
-    height: 10px;
+    left: 480px;
+    top: 672px;
+    width: 208px;
+    height: 16px;
 }
 #mur57{
-    left: 480px;
-    top: 300px;
-    width: 10px;
-    height: 130px;
+    left: 768px;
+    top: 480px;
+    width: 16px;
+    height: 208px;
 }
 #mur58{
-    left: 540px;
-    top: 300px;
-    width: 10px;
-    height: 130px;
+    left: 864px;
+    top: 480px;
+    width: 16px;
+    height: 208px;
 }
 #mur59{
-    left: 420px;
-    top: 240px;
-    width: 10px;
-    height: 130px;
+    left: 672px;
+    top: 384px;
+    width: 16px;
+    height: 208px;
 }
 #mur60{
-    left: 360px;
-    top: 300px;
-    width: 130px;
-    height: 10px;
+    left: 576px;
+    top: 480px;
+    width: 208px;
+    height: 16px;
 }
 #mur61{
-    left: 840px;
-    top: 840px;
-    width: 70px;
-    height: 10px;
+    left: 1344px;
+    top: 1344px;
+    width: 112px;
+    height: 16px;
 }
 #mur62{
-    left: 660px;
-    top: 840px;
-    width: 130px;
-    height: 10px;
+    left: 1056px;
+    top: 1344px;
+    width: 208px;
+    height: 16px;
 }
 #mur63{
-    left: 720px;
-    top: 840px;
-    width: 10px;
-    height: 70px;
+    left: 1152px;
+    top: 1344px;
+    width: 16px;
+    height: 112px;
 }
 #mur64{
-    left: 840px;
-    top: 660px;
-    width: 10px;
-    height: 190px;
+    left: 1344px;
+    top: 1056px;
+    width: 16px;
+    height: 304px;
 }
 #mur65{
-    left: 780px;
-    top: 720px;
-    width: 10px;
-    height: 130px;
+    left: 1248px;
+    top: 1152px;
+    width: 16px;
+    height: 208px;
 }
 #mur66{
-    left: 480px;
-    top: 660px;
-    width: 10px;
-    height: 190px;
+    left: 768px;
+    top: 1056px;
+    width: 16px;
+    height: 304px;
 }
 #mur67{
-    left: 480px;
-    top: 780px;
-    width: 250px;
-    height: 10px;
+    left: 768px;
+    top: 1248px;
+    width: 400px;
+    height: 16px;
 }
 #mur68{
-    left: 480px;
-    top: 840px;
-    width: 130px;
-    height: 10px;
+    left: 768px;
+    top: 1344px;
+    width: 208px;
+    height: 16px;
 }
 #mur69{
-    left: 660px;
-    top: 660px;
-    width: 130px;
-    height: 10px;
+    left: 1056px;
+    top: 1056px;
+    width: 208px;
+    height: 16px;
 }
 #mur70{
-    left: 600px;
-    top: 720px;
-    width: 190px;
-    height: 10px;
+    left: 960px;
+    top: 1152px;
+    width: 304px;
+    height: 16px;
 }
 #mur71{
-    left: 840px;
-    top: 360px;
-    width: 10px;
-    height: 250px;
+    left: 1344px;
+    top: 576px;
+    width: 16px;
+    height: 400px;
 }
 #mur72{
-    left: 600px;
-    top: 600px;
-    width: 10px;
-    height: 130px;
+    left: 960px;
+    top: 960px;
+    width: 16px;
+    height: 208px;
 }
 #mur73{
-    left: 360px;
-    top: 600px;
-    width: 250px;
-    height: 10px;
+    left: 576px;
+    top: 960px;
+    width: 400px;
+    height: 16px;
 }
 #mur74{
-    left: 420px;
-    top: 540px;
-    width: 10px;
-    height: 130px;
+    left: 672px;
+    top: 864px;
+    width: 16px;
+    height: 208px;
 }
 #mur74{
-    left: 420px;
-    top: 540px;
-    width: 10px;
-    height: 130px;
+    left: 672px;
+    top: 864px;
+    width: 16px;
+    height: 208px;
 }
 #mur75{
-    left: 480px;
-    top: 540px;
-    width: 370px;
-    height: 10px;
+    left: 768px;
+    top: 864px;
+    width: 592px;
+    height: 16px;
 }
 #mur76{
-    left: 660px;
-    top: 420px;
-    width: 10px;
-    height: 70px;
+    left: 1056px;
+    top: 672px;
+    width: 16px;
+    height: 112px;
 }
 #mur77{
-    left: 720px;
-    top: 480px;
-    width: 130px;
-    height: 10px;
+    left:  1152px;
+    top: 768px;
+    width: 208px;
+    height: 16px;
 }
 #mur78{
-    left: 660px;
-    top: 600px;
-    width: 130px;
-    height: 10px;
+    left: 1056px;
+    top: 960px;
+    width: 208px;
+    height: 16px;
 }
 #mur79{
-    left: 720px;
-    top: 540px;
-    width: 10px;
-    height: 130px;
+    left: 1152px;
+    top: 864px;
+    width: 16px;
+    height: 208px;
 }

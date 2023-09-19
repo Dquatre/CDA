@@ -36,43 +36,43 @@ function depl_ok(tob, lob, wob, hob, t, l, w, h) {
 
 document.querySelector("#down").addEventListener('click', function() {
     sprite.src = "img/linkBas.png";
-    deplace(0, 10); 
+    deplace(0, 8); 
 });
 
 document.querySelector("#up").addEventListener('click', function() {
     sprite.src = "img/linkHaut.png";
-    deplace(0, -10);  
+    deplace(0, -8);  
 });
 
 document.querySelector("#right").addEventListener('click', function() {
     sprite.src = "img/linkGauche.png";
     sprite.style.transform = "scaleX(-1)";
-    deplace(10, 0); 
+    deplace(8, 0); 
 });
 
 document.querySelector("#left").addEventListener('click', function() {
     sprite.src = "img/linkGauche.png";
-    deplace(-10, 0);
+    deplace(-8, 0);
 });
 
 document.addEventListener('keydown',function (e) {
     if (e.key === "ArrowLeft") {
         sprite.src = "img/linkGauche.png";
         sprite.style.transform = "scaleX(1)";
-        deplace(-10, 0);
+        deplace(-8, 0);
     }
     if (e.key === "ArrowUp") { 
         sprite.src = "img/linkHaut.png"; 
-        deplace(0, -10);     
+        deplace(0, -8);     
     }
     if (e.key === "ArrowRight") {
         sprite.src = "img/linkGauche.png";
         sprite.style.transform = "scaleX(-1)";
-        deplace(10, 0); 
+        deplace(8, 0); 
     }
     if (e.key === "ArrowDown") {
         sprite.src = "img/linkBas.png";
-        deplace(0, 10); 
+        deplace(0, 8); 
     }
     if (e.key === "c") {
         noclip = !noclip;
