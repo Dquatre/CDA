@@ -1,0 +1,17 @@
+body{
+    background-color: darkgreen;
+}
+form{
+    background-color: rgba(154, 154, 154,0.8);
+    display: grid;
+    margin: auto;
+    padding: 1vh;
+    row-gap : 0.5em;
+    width: 20vw;
+    height: 20vh;
+    border-radius: 10px;
+}
+input{
+    border-radius: 10px;
+    font-size: 30px;
+}
