@@ -2,7 +2,7 @@ body{
     background-color: darkgreen;
 }
 form{
-    background-color: rgba(154, 154, 154,0.8);
+
     display: grid;
     margin: auto;
     padding: 1vh;
@@ -13,5 +13,17 @@ form{
 }
 input{
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 25px;
+}
+
+.noDisplay{
+    display: none;
+}
+
+#cards{
+    display: grid;
+    margin: auto;
+    width: 80vw;
+    gap: 10vw;
+    grid-template-columns: repeat(4, 1fr);
 }
