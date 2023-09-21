@@ -24,6 +24,6 @@ input{
     display: grid;
     margin: auto;
     width: 80vw;
-    gap: 10vw;
+    gap: 2vw;
     grid-template-columns: repeat(4, 1fr);
 }

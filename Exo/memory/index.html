@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +20,8 @@
         <option>9</option>
         <option>10</option>
     </datalist>
-    <input type="text" list="nbPair" placeholder="Nombre de paire de carte" >
-    <datalist id="nbPair">
+    <input type="text" id="nbPair" list="nbPairs" placeholder="Nombre de paire de carte">
+    <datalist id="nbPairs">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -35,11 +34,7 @@
     <div id="cards"></div>
 
     <template id="card">
-        <div class="cardgen" value="VALEUR">
-           <img src="./img/verso.png" > 
-        </div>
-        
-        
+        <div class="cardgen" value="VALEUR">imageHere</div> 
     </template>
     <script src="./script.js"></script>
 </body>

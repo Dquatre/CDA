@@ -1,9 +1,12 @@
 demarrage = document.querySelector("input[type='button']");
 listCard = Array();
-var side = 0; 
+nbPair = 0;
+flip = 0; 
+val1 = 0;
+score = 0;
 
 demarrage.addEventListener("click",function() {
-    initGame(4,4)
+    initGame()
 });
 
 /**
@@ -11,7 +14,9 @@ demarrage.addEventListener("click",function() {
  * @param {*} nbPair 
  * @param {*} nbPlayer 
  */
-function initGame(nbPair,nbPlayer) {
+function initGame() {
+    resultNbPair = document.querySelector("#nbPair");
+    nbPair = resultNbPair.value*1;
     form = document.querySelector("form");
     form.classList.add("noDisplay");
     generateCards(nbPair);
@@ -30,6 +35,7 @@ function generateCards(nbPair) {
         const element = temp.content.cloneNode(true); // on clone le template
         grille.appendChild(element);    // on ajoute la ligne à la grille
         grille.innerHTML = grille.innerHTML.replaceAll("VALEUR", i);
+        grille.innerHTML = grille.innerHTML.replaceAll("imageHere","<img src='img/verso.png' id='"+i+"'>");
         if (flag) {
             listCard[i] = j;
             flag = false;
@@ -39,7 +45,6 @@ function generateCards(nbPair) {
             flag =true;
         }
     }
-
     listCard = listCard.sort(() => Math.random() - 0.5);
     images = document.querySelectorAll(".cardgen");
     images.forEach(element => {
@@ -51,17 +56,36 @@ function generateCards(nbPair) {
  * affiche le recto de la carte cliquée
  */
 function flipCard(e) {
-    if (side == 0) {
-        e.target.innerHTML = "<img src='images/recto"+e.target.value+".png' alt=''>";
-        side = 1;
+    if (flip == 0) {
+        val1=e.target;
+        val1.src = "./img/recto"+listCard[val1.id*1]+".png";
+        flip = 1;
+    }else{
+        val2 =  e.target;
+        if (val2.id*1 != val1.id*1) {
+            val2.src = "./img/recto"+listCard[val2.id*1]+".png";
+            if (checkPair()) {
+                score++;
+            }else{
+                setTimeout(setCard, 1000);
+            }
+            flip = 0 ;
+        } 
+        if (triggerWin()) {
+            allCard = document.querySelectorAll(".cardgen");
+            allCard.forEach(element => {
+                element.classList.add("noDisplay");
+            });
 
-        // appelle turnBack au bout de 3sec
-    }
-    else {
-        e.target.innerHTML = "<img src='images/verso.png' alt=''>";
-        side = 0;
+        }
     }
 }
+
+function setCard(e) {
+    val1.src = "./img/verso.png";
+    val2.src = "./img/verso.png";
+}
+
 
 
 /**
@@ -85,12 +109,20 @@ function displayNextPlayer() {
  * @returns bool
  */
 function checkPair() {
-    
+    let flag = false;
+    if (listCard[val1.id*1] == listCard[val2.id*1]) {
+        flag = true;
+    }
+    return flag;
 }
 
 /**
  * 
  */
 function triggerWin() {
-    
+    let flag = false;
+    if (score == nbPair) {
+        flag = true;
+    }
+    return flag;
 }
