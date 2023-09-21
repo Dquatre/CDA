@@ -74,9 +74,9 @@ function flipCard(e) {
         if (triggerWin()) {
             allCard = document.querySelectorAll(".cardgen");
             allCard.forEach(element => {
-                element.classList.add("noDisplay");
+                element.remove();
             });
-
+            
         }
     }
 }
