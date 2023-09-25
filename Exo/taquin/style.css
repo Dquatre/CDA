@@ -1,0 +1,21 @@
+#gameAria{
+    width: 30vw;
+    display: flex;
+    flex-wrap: wrap; 
+}
+.case{
+    flex-basis: 33,3333%;
+    width: 10vw;
+    height: 10vw;
+    
+}
+.plein{
+    background-color: blue;
+}
+.vide{
+    background-color: gray;
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
