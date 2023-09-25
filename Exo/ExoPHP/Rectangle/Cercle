@@ -1,0 +1,35 @@
+<?php
+class Cercle{
+
+/********************Variable*******************/
+private $diametre;
+
+/********************Accesseur*******************/
+
+
+/********************Construct*******************/
+
+
+
+/********************Methode*******************/
+
+    public function perimetre()  {
+        return $diametre*pi();
+    }
+    public function aire()  {
+        return pi()*pow($diametre/2,2);
+    }
+ 
+    public function afficherTriangle()  {
+        echo $this; 
+    }
+    public function __toString(){
+        $retour = "Longueur : ".$this->_longueur."- Largeur : ".$this->_largeur." - Périmètre : ".$this->perimetre()." - Aire : ".$this->aire() ;
+        if ($this->estCarre()) {
+            $retour = $retour." Il s’agit d’un carré ";
+        }else{
+            $retour = $retour." Il ne s’agit pas d’un carré ";
+        }
+        return $retour;
+    }
+}
