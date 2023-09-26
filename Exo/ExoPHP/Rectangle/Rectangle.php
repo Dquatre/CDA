@@ -1,15 +1,19 @@
 <?php
-require('Polygone.php');
-class Rectangle extends Polygone{
+require 'TriangleRectangle.php';
+class Rectangle extends TriangleRectangle{
 
 /********************Variable*******************/
 
-
 /********************Accesseur*******************/
-
 
 /********************Construct*******************/
 
+
+    public function __construct(array $options = []){
+        if (!empty($options)) {
+            $this->hydrate($options);
+        }
+    }
 
 
 /********************Methode*******************/
@@ -25,16 +29,16 @@ class Rectangle extends Polygone{
             return true ;
         }   
     }
-    public function afficherTriangle()  {
+    public function afficher()  {
         echo $this; 
     }
     public function __toString(){
-        $retour = "Longueur : ".$this->_longueur."- Largeur : ".$this->_largeur." - Périmètre : ".$this->perimetre()." - Aire : ".$this->aire() ;
+        $retour = "Longueur : ".$this->_longueur."cm - Largeur : ".$this->_largeur."cm - Périmètre : ".round($this->perimetre(),2)."cm - Aire : ".round($this->aire(),2)."cm² -" ;
         if ($this->estCarre()) {
             $retour = $retour." Il s’agit d’un carré ";
         }else{
             $retour = $retour." Il ne s’agit pas d’un carré ";
         }
-        return $retour;
+        return $retour."\n";
     }
 }
