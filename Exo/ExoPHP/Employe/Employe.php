@@ -96,7 +96,14 @@ class Employe{
 
     public function calculAnciennete(){
         $currentDate = time();
-        return abs($currentDate - strtotime($this->_dateEmbauche)) ;
+        $dateEmbauche = strtotime($this->_dateEmbauche) ;
+        $diff = floor(($currentDate - $dateEmbauche)/(365*24*60*60));
+        return $diff;
     }
-
+    public function calculPrime(){
+        return ($this->_salaire*1000*0.05+$this->calculAnciennete()*$this->_salaire*1000*0.02);
+    }
+    public function __toString(){
+        return $this->getPrenom()." ".$this->getNom()." salaire : ".$this->getSalaire()."k par an -";
+    }
 }
