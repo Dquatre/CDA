@@ -1,5 +1,5 @@
 <?php
-class Employe{
+class Employe {
 
 /********************Variable*******************/
 
@@ -9,12 +9,14 @@ class Employe{
     private $_poste;
     private $_salaire;
     private $_service;
+    public static $_counter;
+    private $_Agence;
 
 /********************Accesseur*******************/
     
     public function getNom()
     {
-        return $this->_nom;
+        return ucfirst($this->_nom);
     }
 
     public function setNom($nom)
@@ -24,7 +26,7 @@ class Employe{
 
     public function getPrenom()
     {
-        return $this->_prenom;
+        return ucfirst($this->_prenom);
     }
 
     public function setPrenom($prenom)
@@ -72,6 +74,20 @@ class Employe{
         $this->_service = $service;
     }
 
+    public static function getCounter()
+    {
+        return self::$_counter;
+    }
+
+    public function getAgence()
+    {
+        return $this->_Agence;
+    }
+
+    public function setAgence($Agence)
+    {
+        $this->_Agence = $Agence;
+    }
 
 
 /********************Construct*******************/
@@ -81,6 +97,7 @@ class Employe{
         if (!empty($options)) {
             $this->hydrate($options);
         }
+        self::$_counter++;
     }
     public function hydrate($data){
         foreach ($data as $key => $value) {
@@ -104,6 +121,20 @@ class Employe{
         return ($this->_salaire*1000*0.05+$this->calculAnciennete()*$this->_salaire*1000*0.02);
     }
     public function __toString(){
-        return $this->getPrenom()." ".$this->getNom()." salaire : ".$this->getSalaire()."k par an -";
+        return $this->getPrenom()." ".$this->getNom().", salaire : ".$this->getSalaire()."k par an, ".$this->getPoste()." au service ".$this->getService().", recrute le ".$this->getDateEmbauche()." dans l'agence ".$this->getAgence()->getNom().",".$this->getAgence()->getARestoration()."\n";
     }
+
+    public static function compareTo($emp1,$emp2){
+        return $emp1->getSalaire() > $emp2->getSalaire();
+    }
+
+    public function estEligibleChequeVacance(){
+        if($this->calculAnciennete() > 1){
+            return true;
+        }
+        return false;
+    }
+    
+
+
 }
