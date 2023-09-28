@@ -22,7 +22,8 @@ spl_autoload_register("ChargerClasse");
                             "poste"=>'petroufileur',
                             "salaire"=>23,
                             "service"=>"comptabilite",
-                            "agence"=>$jpr]);
+                            "agence"=>$jpr,
+                            "listAgeEnfant"=>[7]]);
     $gonzag = new Employe( ["nom"=>"minette",
                             "prenom"=>"gonzag",
                             "dateEmbauche"=>'2021-03-01',
@@ -36,26 +37,27 @@ spl_autoload_register("ChargerClasse");
                             "poste"=>'technicien de surface',
                             "salaire"=>18,
                             "service"=>"menage",
-                            "agence"=>$jpr]);
+                            "listAgeEnfant"=>[25,28]]);
     $ivette = new Employe( ["nom"=>"commas",
                             "prenom"=>"ivette",
                             "dateEmbauche"=>'2017-03-02',
                             "poste"=>'directice',
                             "salaire"=>250,
                             "service"=>"direction",
-                            "agence"=>$cogip]);
+                            "listAgeEnfant"=>[10,15]]);
     $ambroise = new Employe( ["nom"=>"juport",
                             "prenom"=>"ambroise",
                             "dateEmbauche"=>'2022-05-02',
                             "poste"=>'comptable',
                             "salaire"=>25,
                             "service"=>"comptabilite",
-                            "agence"=>$cogip]);
+                            "agence"=>$cogip,
+                            "listAgeEnfant"=>[2,5,6,7,10,15,15,21]]);
 
     $employer = [$gontran ,$gonzag,$theodule,$ivette,$ambroise];
 
     for ($i=0; $i < sizeof($employer); $i++) { 
-        echo $employer[$i];
+        $employer[$i]->calculChequeCadeau();
     }
     // // for ($i=0; $i < sizeof($employer); $i++) { 
     // //     echo ($employer[$i]->calculPrime())." euros ont était transferer sur le compte de ".$employer[$i]->getNom()." ".$employer[$i]->getPrenom()."\n";
