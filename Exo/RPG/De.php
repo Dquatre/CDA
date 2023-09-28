@@ -31,7 +31,7 @@ class  De{
 
 /********************Methode*******************/
 
-    public static function DiceThrow() : int {
+    public static function lanceLeDe() : int {
         return rand(1, 6);
     }
 

@@ -1,56 +1,36 @@
 <?php
-const HPDEFAULT = 50;
+
 class Joueur{
 
 /********************Variable*******************/
 
-    
-    private $name;//nom du joueur
-    private $_hp ; //point de vie du joueur
-    private $_vp = 0; //point de victoire accumuler en tuant des monstre
-    private $_damageRecived = 0; //point de domage subit par le joueur
+    const HPDEFAULT = 50;
+    private $_nom;//nom du joueur
+    private $_pointsDeVie ; //point de vie du joueur
 
 /********************Accesseur*******************/
 
-    public function getHp()
+    public function getNom()
     {
-        return $this->_hp;
+        return $this->_nom;
     }
 
-    public function setHp($hp)
+    public function setNom($nom)
     {
-        $this->_hp = $hp;
+        $this->_nom = $nom;
     }
 
-    public function getVp()
+    public function getPointsDeVie()
     {
-        return $this->_vp;
+        return $this->_pointsDeVie;
     }
 
-    public function setVp($vp)
+    private function setPointsDeVie($pointsDeVie)
     {
-        $this->_vp = $vp;
-    }
-    public function getName()
-    {
-        return $this->name;
+        $this->_pointsDeVie = $pointsDeVie;
     }
 
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
 
-    public function getDamageRecived()
-    {
-        return $this->_damageRecived;
-    }
-
-    public function setDamageRecived($damageRecived)
-    {
-        $this->_damageRecived = $damageRecived;
-    }
- 
 
 /********************Construct*******************/
 
@@ -58,7 +38,7 @@ class Joueur{
         if (!empty($options)) {
             $this->hydrate($options);
         }
-        $this->_hp = HPDEFAULT; //constuit un joueur avec les point de vie par defaut 
+        $this->setPointsDeVie(Joueur::HPDEFAULT)  ; //constuit un joueur avec les point de vie par defaut 
     }
     public function hydrate($data){
         foreach ($data as $key => $value) {
@@ -71,26 +51,44 @@ class Joueur{
 
 /********************Methode*******************/
 
-    public function isAlive() : bool {
-        return ($this->getHp > 0) ? true : false;
+    public function estVivant() : bool {
+        return ($this->getPointsDeVie() > $this->getDegatsRecus()) ? true : false;
     }
 
-    public function attack(MonstreFacile $monster){
-        $attackPlayer = $this->playerDiceThrow() ;
-        $attackMonster = $monster->MonsterDiceThrow();
-        if ($attackPlayer < $attackMonster) {
-            $monster->setIsAlive(false);
+    public function attaque(MonstreFacile $monstre,$debug){
+        $attackPlayer = $this->lanceLeDe() ;
+        $attackMonster = $monstre->lanceLeDe();
+        if ($debug) {
+            echo $this->getNom()." attaque a ".$attackPlayer." contre ".$attackMonster." pour le monstre.\n"  ;
         }
-        return $this->getName()." attaque a ".$attackPlayer." contre ".$attackMonster." pour l'orc'\n"  ;
-    }
-    public function reciveDamage($damage){
-        $this->setDamageRecived($this->getDamageRecived()+$damage);
-    }
-    public function calculHealthLeft()  {
-        return $this->getHp()-$this->getDamageRecived();
+        if ($attackPlayer >= $attackMonster) {
+
+            $monstre->subitDegats();
+        }
     }
 
-    public function playerDiceThrow() : int {
-        return De::diceThrow();
+    public function bouclierFonctionne($debug){
+        $jet = $this->lanceLeDe();
+        if($debug)echo "jet de bouclier : ".$jet."\n";
+        return ($jet<3) ? true : false;
     }
+
+    public function subitDegats($degats,$debug){
+        if($this->bouclierFonctionne($debug)){
+            $degats = 0;
+        }else{
+           $this->setDegatsRecus($this->getDegatsRecus()+$degats); 
+        }
+        if($debug)echo $this->getNom()." subit ".$degats." points de degats il lui reste ".$this->pointDeVieRestant()." points de vie.\n";
+        
+    }
+
+    public function lanceLeDe() : int {
+        return De::lanceLeDe();
+    }
+
+    public function pointDeVieRestant() {
+        return $this->getPointsDeVie()-$this->getDegatsRecus();
+    }
+
 }

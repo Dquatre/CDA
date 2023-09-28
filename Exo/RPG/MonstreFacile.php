@@ -3,19 +3,32 @@ class MonstreFacile{
 
 /********************Variable*******************/
 
-    private $_isAlive;
+    protected $_estVivant = true;
+    private static $nbMonstre;
+    const DEGATS = 50;
 
 /********************Accesseur*******************/
     
-    public function getIsAlive()
+    public function getEstVivant()
     {
-        return $this->_isAlive;
+        return $this->_estVivant;
     }
 
-    public function setIsAlive($isAlive)
+    public function setEstVivant($estVivant)
     {
-        $this->_isAlive = $isAlive;
+        $this->_estVivant = $estVivant;
     }
+
+    public static function getNbMonstre()
+    {
+        return self::$nbMonstre;
+    }
+
+    public function setNbMonstre($nbMonstre)
+    {
+        self::$nbMonstre = $nbMonstre;
+    }
+
 /********************Construct*******************/
 
 
@@ -36,11 +49,23 @@ class MonstreFacile{
 
 /********************Methode*******************/
 
-    public function attack($player){
-        
+    public function attaque($player,$debug){
+        $attackMonster = $this->lanceLeDe();
+        $attackPlayer = $player->lanceLeDe() ;
+        if ($debug) {
+            echo "Le monstre attaque a ".$attackMonster." contre ".$attackPlayer." pour ".$player->getNom()."\n"  ;
+        }
+        if ($attackMonster > $attackPlayer) {
+            $player->subitDegats(MonstreFacile::DEGATS,$debug);
+        }
     }
-    public function monsterDiceThrow() : int {
-        return De::diceThrow();
+    public function lanceLeDe() : int {
+        return De::lanceLeDe();
+    }
+
+    public function subitDegats(){
+        $this->setEstVivant(false);
+        
     }
 
 
