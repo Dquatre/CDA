@@ -1,21 +1,24 @@
 <?php
 
-class Personne{
+class Personnes{
 
 /********************Variable*******************/
-    private $_id;
+
+    private $_idPersonne;
     private $_nom;
     private $_prenom;
+    private static $_properties = ["idPersonne","nom","prenom"];
 
 /********************Accesseur*******************/
-    public function getId()
+
+    public function getIdPersonne()
     {
-        return $this->_id;
+        return $this->_idPersonne;
     }
 
-    public function setId($id)
+    public function setIdPersonne($_idPersonne)
     {
-        $this->_id = $id;
+        $this->_idPersonne = $_idPersonne;
     }
 
     public function getNom()
@@ -37,8 +40,10 @@ class Personne{
     {
         $this->_prenom = $prenom;
     }
-
-
+    public function getProperties()
+    {
+        return self::$_properties;
+    }
 
 /********************Construct*******************/
 
@@ -59,7 +64,6 @@ class Personne{
 
 
 /********************Methode*******************/
-
 
 
 

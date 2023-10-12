@@ -1,15 +1,16 @@
 <?php
 
 class DbConnect {
-    private static $db;
+    private static $_db;
 
     public static function getDb() {
-        return self::$db;
+        return self::$_db;
     }
 
     public static function init() {
+        Parameter::init();
         try {
-            $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+            self::$_db = new PDO("mysql:host=".Parameter::getHost().";port=".Parameter::getPort().";dbname=".Parameter::getDbname().";charset=".Parameter::getCharset(), Parameter::getUser(), Parameter::getPassword());
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
