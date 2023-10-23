@@ -127,14 +127,32 @@ WHERE
        et.nomEtudiant = "dupont" AND et.prenomEtudiant = "luc"
 )
 
+F)
 
+ALTER TABLE etudiants ADD hobby varchar(20) DEFAULT 'Sport';
 
+G)
 
+ALTER TABLE etudiants ADD newcol int ;
 
+ALTER TABLE etudiants DROP COLUMN newcol ;
 
+H)
 
+ALTER TABLE etudiants MODIFY COLUMN `prenomEtudiant` varchar(20) NOT NULL ;
 
+I)
 
+INSERT INTO `epreuves`(`idEpreuve`, `libelleEpreuve`, `idEnseignantEpreuve`, `idMatiereEpreuve`, `dateEpreuve`, `CoefficientEpreuve`) VALUES ('7','interro écrite',9,1,'96-10-21',1)
 
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (1,7,10);
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (2,7,08);
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (3,7,05);
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (4,7,09);
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (17,7,15);
+
+J)
+
+UPDATE `avoir_note` SET `note`=07 WHERE `idEpreuve`=3 AND idEpreuve =7
 
 
