@@ -1,0 +1,13 @@
+1) oui
+2) non
+3) oui
+4) oui
+5) oui
+6) non
+7) non
+8) non
+9) non
+10) oui
+11) une laboratoire ne distribue que un medicament ou aucun
+
+

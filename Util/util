@@ -1,0 +1,3 @@
+db.voiture.insert( { v } )
+db.modeles.insertOne( { modele: "C1", marque: "CITROEN" } )
+db.modeles.update( { modele: "C1" }, { modele: "C1", marque: "CITROEN" , anneeCom: 2009} )²²²²²²²²²²

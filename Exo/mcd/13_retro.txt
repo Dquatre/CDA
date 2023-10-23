@@ -1,0 +1,50 @@
+on veux enregister des accident
+un accident a definit par numero de 10 chiffre et le date de l'accident et concerne un ou plusieur vehicule.
+un vehicule est definit par numero de 12 chiffre ,une marque, un modele et lier a un contrat et appatient a un client
+un contrat est definit par numero de 38 chiffre ,un type, une date etablisement du contrat et appatient a un client
+un client est definit par numero de 12 chiffre ,un nom,et une adresse
+
+
+CREATE TABLE Client(
+   numCli VARCHAR(12),
+   nom VARCHAR(38) NOT NULL,
+   Adresse VARCHAR(60),
+   PRIMARY KEY(numCli)
+);
+
+CREATE TABLE Contrat(
+   numContr VARCHAR(38),
+   type BYTE NOT NULL,
+   dateContrat DATE NOT NULL,
+   numCli VARCHAR(12) NOT NULL,
+   PRIMARY KEY(numContr),
+   UNIQUE(numCli),
+   FOREIGN KEY(numCli) REFERENCES Client(numCli)
+);
+
+CREATE TABLE Vehicule(
+   numVeh VARCHAR(12),
+   marque VARCHAR(30) NOT NULL,
+   modele INT NOT NULL,
+   numContr VARCHAR(38) NOT NULL,
+   numCli VARCHAR(12) NOT NULL,
+   PRIMARY KEY(numVeh),
+   UNIQUE(numContr),
+   UNIQUE(numCli),
+   FOREIGN KEY(numContr) REFERENCES Contrat(numContr),
+   FOREIGN KEY(numCli) REFERENCES Client(numCli)
+);
+
+CREATE TABLE Accident(
+   numAcc VARCHAR(10),
+   dateAcc DATE NOT NULL,
+   PRIMARY KEY(numAcc)
+);
+
+CREATE TABLE concern(
+   numVeh VARCHAR(12),
+   numAcc VARCHAR(10),
+   PRIMARY KEY(numVeh, numAcc),
+   FOREIGN KEY(numVeh) REFERENCES Vehicule(numVeh),
+   FOREIGN KEY(numAcc) REFERENCES Accident(numAcc)
+);

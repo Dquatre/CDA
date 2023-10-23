@@ -1,0 +1,140 @@
+SELECT * FROM client
+SELECT `nomClient` FROM client
+SELECT DISTINCT `dateCommande` FROM `commandes`;
+SELECT `idClient`,`nomClient`,`prenomClient`,`dateEntreeClient` FROM `clients` WHERE `prenomClient`="sophie";
+SELECT `idArticle`,`quantiteCommande` FROM `commandes` JOIN clients ON commandes.idClient = clients.idClient WHERE clients.idClient = 1;
+SELECT UPPER(`nomClient`) FROM `clients`;
+SELECT CONCAT(UPPER(substr(`nomClient`,1,1)),LOWER(substr(`nomClient`,2))) FROM `clients`;
+SELECT `nomClient` FROM `clients` WHERE `nomClient` LIKE "_____";
+SELECT `nomClient` FROM `clients` WHERE `nomClient` LIKE "t_l%";
+SELECT `idClient`,`idCommande`,`dateCommande`,DATE_ADD(`dateCommande`, INTERVAL 15 day)FROM `commandes` 
+SELECT CURRENT_DATE(),CURRENT_TIME();
+SELECT YEAR(CURRENT_DATE())-YEAR(`dateEntreeClient`) FROM `clients` 
+SELECT MAX(`quantiteCommande`) FROM `commandes` 
+SELECT SUM(`quantiteCommande`) FROM `commandes` WHERE `idClient`=1
+SELECT AVG(`quantiteCommande`) FROM `commandes` WHERE `idClient`=2
+SELECT `idClient`,`nomClient`,`prenomClient`,`dateEntreeClient` FROM `clients` ORDER BY `nomClient`
+SELECT `idArticle`,`descriptionArticle`,`prixArticle` FROM `articles` ORDER BY `prixArticle` DESC
+
+Exercice 02
+
+SELECT MAX(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
+SELECT AVG(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
+SELECT MIN(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
+SELECT COUNT(`idCommande`) FROM `commandes`;
+SELECT `idClient`,AVG(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY `idClient`;
+SELECT `idClient`,MAX(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle GROUP BY `idClient`;
+SELECT `idClient`,COUNT(`idCommande`) FROM `commandes` GROUP BY `idClient`;
+SELECT `idClient`,AVG(`quantiteCommande`) FROM `commandes` GROUP BY `idClient`;
+SELECT `idArticle`,AVG(`quantiteCommande`) FROM `commandes` GROUP BY `idArticle`
+SELECT `idArticle`,SUM(`quantiteCommande`) FROM `commandes` GROUP BY `idArticle`;
+SELECT `idArticle`,AVG(`quantiteCommande`) FROM `commandes` GROUP BY `quantiteCommande`;
+SELECT `idClient`,`dateCommande`,AVG(`quantiteCommande`) FROM `commandes` GROUP BY `idClient`,`dateCommande`;
+SELECT `dateCommande`,COUNT(`idCommande`) FROM `commandes` GROUP BY `dateCommande`;
+SELECT COUNT(DISTINCT `idClient`) FROM `commandes` 
+SELECT COUNT(DISTINCT `idArticle`) FROM `commandes` 
+SELECT COUNT(DISTINCT `dateCommande`) FROM `commandes` 
+
+
+Exercice 03
+
+A)
+SELECT
+    `nomEtudiant`
+FROM
+    `etudiants`
+WHERE
+    `dateNaissanceEtudiant` <(
+    SELECT
+        e.`dateNaissanceEtudiant`
+    FROM
+        etudiants e
+    WHERE
+        `nomEtudiant` = "leclercq" AND `prenomEtudiant` = "jules"
+)
+
+
+B)
+
+SELECT
+    e.nomEtudiant,
+    note
+FROM
+    avoir_note a
+JOIN etudiants e ON
+    a.`idEtudiant` = e.idEtudiant
+WHERE
+    a.idEpreuve = 4 AND note > (
+    SELECT
+        AVG(note)
+    FROM
+        avoir_note
+    WHERE
+        idEpreuve = 4
+)
+
+C)
+
+SELECT
+    e.nomEtudiant,
+    note
+FROM
+    avoir_note a
+JOIN etudiants e ON
+    a.`idEtudiant` = e.idEtudiant
+WHERE
+    note > 12
+
+D)
+
+SELECT
+    e.nomEtudiant,
+    note
+FROM
+    avoir_note a
+JOIN etudiants e ON
+    a.`idEtudiant` = e.idEtudiant
+WHERE
+    a.idEpreuve = 4 AND note >(
+    SELECT
+        note
+    FROM
+        avoir_note an
+    JOIN etudiants et ON
+        an.`idEtudiant` = et.idEtudiant
+    WHERE
+       an.idEpreuve = 4 AND et.nomEtudiant = "dupont" AND et.prenomEtudiant = "luc"
+)
+
+E)
+
+SELECT DISTINCT
+    e.nomEtudiant
+FROM
+    avoir_note a
+JOIN etudiants e ON
+    a.`idEtudiant` = e.idEtudiant
+WHERE
+	!(e.nomEtudiant = "dupont" AND e.prenomEtudiant = "luc") AND
+    note  IN (
+    SELECT
+        note
+    FROM
+        avoir_note an
+    JOIN etudiants et ON
+        an.`idEtudiant` = et.idEtudiant
+    WHERE
+       et.nomEtudiant = "dupont" AND et.prenomEtudiant = "luc"
+)
+
+
+
+
+
+
+
+
+
+
+
+
