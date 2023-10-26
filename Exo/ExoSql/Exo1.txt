@@ -16,8 +16,7 @@ SELECT AVG(`quantiteCommande`) FROM `commandes` WHERE `idClient`=2
 SELECT `idClient`,`nomClient`,`prenomClient`,`dateEntreeClient` FROM `clients` ORDER BY `nomClient`
 SELECT `idArticle`,`descriptionArticle`,`prixArticle` FROM `articles` ORDER BY `prixArticle` DESC
 
-Exercice 02
-
+Exercice 02 
 SELECT MAX(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
 SELECT AVG(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
 SELECT MIN(commandes.quantiteCommande*articles.prixArticle) FROM `commandes` JOIN articles ON commandes.idArticle = articles.idArticle;
@@ -44,7 +43,7 @@ SELECT
 FROM
     `etudiants`
 WHERE
-    `dateNaissanceEtudiant` <(
+    `dateNaissanceEtudiant` < (
     SELECT
         e.`dateNaissanceEtudiant`
     FROM
@@ -83,7 +82,7 @@ FROM
 JOIN etudiants e ON
     a.`idEtudiant` = e.idEtudiant
 WHERE
-    note > 12
+    note >= 12
 
 D)
 
@@ -153,6 +152,66 @@ INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`) VALUES (17,7,15);
 
 J)
 
-UPDATE `avoir_note` SET `note`=07 WHERE `idEpreuve`=3 AND idEpreuve =7
+UPDATE `avoir_note` SET `note`=07 WHERE `idEtudiant`=3 AND idEpreuve =7
+
+K)
+
+UPDATE `avoir_note` SET `note`=`note`+1 WHERE `idEtudiant`=1 AND idEpreuve =7
+
+L)
+
+DELETE FROM `avoir_note` WHERE `idEpreuve`=7 
+
+DELETE FROM `epreuves` WHERE `idEpreuve`=7
+
+M)
+
+on delete cascade
+
+N)
+
+UPDATE
+    `avoir_note`a
+    JOIN etudiants e
+    ON a.`idEtudiant` = e.idEtudiant
+    JOIN epreuves ep 
+    ON a.`idEpreuve` = ep.idEpreuve
+    JOIN matieres m
+    ON ep.idMatiereEpreuve = m.idMatiere
+SET
+    `note` = `note`- 3
+WHERE
+    e.nomEtudiant = "marke"
+    AND
+    m.nomMatiere = "BD";
+
+O)
+
+INSERT INTO `avoir_note`(`idEtudiant`, `idEpreuve`, `note`)
+VALUES(
+    (
+    SELECT
+        idEtudiant
+    FROM
+        etudiants
+    WHERE
+        nomEtudiant = "dewa"
+),
+4,
+(
+    SELECT
+        (AVG(`note`)) * 0.9
+    FROM
+        avoir_note a
+    WHERE
+        a.idEpreuve = 4
+)
+);
+
+P)
+
+INSERT INTO `etudiants`(`idEtudiant`, `nomEtudiant`, `prenomEtudiant`, `anneeEtudiant`, `hobby`) VALUES (25,"darte","remy",1,"sculpture");
+
+
 
 

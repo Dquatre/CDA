@@ -1,0 +1,168 @@
+1)
+
+SELECT[ProductID],[Name],[ProductNumber] FROM[Production].[Product]ORDER BY[Name]
+
+2)
+
+SELECT[ProductID],[Name],[ProductNumber] FROM[Production].[Product] WHERE ProductNumber LIKE '%A%' ORDER BY[Name]
+
+3)
+
+SELECT ProductID,[Name],ProductNumber,SellStartDate FROM [Production].[Product] WHERE ProductNumber LIKE '%A%' AND DATEDIFF(day,'2008-12-31' , SellStartDate) > 0   ORDER BY [Name]
+
+1)
+
+SELECT p.Name
+	,p.ProductNumber
+    ,pc.[Name]
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	INNER JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	INNER JOIN Production.ProductCategory AS pc 
+	ON (ps.ProductCategoryID = pc.ProductCategoryID ) 
+2)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,p.ProductNumber
+    ,pc.[Name]
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	INNER JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	INNER JOIN Production.ProductCategory AS pc 
+	ON (ps.ProductCategoryID = pc.ProductCategoryID ) WHERE ps.Name = 'Mountain Bikes' ;
+
+3)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,p.ProductNumber
+	,p.Size
+	,p.SizeUnitMeasureCode
+    ,pc.[Name]
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	INNER JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	INNER JOIN Production.ProductCategory AS pc 
+	ON (ps.ProductCategoryID = pc.ProductCategoryID ) WHERE ps.Name = 'Mountain Bikes' ;
+
+4)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,p.ProductNumber
+	,p.Size
+	,p.SizeUnitMeasureCode
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	ORDER BY p.ProductSubcategoryID ;
+
+5)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,p.ProductNumber
+	,p.Size
+	,p.SizeUnitMeasureCode
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	WHERE p.ProductSubcategoryID IS NULL
+	ORDER BY p.ProductSubcategoryID ;
+
+6)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,p.ProductNumber
+	,p.Size
+	,p.SizeUnitMeasureCode
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	WHERE p.Size = (SELECT subp.Size FROM [Production].[Product] AS subp WHERE Name = 'Mountain-500 Black, 40')
+	ORDER BY p.ProductSubcategoryID ;
+
+7)
+
+USE [AdventureWorks2019]
+
+SELECT p.Name
+	,ps.[Name]
+	,COUNT(p.ProductID)
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	GROUP BY ps.ProductSubcategoryID
+	ORDER BY p.ProductSubcategoryID ;
+
+8)
+
+USE [AdventureWorks2019]
+
+SELECT
+	ps.ProductSubcategoryID
+	,ps.[Name]
+	,COUNT(p.ProductID)
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	GROUP BY ps.ProductSubcategoryID,ps.[Name] HAVING COUNT(p.ProductID) >20
+	ORDER BY COUNT(p.ProductID) DESC ;
+
+9)
+
+USE [AdventureWorks2019]
+
+SELECT
+	ps.ProductSubcategoryID
+	,pc.Name
+	,ps.[Name]
+	,COUNT(p.ProductID)
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	INNER JOIN Production.ProductCategory AS pc 
+	ON (ps.ProductCategoryID = pc.ProductCategoryID ) 
+	WHERE Color = 'Black'
+	GROUP BY ps.ProductSubcategoryID,ps.[Name],pc.Name HAVING COUNT(p.ProductID) > 10
+	ORDER BY COUNT(p.ProductID) DESC ;
+
+10)
+
+USE [AdventureWorks2019]
+
+SELECT
+	pc.Name
+	,ps.[Name]
+	FROM [Production].[Product] AS p
+	FULL JOIN [Production].[ProductSubcategory] AS ps
+	ON (p.ProductSubcategoryID = ps.ProductSubcategoryID )
+	INNER JOIN Production.ProductCategory AS pc 
+	ON (ps.ProductCategoryID = pc.ProductCategoryID ) 
+	INNER JOIN Production.ProductProductPhoto AS ppp 
+	ON (p.ProductID = ppp.ProductID ) 
+	INNER JOIN Production.ProductPhoto AS pp
+	ON (pp.ProductPhotoID = ppp.ProductPhotoID) 
+	INNER JOIN Production.ProductInventory pin
+	ON (pin.ProductID = p.ProductID)
+	WHERE ps.Name = 'Bikes' And pin.Quantity > 50
+	GROUP BY ps.[Name],pc.Name 
+	ORDER BY pc.Name ;
+
+
+
+
+
