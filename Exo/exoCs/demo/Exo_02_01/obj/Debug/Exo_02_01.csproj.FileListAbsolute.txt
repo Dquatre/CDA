@@ -1,0 +1,7 @@
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\bin\Debug\Exo_02_01.exe.config
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\bin\Debug\Exo_02_01.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\bin\Debug\Exo_02_01.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\obj\Debug\Exo_02_01.csproj.AssemblyReference.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\obj\Debug\Exo_02_01.csproj.CoreCompileInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\obj\Debug\Exo_02_01.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_02_01\obj\Debug\Exo_02_01.pdb

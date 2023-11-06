@@ -1,0 +1,6 @@
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\bin\Debug\Exo_03.exe.config
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\bin\Debug\Exo_03.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\bin\Debug\Exo_03.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\obj\Debug\Exo_03.csproj.CoreCompileInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\obj\Debug\Exo_03.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_03\obj\Debug\Exo_03.pdb

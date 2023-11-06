@@ -1,0 +1,14 @@
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\bin\Debug\net7.0\Exo_07_sousProgram.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\bin\Debug\net7.0\Exo_07_sousProgram.deps.json
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\bin\Debug\net7.0\Exo_07_sousProgram.runtimeconfig.json
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\bin\Debug\net7.0\Exo_07_sousProgram.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\bin\Debug\net7.0\Exo_07_sousProgram.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.AssemblyInfoInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.AssemblyInfo.cs
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.csproj.CoreCompileInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\refint\Exo_07_sousProgram.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\Exo_07_sousProgram.genruntimeconfig.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_07_sousProgram\obj\Debug\net7.0\ref\Exo_07_sousProgram.dll

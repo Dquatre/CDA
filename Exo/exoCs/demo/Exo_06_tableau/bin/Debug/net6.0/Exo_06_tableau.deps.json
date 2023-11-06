@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Exo_06_tableau/1.0.0": {
+        "runtime": {
+          "Exo_06_tableau.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Exo_06_tableau/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

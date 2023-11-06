@@ -1,0 +1,14 @@
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\bin\Debug\net6.0\Exo_06_tableau.exe
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\bin\Debug\net6.0\Exo_06_tableau.deps.json
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\bin\Debug\net6.0\Exo_06_tableau.runtimeconfig.json
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\bin\Debug\net6.0\Exo_06_tableau.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\bin\Debug\net6.0\Exo_06_tableau.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.AssemblyInfoInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.AssemblyInfo.cs
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.csproj.CoreCompileInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\refint\Exo_06_tableau.dll
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.pdb
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\Exo_06_tableau.genruntimeconfig.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_06_tableau\obj\Debug\net6.0\ref\Exo_06_tableau.dll

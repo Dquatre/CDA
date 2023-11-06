@@ -10,7 +10,9 @@ namespace demo_01
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Coucou");
+            Console.WriteLine("Entrer votre nom : ");
+            string nom = Console.ReadLine();
+            Console.WriteLine("Coucou " + nom);
         }
     }
 }

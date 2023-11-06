@@ -1,0 +1,4 @@
+U:\59011-82-07\Exo\exoCs\demo\Exo_05_05\obj\Debug\net6.0\Exo_05_05.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-07\Exo\exoCs\demo\Exo_05_05\obj\Debug\net6.0\Exo_05_05.AssemblyInfoInputs.cache
+U:\59011-82-07\Exo\exoCs\demo\Exo_05_05\obj\Debug\net6.0\Exo_05_05.AssemblyInfo.cs
+U:\59011-82-07\Exo\exoCs\demo\Exo_05_05\obj\Debug\net6.0\Exo_05_05.csproj.CoreCompileInputs.cache
