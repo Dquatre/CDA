@@ -44,5 +44,10 @@ namespace ExoClasse_01
         {
             return "Voiture : \n\tMarque : " + Marque + "\n\tModele : " + Modele + "\n\tCouleur : " + Couleur + "\n\tNbKilometre : " + NbKilometre + "\n\tMotorisation : " + Motorisation;
         }
+
+        public void Rouler(int kilometre)
+        {
+            NbKilometre = NbKilometre + kilometre;
+        }
     }
 }

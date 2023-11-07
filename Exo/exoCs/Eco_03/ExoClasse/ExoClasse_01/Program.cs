@@ -13,8 +13,9 @@ namespace ExoClasse_01
             Voiture C4 = new Voiture("Citroen","C4",10000);
             Voiture RenKad = new Voiture(" Renault", "Kadjar","rouge");
             Console.WriteLine(C4.ToString());
-            Console.WriteLine(RenKad
-                .ToString());
+            //Console.WriteLine(RenKad.ToString());
+            C4.Rouler(10000);
+            Console.WriteLine(C4.ToString());
         }
     }
     
