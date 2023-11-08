@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exo_Class_07
 {
-    internal abstract class Employes
+    public abstract class Employes
     {
         public int Age { get; set; }
         public String Nom { get; set; }
@@ -18,7 +18,6 @@ namespace Exo_Class_07
             Age = age;
             Nom = nom;
             Prenom = prenom;
-            Salaire = CalculSalaire();
         }
 
         protected void Afficher() 

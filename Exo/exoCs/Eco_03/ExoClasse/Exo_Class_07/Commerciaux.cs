@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exo_Class_07
 {
-    internal abstract class Commerciaux : Employes
+    public abstract class Commerciaux : Employes
     {
         public int NbDeplacement { get; set; }
         public int NbPrime { get; set; }
-        public Commerciaux(int age, string nom, string prenom, double salaire , int nbDeplacement, int nbPrime) : base(age, nom, prenom, salaire)
+        public Commerciaux(int age, string nom, string prenom, int nbDeplacement, int nbPrime) : base(age, nom, prenom)
         {
             NbDeplacement = nbDeplacement;
             NbPrime = nbPrime;
