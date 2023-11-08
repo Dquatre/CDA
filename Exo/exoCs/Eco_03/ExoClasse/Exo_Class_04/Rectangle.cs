@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,11 @@ namespace Exo_Class_04
             Largeur = largeur;
         }
 
+        public override string ToString()
+        {
+            return "Longueur : " + Longueur + " - Largeur : " + Largeur + " - Périmètre : " + Perimetre() + " - Aire : " + Aire() + (EstCarre() ? " - Il s’agit d’un carré" : " - Il ne s’agit pas d’un carré");
+        }
+
         public int Perimetre() 
         {
             return (Longueur+Largeur)*2;
@@ -30,9 +36,9 @@ namespace Exo_Class_04
             return Longueur == Largeur;
         }
 
-        public String AfficherRectangle()
+        public void AfficherRectangle()
         {
-            return "Longueur : " + Longueur + " - Largeur : " + Largeur + " - Périmètre : " + Perimetre() + " - Aire : " + Aire() + (EstCarre()? " - Il s’agit d’un carré": " - Il ne s’agit pas d’un carré");
+            Console.WriteLine(this);
         } 
     }
 }
