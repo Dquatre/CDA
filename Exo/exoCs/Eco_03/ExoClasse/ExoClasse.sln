@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exo_Classe_03", "Exo_Classe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exo_Class_04", "Exo_Class_04\Exo_Class_04.csproj", "{84E768D4-9E1F-41FB-B821-4982F105645B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exo_Class_07", "Exo_Class_07\Exo_Class_07.csproj", "{C2E35001-F1F2-483D-980A-1402C0305C76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exo_Class_07", "Exo_Class_07\Exo_Class_07.csproj", "{C2E35001-F1F2-483D-980A-1402C0305C76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvaders", "SpaceInvaders\SpaceInvaders.csproj", "{F628EE90-5FF7-4B4F-99DC-7EDCB65D1752}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceInvaders", "SpaceInvaders\SpaceInvaders.csproj", "{F628EE90-5FF7-4B4F-99DC-7EDCB65D1752}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,11 +12,9 @@ namespace Exo_Class_07
         public int NbHeure { get; set; }
         public Interimaires(int age, string nom, string prenom, int nbHeure) : base(age, nom, prenom)
         {
-            
             NbHeure = nbHeure;
-            Salaire = CalculSalaire();
         }
-        public new Double CalculSalaire()
+        public override Double CalculSalaire()
         {
             return NB_IRIS_PAR_HEURE*NbHeure;
         }

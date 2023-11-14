@@ -1,0 +1,16 @@
+int nombre de joueur
+int nombre de cheveux
+String nom du joueur
+ENUM couleur du joueur {
+	rouge
+	vert
+	bleu
+	jaune
+}
+Une case depart une case Arivine par joueur
+1 joueur ajouter 14 case au plateau
+1D6
+6 permet d'avancer un cheval ou en sortir un autre cheval de l'ecurie
+
+
+demande si on rejou

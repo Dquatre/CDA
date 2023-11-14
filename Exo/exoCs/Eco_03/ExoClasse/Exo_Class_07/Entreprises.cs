@@ -14,14 +14,14 @@ namespace Exo_Class_07
 
         public Entreprises(String nom)
         {
-            ListCommerciaux = new List<Commerciaux>(7);
-            ListTechniciens = new List<Techniciens>(8);
+            ListCommerciaux = new List<Commerciaux>();
+            ListTechniciens = new List<Techniciens>();
             Nom = nom;
         }
 
         public Double MasseSalariale()
         {
-            return ListCommerciaux.Sum(o => o.Salaire) + ListTechniciens.Sum(o => o.Salaire);
+            return ListCommerciaux.Sum(o => o.CalculSalaire()) + ListTechniciens.Sum(o => o.CalculSalaire());
         }
 
         public override string ToString()

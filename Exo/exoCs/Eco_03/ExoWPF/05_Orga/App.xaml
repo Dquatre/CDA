@@ -1,0 +1,16 @@
+﻿<Application x:Class="_05_Orga.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:_05_Orga"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="grisCtF"  EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE4E4E4"/>
+            <GradientStop Color="#FF9A9A9A" Offset="1"/>
+        </LinearGradientBrush>
+        <BitmapImage x:Key="pointDinterro" UriSource="Image/icone-point.png" />
+        <BitmapImage x:Key="plus" UriSource="Image/plus.png" />
+        <BitmapImage x:Key="moins" UriSource="Image/moins.png" />
+        <BitmapImage x:Key="file" UriSource="Image/file.png" />
+    </Application.Resources>
+</Application>

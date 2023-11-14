@@ -13,26 +13,24 @@ namespace Exo_Class_07
         public String Prenom { get; set; }
         public Double Salaire { get; set; }
 
-        protected Employes(int age, string nom, string prenom)
+        protected Employes(int age, string nom, string prenom, Double salaire)
         {
             Age = age;
             Nom = nom;
             Prenom = prenom;
+            Salaire = salaire;
         }
 
-        protected void Afficher() 
+        public void Afficher() 
         {
             Console.WriteLine(this);
         }
 
-        protected Double CalculSalaire()
-        {
-            return 0;
-        }
+        public abstract Double CalculSalaire();
 
         public override String ToString()
         {
-            return base.ToString()+ "\tNom : " + Nom + "\tPrenom : " + Prenom + "\tAge : " + Age + "\tSalaire : " + Salaire;
+            return base.ToString()+ "\tNom : " + Nom + "\tPrenom : " + Prenom + "\tAge : " + Age + "\tSalaire : " + CalculSalaire();
         }
     }
 }

@@ -13,10 +13,12 @@ namespace SpaceInvaders
         public Char Motif { get; set; } = 'U';
         public int Position { get; set; } = 2;
 
-        public Canon()
+        public Canon(int position)
         {
+            Position = position;
         }
 
+        
         public override string ToString()
         {
             return Convert.ToString(Motif);

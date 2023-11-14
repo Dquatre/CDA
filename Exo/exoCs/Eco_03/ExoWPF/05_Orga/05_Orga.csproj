@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <RootNamespace>_05_Orga</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\file.png" />
+    <None Remove="Image\icone-point.png" />
+    <None Remove="Image\moins.png" />
+    <None Remove="Image\plus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\file.png" />
+    <Resource Include="Image\icone-point.png" />
+    <Resource Include="Image\moins.png" />
+    <Resource Include="Image\plus.png" />
+  </ItemGroup>
+
+</Project>

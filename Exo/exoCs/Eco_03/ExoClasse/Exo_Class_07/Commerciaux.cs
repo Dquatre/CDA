@@ -8,11 +8,9 @@ namespace Exo_Class_07
 {
     public abstract class Commerciaux : Employes
     {
-        public int NbDeplacement { get; set; }
         public int NbPrime { get; set; }
-        public Commerciaux(int age, string nom, string prenom, int nbDeplacement, int nbPrime) : base(age, nom, prenom)
+        public Commerciaux(int age, string nom, string prenom,Double salaire, int nbPrime) : base(age, nom, prenom, salaire)
         {
-            NbDeplacement = nbDeplacement;
             NbPrime = nbPrime;
         }
     }
