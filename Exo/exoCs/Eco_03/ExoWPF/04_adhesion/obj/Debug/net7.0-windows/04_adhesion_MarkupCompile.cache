@@ -1,5 +1,5 @@
 ﻿04_adhesion
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 U:\59011-82-07\Exo\exoCs\Eco_03\ExoWPF\04_adhesion\App.xaml
 11407045341
 
-3-1233169557
+5-578703459
 198-306949569
 MainWindow.xaml;
 
-False
+True
 

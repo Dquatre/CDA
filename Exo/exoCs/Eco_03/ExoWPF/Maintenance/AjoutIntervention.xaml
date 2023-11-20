@@ -1,0 +1,85 @@
+﻿<Window x:Class="Maintenance.AjoutIntervention"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Maintenance"
+        mc:Ignorable="d"
+        Title="Ajouter une Intervention" Height="400" Width="400">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="UEM">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Code UEM" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="1"  VerticalAlignment="Top"/>
+                    <GroupBox Header="Accès UEM" Grid.Row="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <RadioButton Content="Canal" VerticalAlignment="Center"/>
+                            <RadioButton Content="Tous" VerticalAlignment="Center" Grid.Row="1"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Type de canal" Grid.Row="3" VerticalAlignment="Bottom"/>
+                    <ComboBox Grid.Row="4"  VerticalAlignment="Top"/>
+                    <Label Content="Canal" Grid.Row="5" VerticalAlignment="Bottom"/>
+                    <ComboBox Grid.Row="6"  VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="Prévision" Grid.RowSpan="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Type de travaille : " VerticalAlignment="Bottom" />
+                    <ComboBox Grid.Row="1"  VerticalAlignment="Top"/>
+                    <Label Content="Type de entretien : " Grid.Row="2" VerticalAlignment="Bottom"/>
+                    <ComboBox Grid.Row="3"  VerticalAlignment="Top"/>
+                    <Label Content="Point de km de début :" Grid.Row="4" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="5"  VerticalAlignment="Top"/>
+                    <Label Content="Point de km de fin : " Grid.Row="6" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="7"  VerticalAlignment="Top"/>
+                    <Label Content="Volume : " Grid.Row="8" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="9"  VerticalAlignment="Top"/>
+                    <Label Content="Prix unitaire :" Grid.Row="10" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="11"  VerticalAlignment="Top"/>
+                    <Label Content="Nature de la défectuosité :" Grid.Row="12" VerticalAlignment="Bottom"/>
+                    <TextBox Grid.Row="13"  VerticalAlignment="Top"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+    </Grid>
+</Window>

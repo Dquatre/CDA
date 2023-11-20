@@ -1,0 +1,13 @@
+﻿<Application x:Class="Vehicule.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Vehicule"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="voiture" UriSource="img/voitureIcon.png" />
+        <BitmapImage x:Key="plus" UriSource="img/plusVert.png" />
+        <BitmapImage x:Key="moins" UriSource="img/moins.png" />
+        <BitmapImage x:Key="imprime" UriSource="img/impr.png" />
+        <BitmapImage x:Key="diskette" UriSource="img/disk.png" />
+    </Application.Resources>
+</Application>

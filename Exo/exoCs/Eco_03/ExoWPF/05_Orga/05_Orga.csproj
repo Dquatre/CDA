@@ -13,14 +13,14 @@
     <None Remove="Image\file.png" />
     <None Remove="Image\icone-point.png" />
     <None Remove="Image\moins.png" />
-    <None Remove="Image\plus.png" />
+    <None Remove="Image\plusVert.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Image\file.png" />
     <Resource Include="Image\icone-point.png" />
     <Resource Include="Image\moins.png" />
-    <Resource Include="Image\plus.png" />
+    <Resource Include="Image\plusVert.png" />
   </ItemGroup>
 
 </Project>

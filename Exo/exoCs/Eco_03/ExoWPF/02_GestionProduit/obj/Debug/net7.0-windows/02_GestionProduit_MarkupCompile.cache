@@ -1,5 +1,5 @@
 ﻿02_GestionProduit
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 U:\59011-82-07\Exo\exoCs\Eco_03\ExoWPF\02_GestionProduit\App.xaml
 11407045341
 
-4142986599
+6733048274
 198-306949569
 MainWindow.xaml;
 
-False
+True
 

@@ -1,0 +1,50 @@
+﻿<Page x:Class="Maintenance.AjouterReal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Maintenance"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="AjouterReal" Background="White">
+
+    <Grid>
+        <GroupBox Grid.Column="1" Header="Prévision" Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Type de travaille : " VerticalAlignment="Bottom" />
+                <ComboBox Grid.Row="1"  VerticalAlignment="Top"/>
+                <Label Content="Type de entretien : " Grid.Row="2" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Row="3"  VerticalAlignment="Top"/>
+                <Label Content="Point de km de début :" Grid.Row="4" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="5"  VerticalAlignment="Top"/>
+                <Label Content="Point de km de fin : " Grid.Row="6" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="11"  VerticalAlignment="Top"/>
+                <Label Content="Volume : " Grid.Row="8" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="13"  VerticalAlignment="Top"/>
+                <Label Content="Prix unitaire :" Grid.Row="10" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="15"  VerticalAlignment="Top"/>
+                <Label Content="Nature de la défectuosité :" Grid.Row="12" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Row="17"  VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>
