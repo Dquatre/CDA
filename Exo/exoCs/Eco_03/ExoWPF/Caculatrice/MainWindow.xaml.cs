@@ -67,7 +67,14 @@ namespace Caculatrice
             if (signEnable)
             {
                 calc = (String)((Button)sender).Content ;
-                nbr1 = Convert.ToDouble(txtResult.Text);
+                if (txtResult.Text == "")
+                {
+                    nbr1 = 0;
+                }
+                else
+                {
+                    nbr1 = Convert.ToDouble(txtResult.Text);
+                }
                 signEnable = false;
                 egalEnable = true;
                 txtResult.Text = "";

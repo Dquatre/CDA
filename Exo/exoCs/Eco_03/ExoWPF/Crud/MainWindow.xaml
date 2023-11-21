@@ -1,0 +1,63 @@
+﻿<Window x:Class="Crud.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crud"
+        mc:Ignorable="d"
+        Title="Qui l'u crud" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF6CFDB1"/>
+                <GradientStop Color="#FF1B6940" Offset="1"/>
+                <GradientStop Color="#FF43C27F" Offset="0.95"/>
+                <GradientStop Color="#FF43C17F" Offset="0.05"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgdProd" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
+                <DataGridTextColumn Header="Categorie" Binding="{Binding Categorie}"/>
+                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="1" Content="Ajouter"  Grid.Row="3" Click="ButtonAjout_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF276946" Offset="1"/>
+                    <GradientStop Color="#FF419568" Offset="0.95"/>
+                    <GradientStop Color="#FF41A46F" Offset="0.053"/>
+                    <GradientStop Color="#FF68C895"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Grid.Column="3" Content="Supprimer"  Grid.Row="3" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6D1A1A" Offset="1"/>
+                    <GradientStop Color="#FFC73232" Offset="0.95"/>
+                    <GradientStop Color="#FFC73232" Offset="0.053"/>
+                    <GradientStop Color="#FFCA5555"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

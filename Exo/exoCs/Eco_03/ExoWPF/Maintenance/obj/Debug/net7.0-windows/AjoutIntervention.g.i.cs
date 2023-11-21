@@ -54,7 +54,7 @@ namespace Maintenance {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Maintenance;component/ajoutintervention.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Maintenance;V1.0.0.0;component/ajoutintervention.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AjoutIntervention.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

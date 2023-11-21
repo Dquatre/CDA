@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Caculatrice"
         mc:Ignorable="d"
-        Title="Caculatrice" Height="450" Width="400" MinHeight="400" MinWidth="300">
+        Title="Caculatrice" Height="450" Width="600" MinHeight="400" MinWidth="300">
 	<Window.Background>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="#FFBBBEE4" Offset="0"/>

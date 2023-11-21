@@ -1,11 +1,33 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "04_adhesion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/04_adhesion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/04_adhesion.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "04_adhesion/1.0.0": {
+      "type": "project",
+      "path": "../04_adhesion/04_adhesion.csproj",
+      "msbuildProject": "../04_adhesion/04_adhesion.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "04_adhesion >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\59011-82-07\\.nuget\\packages\\": {},
@@ -39,7 +61,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "U:\\59011-82-07\\Exo\\exoCs\\Eco_03\\ExoWPF\\04_adhesion\\04_adhesion.csproj": {
+              "projectPath": "U:\\59011-82-07\\Exo\\exoCs\\Eco_03\\ExoWPF\\04_adhesion\\04_adhesion.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

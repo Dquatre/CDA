@@ -95,13 +95,13 @@ namespace GestionFichier
 
         //public static Object LireFichierJson(String chemin)
         //{
-        //    String ret = "";
+        //   
         //    using FileStream openStream = File.OpenRead(chemin);
         //    Object? obj =
-        //        await JsonSerializer.DeserializeAsync<WeatherForecast>(openStream);
+        //        await JsonSerializer.DeserializeAsync<Object>(openStream);
 
            
-        //    return ret;
+        //    return obj;
         //}
 
 
