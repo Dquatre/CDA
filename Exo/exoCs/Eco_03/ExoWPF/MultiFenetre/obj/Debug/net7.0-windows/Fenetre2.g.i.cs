@@ -69,7 +69,7 @@ namespace MultiFenetre {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MultiFenetre;V1.0.0.0;component/fenetre2.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MultiFenetre;component/fenetre2.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Fenetre2.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

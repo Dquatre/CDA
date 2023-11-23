@@ -1,5 +1,5 @@
 ﻿MultiFenetre
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 U:\59011-82-07\Exo\exoCs\Eco_03\ExoWPF\MultiFenetre\App.xaml
 21737487483
 
-6-518792430
+41555465119
 198-306949569
 Fenetre2.xaml;MainWindow.xaml;
 
-True
+False
 

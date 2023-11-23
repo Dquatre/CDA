@@ -1,0 +1,329 @@
+﻿<Window x:Class="FicheDePaie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FicheDePaie"
+        mc:Ignorable="d"
+        Title="Fiche de paie" Height="800" Width="800" MinWidth="700" MinHeight="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.003"/>
+                <GradientStop Color="#FF4C807A" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Header="Personnel">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="Nom" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Text="TIKDAM" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Label Grid.Column="3"  Grid.Row="1" Grid.ColumnSpan="2" Content="Prénom" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="3" Text="Ahmed" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <DatePicker Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Text="01/10/1981" IsEnabled="False"/>
+                <Label Grid.Column="5"  Grid.Row="3" Content="Genre" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="5" Grid.Row="4" >
+                    <ItemsControl>M</ItemsControl>
+                    <ItemsControl>F</ItemsControl>
+                </ComboBox>
+                <Label Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Content="Situation Familliale" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="1" Grid.Row="6"  >
+                    <ItemsControl>Marié</ItemsControl>
+                    <ItemsControl >Celibataire</ItemsControl>
+                </ComboBox>
+                <Label Grid.Column="3"  Grid.Row="5" Grid.ColumnSpan="3" Content="Nombre d'enfants" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="3"  Grid.Row="6" Grid.ColumnSpan="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Text="0"/>
+                <Label Grid.Column="1"  Grid.Row="7" Content="Adresse" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBlock Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="5" Background="White" IsEnabled="False" Text="215 BLD Ch de Gaulle 95000 Paris"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Header="Carrier">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="CNSS" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Text="654123" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Label Grid.Column="3"  Grid.Row="1" Content="Matricule" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="3" Grid.Row="2" Text="856325" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Label Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Content="Date d'entrée" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <DatePicker Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="3" Text="01/01/2010" IsEnabled="False"/>
+                <Label Grid.Column="1"  Grid.Row="3" Content="Fonction" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="1" Grid.Row="4" >
+                    <ItemsControl>Comptable</ItemsControl>
+                    <ItemsControl>Assistante</ItemsControl>
+                    <ItemsControl>DAF</ItemsControl>
+                    <ItemsControl>Commerciale</ItemsControl>
+                </ComboBox>
+                <Label Grid.Column="3"  Grid.Row="3" Content="Departement" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="3" Grid.Row="4" >
+                    <ItemsControl>Administratif</ItemsControl>
+                    <ItemsControl>Commercial</ItemsControl>
+                </ComboBox>
+                <Label Grid.Column="5"  Grid.Row="3" Content="Service" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="5" Grid.Row="4" >
+                    <ItemsControl>Comptabilité</ItemsControl>
+                    <ItemsControl>F</ItemsControl>
+                </ComboBox>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Column="3" Header="Assurance" Grid.Row="3" Grid.ColumnSpan="2" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="CIMR" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="1" Grid.Row="2" Text="326543" VerticalContentAlignment="Center" IsEnabled="False"/>
+                <Label Grid.Column="3"  Grid.Row="1" Content="Mutuelle" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="3" Grid.Row="2" Text="698543" VerticalContentAlignment="Center" IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid Grid.Column="6" Grid.Row="1" Grid.RowSpan="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nom" />
+                <DataGridTextColumn Header="Prénom" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <GroupBox Grid.Column="1" Header="Salaire" Grid.Row="4" Grid.ColumnSpan="3"  Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1" Grid.Row="1" Content="Type de paiement" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" Text="Mensuel" VerticalContentAlignment="Center" IsEnabled="False">
+
+                </ComboBox>
+                <Label Grid.Column="3"  Grid.Row="1" Content="Mode de paiement" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <ComboBox Grid.Column="3" Grid.Row="2" Text="Mensuel" VerticalContentAlignment="Center" IsEnabled="False">
+
+                </ComboBox>
+                <Label Grid.Column="5" Grid.Row="1" Content="Salaire horaire" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="5" Grid.Row="2" Text="36,65" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" IsEnabled="False"/>
+                <Label Grid.Column="7"  Grid.Row="1" Content="Prime" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="7" Grid.Row="2" Text="500,00" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" IsEnabled="False"/>
+                <Label Grid.Column="1"  Grid.Row="3" Content="taux d'ancienneté" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <TextBox Grid.Column="1" Grid.Row="4" Text="10%" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" IsEnabled="False"/>
+                <GroupBox Grid.Column="3" Header="Cotisation" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" >
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox  Content="CNSS    " VerticalAlignment="Center"/>
+                        <CheckBox  Content="AMO     " VerticalAlignment="Center"/>
+                        <CheckBox  Content="IGR     " VerticalAlignment="Center"/>
+                    </StackPanel>
+                </GroupBox>
+                <CheckBox  Grid.Column="7" Grid.RowSpan="2" Grid.Row="3" Content="Mutuelle" VerticalAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Grid.Row="1">
+                <Image Height="30" Width="30" Source="{DynamicResource diskette}"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="6" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="1" Grid.Row="1">
+                <Image Height="30" Width="30" Source="{DynamicResource plus}"/>
+            </Button>
+            <Button Grid.Column="3" Grid.Row="1">
+                <Image Height="30" Width="30" Source="{DynamicResource moins}"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+
+                <RowDefinition Height="1*"/>
+
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Content="Nombre d'heure travaillé : " VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBox Grid.Column="1"  Text="191" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" IsEnabled="False"/>
+                <ComboBox Grid.Column="3" />
+            </Grid>
+            
+            <Label Grid.Column="1" Content="Salaire de base" HorizontalAlignment="Right"  Grid.Row="4" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="Prime Ancienneté" HorizontalAlignment="Right"  Grid.Row="5" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="Salaire Brut" HorizontalAlignment="Right"  Grid.Row="6" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="Cotisation CNSS" HorizontalAlignment="Right"  Grid.Row="7" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="AMO" HorizontalAlignment="Right"  Grid.Row="8" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="IGR" HorizontalAlignment="Right"  Grid.Row="9" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="Mutuelle" HorizontalAlignment="Right"  Grid.Row="10" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <Label Grid.Column="1" Content="Net à Payer" HorizontalAlignment="Right"  Grid.Row="11" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="4"/>
+            <TextBox Grid.Column="2" Grid.Row="4"/>
+
+            <Label Grid.Column="2" Grid.Row="3" Content="Base" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="4" Text="191"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="5" Text="7000"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="6"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="7" Text="7000"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="8" Text="7000"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="9" Text="7000"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="2" Grid.Row="10" Text="20"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+
+
+
+
+            <Label Grid.Column="3" Grid.Row="3" Content="Taux" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="4" Text="36,65"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="5" Text="10%"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="6"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="7" Text="4,48%"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="8" Text="2,26%"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="9" Text="20%"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="3" Grid.Row="10" Text="1"   VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="16"/>
+
+            <Label Grid.Column="4" Grid.Row="3" Content="A Payer" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="4" Text="7000,00€"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="5" Text="700,00€"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="6" Text="7700,00€"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="7"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="8"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="9"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="10"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="4" Grid.Row="11" Text="5808,20€"  VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+
+            <Label Grid.Column="5" Grid.Row="3" Content="A Retenir" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="4"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="7" Text="313,00€"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="8" Text="158,00€"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="9" Text="1400,00€"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+            <TextBox Grid.Column="5" Grid.Row="10"  Text="20,00€"   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Arial" FontSize="16"/>
+
+        </Grid>
+       
+        
+    </Grid>
+</Window>
