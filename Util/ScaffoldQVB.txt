@@ -1,0 +1,48 @@
+Liste des package via nugget package sur vs:
+
+Microsoft.EntityFrameworkCore           Version="7.0.14" 
+Microsoft.EntityFrameworkCore.Tools     Version="7.0.14"
+MySql.Data                              Version="8.2.0"
+MySql.EntityFrameworkCore               Version="7.0.10"
+
+
+Affichage -> Autres fenetres -> Console du gestionnaire de package 
+
+Commande scaffold:
+
+Scaffold-DbContext -Connection Name=Default -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context PlatformDbContext -ContextDir ./Models
+
+
+CREATE TABLE platforms(
+   idPlatform INT,
+   platformName VARCHAR(50)  NOT NULL,
+   constructor VARCHAR(50)  NOT NULL
+);
+
+CREATE TABLE series(
+   idSerie INT,
+   serieName VARCHAR(50)  NOT NULL
+);
+
+CREATE TABLE games(
+   idGame INT,
+   title VARCHAR(50)  NOT NULL,
+   subTitle VARCHAR(50) ,
+   releaseYear INT,
+   idSerie INT
+);
+
+CREATE TABLE games_platforms(
+    idGame_Platform INT,
+   idGame INT,
+   idPlatform INT
+);
+
+Alter table platforms modify idPlatform INT AUTO_INCREMENT PRIMARY KEY;
+Alter table series modify idSerie INT AUTO_INCREMENT PRIMARY KEY;
+Alter table games modify idGame INT AUTO_INCREMENT PRIMARY KEY;
+Alter table games_platforms modify idGame_Platform INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE games ADD CONSTRAINT FK_game_serie FOREIGN KEY (idSerie) REFERENCES series(idSerie);
+ALTER TABLE games_platforms ADD CONSTRAINT FK_games_games_platforms FOREIGN KEY (idGame) REFERENCES games(idGame);
+ALTER TABLE games_platforms ADD CONSTRAINT FK_platforms_games_platforms FOREIGN KEY (idPlatform) REFERENCES platforms(idPlatform);

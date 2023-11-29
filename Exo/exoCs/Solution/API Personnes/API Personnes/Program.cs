@@ -1,26 +1,27 @@
 
-using ApiPersonne.Data;
-using ApiPersonne.Data.Services;
+using API_Personnes.Models;
+using API_Personnes.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiPersonne
+namespace API_Personnes
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+
+            // scaffold 
+            // scaffold-DbContext -Connection name=default -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context PersonnesDbContext -ContextDir Models
+            
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<PersonneDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
-
+            // Add services to the container.
+            builder.Services.AddDbContext<PersonnesDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
             builder.Services.AddTransient<PersonnesService>();
-
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            builder.Services.AddControllers().AddNewtonsoftJson();
-
-            // Add services to the container.
-
+            builder.Services.AddControllers().AddNewtonsoftJson(); // pour faire fonctionner le patch
+            
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

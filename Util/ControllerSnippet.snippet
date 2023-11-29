@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Models Services</Title>
+			<Shortcut>controller</Shortcut>
+			<Description>Service template for ASP.NET Core</Description>
+			<Author>DIV</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+			    <Literal Editable="true">
+				    <ID>classname</ID>
+				    <ToolTip>Class name</ToolTip>
+				    <Default>ClassNamePlaceholder</Default>
+			    </Literal>
+				<Literal Editable="true">
+					<ID>dtoph</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+                <Literal Editable="true">
+					<ID>varph</ID>
+					<Default>varPlaceholder</Default>
+					<ToolTip>Poco name</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+	[Route("api/[controller]")]
+    [ApiController]
+    public class $classname$sController : ControllerBase
+    {
+        private readonly $classname$sServices _service;
+        private readonly IMapper _mapper;
+        public $classname$sController($classname$sServices service, IMapper mapper)
+        {
+            _service = service;
+            _mapper = mapper;
+        }
+
+        //GET api/$classname$s
+        [HttpGet]
+        public ActionResult<IEnumerable<$dtoph$>> getAll$classname$s()
+        {
+            var liste$classname$s = _service.GetAll$classname$s();
+            return Ok(_mapper.Map<IEnumerable<$dtoph$>>(liste$classname$s));
+        }
+
+        //GET api/$classname$s/{id}
+        [HttpGet("{id}", Name = "Get$classname$ById")]
+        public ActionResult<$dtoph$> Get$classname$ById(int id)
+        {
+            var commandItem = _service.Get$classname$ById(id);
+            if (commandItem != null)
+            {
+                return Ok(_mapper.Map<$dtoph$>(commandItem));
+            }
+            return NotFound();
+        }
+
+        //POST api/GameConsoles
+        [HttpPost]
+        public ActionResult<$classname$> Create$classname$($dtoph$ $varph$Dto)
+        {
+            $classname$ $varph$ = new $classname$() ;
+            _mapper.Map($varph$Dto, $varph$);
+            //on ajoute l’objet à la base de données
+            _service.Add$classname$s($varph$);
+            //on retourne le chemin de findById avec l'objet créé
+            return CreatedAtRoute(nameof(Get$classname$ById), new { Id = $varph$.Id$classname$ }, $varph$);
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult Update$classname$(int id, $dtoph$ $varph$)
+        {
+            var $varph$FromRepo = _service.Get$classname$ById(id);
+            if ($varph$FromRepo == null)
+            {
+                return NotFound();
+            }
+            $varph$FromRepo.Dump();
+            _mapper.Map($varph$, $varph$FromRepo);
+            $varph$FromRepo.Dump();
+            $varph$.Dump();
+            // inutile puisque la fonction ne fait rien, mais garde la cohérence
+            _service.Update$classname$($varph$FromRepo);
+            return NoContent();
+        }
+
+        [HttpPatch("{id}")]
+        public ActionResult Partial$classname$Update(int id, JsonPatchDocument<$classname$> patchDoc)
+        {
+            try
+            {
+                var $varph$FromRepo = _service.Get$classname$ById(id);
+                $varph$FromRepo.Dump();
+
+                var $varph$ToPatch = _mapper.Map<$classname$>($varph$FromRepo);
+
+                patchDoc.ApplyTo($varph$ToPatch, ModelState);
+
+                if (!TryValidateModel($varph$ToPatch)) return ValidationProblem(ModelState);
+                _mapper.Map($varph$ToPatch, $varph$FromRepo);
+                _service.Update$classname$($varph$FromRepo);
+                $varph$FromRepo.Dump();
+            }
+            catch (HttpRequestException error)
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
+        //DELETE api/$classname$s/{id}
+        [HttpDelete("{id}")]
+        public ActionResult Delete$classname$(int id)
+        {
+            var $varph$ModelFromRepo = _service.Get$classname$ById(id);
+            if ($varph$ModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            _service.Delete$classname$($varph$ModelFromRepo);
+            return NoContent();
+        }
+    }
+				]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

@@ -1,33 +1,39 @@
-﻿using ApiPersonne.Data.Dtos;
-using ApiPersonne.Data.Models;
-using ApiPersonne.Data.Services;
+﻿using API_Personnes.Helpers;
+using API_Personnes.Models.Data;
+using API_Personnes.Models.DTO;
+using API_Personnes.Models.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
-namespace ApiPersonne.Controllers
+namespace API_Personnes.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Personnes")]
     [ApiController]
     public class PersonnesController : ControllerBase
     {
         private readonly PersonnesService _service;
         private readonly IMapper _mapper;
+
         public PersonnesController(PersonnesService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
         }
 
-        //GET api/personnes
+        //GET api/Personnes
         [HttpGet]
-        public ActionResult<IEnumerable<PersonnesDTO>> getAllPersonnes()
+        public ActionResult<IEnumerable<Personne>> GetAllPersonnes()
         {
-            var listePersonnes = _service.GetAllPersonnes();
-            return Ok(_mapper.Map<IEnumerable<PersonnesDTO>>(listePersonnes));
+            // On appelle le service pour obtenir la liste des personnes
+            IEnumerable<Personne> listePersonnes = _service.GetAllPersonnes();
+            // Je transforme la liste de personnes en liste de personnesDto
+            IEnumerable<PersonnesDTO> listePersonnesDtos= _mapper.Map<IEnumerable<PersonnesDTO>>(listePersonnes);
+            // On renvoi Ok pour dire que ca c'ets bien passé (code 200) et la liste des personnesDtos transformé en JSON
+            return Ok(listePersonnesDtos);
         }
-
-        //GET api/personnes/{id}
+        //GET api/Personnes/{id}
         [HttpGet("{id}", Name = "GetPersonneById")]
         public ActionResult<PersonnesDTO> GetPersonneById(int id)
         {
@@ -46,9 +52,13 @@ namespace ApiPersonne.Controllers
             //on ajoute l’objet à la base de données
             _service.AddPersonnes(personne);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(GetPersonneById), new { Id = personne.Id }, personne);
+            return CreatedAtRoute(nameof(GetPersonneById), new { Id = personne.IdPersonne }, personne);
+
         }
 
+
+
+        //PUT api/personnes/{id}
         [HttpPut("{id}")]
         public ActionResult UpdatePersonne(int id, PersonnesDTO personne)
         {
@@ -63,36 +73,45 @@ namespace ApiPersonne.Controllers
             personne.Dump();
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
             _service.UpdatePersonne(personneFromRepo);
+
             return NoContent();
         }
+
+
+        //PATCH api/personnes/{id}
+
+        // Exemple d'appel
+        //[{  "op":"replace",
+        //    "path":"prenom",
+        //    "value":"test"
+        //    }]
 
         [HttpPatch("{id}")]
         public ActionResult PartialPersonneUpdate(int id, JsonPatchDocument<Personne> patchDoc)
         {
-            try
-            {
-                var personneFromRepo = _service.GetPersonneById(id);
-                personneFromRepo.Dump();
-
-                var personneToPatch = _mapper.Map<Personne>(personneFromRepo);
-
-                patchDoc.ApplyTo(personneToPatch, ModelState);
-
-                if (!TryValidateModel(personneToPatch)) return ValidationProblem(ModelState);
-                _mapper.Map(personneToPatch, personneFromRepo);
-                _service.UpdatePersonne(personneFromRepo);
-                personneFromRepo.Dump();
-            }
-            catch (HttpRequestException error)
-            {
-                return null;
-            }
-            catch (Exception)
+            patchDoc.Dump();
+            var personneFromRepo = _service.GetPersonneById(id);
+            if (personneFromRepo == null)
             {
                 return NotFound();
             }
+
+            var personneToPatch = _mapper.Map<Personne>(personneFromRepo);
+            //var personneToPatch = personneFromRepo;
+            patchDoc.ApplyTo(personneToPatch, ModelState);
+
+            if (!TryValidateModel(personneToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(personneToPatch, personneFromRepo);
+
+            _service.UpdatePersonne(personneFromRepo);
+
             return NoContent();
         }
+
 
         //DELETE api/personnes/{id}
         [HttpDelete("{id}")]
@@ -104,7 +123,10 @@ namespace ApiPersonne.Controllers
                 return NotFound();
             }
             _service.DeletePersonne(personneModelFromRepo);
+
             return NoContent();
         }
+
     }
+
 }

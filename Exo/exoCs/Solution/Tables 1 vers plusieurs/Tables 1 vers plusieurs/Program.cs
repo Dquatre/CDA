@@ -1,9 +1,9 @@
 
-using ApiPersonne.Data;
-using ApiPersonne.Data.Services;
 using Microsoft.EntityFrameworkCore;
+using Tables_1_vers_plusieurs.Models;
+using Tables_1_vers_plusieurs.Models.Services;
 
-namespace ApiPersonne
+namespace Tables_1_vers_plusieurs
 {
     public class Program
     {
@@ -11,15 +11,13 @@ namespace ApiPersonne
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<PersonneDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
-
-            builder.Services.AddTransient<PersonnesService>();
-
+            // Add services to the container.
+            builder.Services.AddDbContext<VoitureContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddTransient<MarqueService>();
+            builder.Services.AddTransient<ModeleService>();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            builder.Services.AddControllers().AddNewtonsoftJson();
-
-            // Add services to the container.
+            builder.Services.AddControllers().AddNewtonsoftJson(); // pour faire fonctionner le patch
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

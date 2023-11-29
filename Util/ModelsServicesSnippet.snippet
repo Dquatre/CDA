@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Models Services</Title>
+			<Shortcut>modserv</Shortcut>
+			<Description>Service template for ASP.NET Core</Description>
+			<Author>DIV</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+			    <Literal Editable="true">
+				    <ID>classname</ID>
+				    <ToolTip>Class name</ToolTip>
+				    <Default>ClassNamePlaceholder</Default>
+			    </Literal>
+				<Literal Editable="true">
+					<ID>dbcontextname</ID>
+					<ToolTip>DB Context name</ToolTip>
+					<Default>DBCPlaceholder</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+		private readonly $dbcontextname$DbContext _context;
+        public $classname$sServices($dbcontextname$DbContext context)
+        {
+            _context = context;
+        }
+
+        public void Add$classname$s($classname$ p)
+        {
+            if (p == null)
+            {
+                throw new ArgumentNullException(nameof(p));
+            }
+            _context.$classname$s.Add(p);
+            _context.SaveChanges();
+        }
+		
+        public void Delete$classname$($classname$ p)
+        {
+            //si l'objet personne est null, on renvoi une exception
+            if (p == null)
+            {
+                throw new ArgumentNullException(nameof(p));
+            }
+            // on met à jour le context
+            _context.$classname$s.Remove(p);
+            _context.SaveChanges();
+        }
+		
+        public IEnumerable<$classname$> GetAll$classname$s()
+        {
+            return _context.$classname$s.ToList();
+        }
+		
+        public $classname$ Get$classname$ById(int id)
+        {
+            return _context.$classname$s.FirstOrDefault(p => p.Id$classname$ == id);
+        }
+		
+        public void Update$classname$($classname$ p)
+        {
+            _context.SaveChanges();
+        }
+				]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

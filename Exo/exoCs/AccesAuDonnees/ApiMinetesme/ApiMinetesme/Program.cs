@@ -1,9 +1,9 @@
 
-using ApiPersonne.Data;
-using ApiPersonne.Data.Services;
+using ApiMinetesme.Data;
+using ApiMinetesme.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiPersonne
+namespace ApiMinetesme
 {
     public class Program
     {
@@ -11,9 +11,9 @@ namespace ApiPersonne
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<PersonneDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddDbContext<PantalonDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 
-            builder.Services.AddTransient<PersonnesService>();
+            builder.Services.AddTransient<PantalonsService>();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

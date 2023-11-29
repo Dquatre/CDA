@@ -1,9 +1,9 @@
 
-using ApiPersonne.Data;
-using ApiPersonne.Data.Services;
+using ApiGame.Data;
+using ApiGame.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiPersonne
+namespace ApiGame
 {
     public class Program
     {
@@ -11,9 +11,10 @@ namespace ApiPersonne
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<PersonneDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddDbContext<ConsoleDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 
-            builder.Services.AddTransient<PersonnesService>();
+            builder.Services.AddTransient<GameConsolesServices>();
+            builder.Services.AddTransient<GamesServices>();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
