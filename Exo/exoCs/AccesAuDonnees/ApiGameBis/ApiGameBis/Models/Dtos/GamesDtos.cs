@@ -10,9 +10,11 @@ namespace ApiGameBis.Models.Dtos
 
         public int? ReleaseYear { get; set; }
 
-        public virtual ICollection<GamesPlatformsDto> ListGamesPlatforms { get; set; } = new List<GamesPlatformsDto>();
+        public virtual String? GameSerie { get; set; }
 
-        public virtual SeriesDto? GameSerie { get; set; }
+        public virtual ICollection<PlatformsDtoLink> ListPlatforms { get; set; } = new List<PlatformsDtoLink>();
+
+        
     }
     public class GamesDtoWithSerie
     {

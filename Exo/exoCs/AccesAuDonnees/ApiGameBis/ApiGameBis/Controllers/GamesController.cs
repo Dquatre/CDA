@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGameBis.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
@@ -119,6 +118,4 @@ namespace ApiGameBis.Controllers
             return NoContent();
         }
     }
-
-
 }

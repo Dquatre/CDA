@@ -35,21 +35,17 @@ namespace ApiGameBis.Models.Services
 
         public IEnumerable<Game> GetAllGames()
         {
-            return _context.Games.Include("GameSerie").ToList();
+            return _context.Games.Include("GameSerie").Include("ListGamesPlatforms.GamePlatform").ToList();
         }
 
         public Game GetGameById(int id)
         {
-            return _context.Games.FirstOrDefault(p => p.IdGame == id);
+            return _context.Games.Include("GameSerie").Include("ListGamesPlatforms.GamePlatform").FirstOrDefault(p => p.IdGame == id);
         }
 
         public void UpdateGame(Game p)
         {
             _context.SaveChanges();
         }
-
-
-
-
     }
 }

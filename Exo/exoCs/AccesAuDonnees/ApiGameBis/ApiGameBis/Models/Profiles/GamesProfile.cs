@@ -9,7 +9,8 @@ namespace ApiGameBis.Models.Profiles
     {
         public GamesProfile()
         {
-            CreateMap<Game, GamesDtoFull>();
+            CreateMap<Game, GamesDtoFull>().ForMember(gDto => gDto.GameSerie, action => action.MapFrom(g => g.GameSerie.SerieName))
+                .ForMember(gDto => gDto.ListPlatforms, action => action.MapFrom(g => g.ListGamesPlatforms));
             CreateMap<GamesDtoFull, Game>();
             CreateMap<Game, GamesDtoWithSerie>();
             CreateMap<GamesDtoWithSerie, Game>();

@@ -5,6 +5,11 @@ namespace ApiGameBis.Models.Data;
 
 public partial class Platform
 {
+    public Platform()
+    {
+        ListGamesPlatforms = new HashSet<GamesPlatform>();
+    }
+
     public int IdPlatform { get; set; }
 
     public string PlatformName { get; set; } = null!;

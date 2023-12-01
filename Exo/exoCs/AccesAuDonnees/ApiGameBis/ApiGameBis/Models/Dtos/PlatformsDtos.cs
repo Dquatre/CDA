@@ -8,9 +8,15 @@ namespace ApiGameBis.Models.Dtos
 
         public string Constructor { get; set; } = null!;
 
-        public virtual ICollection<GamesPlatformsDto> ListGamesPlatforms { get; set; } = new List<GamesPlatformsDto>();
+        public virtual ICollection<GamesPlatformsDtoWithPlatformGame> ListGamesPlatforms { get; set; } = new List<GamesPlatformsDtoWithPlatformGame>();
     }
     public class PlatformsDto
+    {
+        public string PlatformName { get; set; } = null!;
+
+        public string Constructor { get; set; } = null!;
+    }
+    public class PlatformsDtoLink
     {
         public string PlatformName { get; set; } = null!;
 

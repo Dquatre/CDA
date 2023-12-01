@@ -12,6 +12,8 @@ namespace ApiGameBis.Models.Profiles
             CreateMap<PlatformsDtoWithListGamesPlatforms, Platform>();
             CreateMap<Platform, PlatformsDto>();
             CreateMap<PlatformsDto, Platform>();
+            CreateMap<Platform, PlatformsDtoLink>();
+            CreateMap<PlatformsDtoLink, Platform>();
         }
         
     }

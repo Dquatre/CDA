@@ -1,10 +1,10 @@
 ﻿using ApiGameBis.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiGameBis.Models.Services
 {
     public class GamesPlatformsServices
     {
-
         private readonly PlatformDbContext _context;
         public GamesPlatformsServices(PlatformDbContext context)
         {
@@ -35,18 +35,17 @@ namespace ApiGameBis.Models.Services
 
         public IEnumerable<GamesPlatform> GetAllGamesPlatforms()
         {
-            return _context.GamesPlatforms.ToList();
+            return _context.GamesPlatforms.Include("PlatformGame").Include("GamePlatform").ToList();
         }
 
         public GamesPlatform GetGamesPlatformById(int id)
         {
-            return _context.GamesPlatforms.FirstOrDefault(p => p.IdGamePlatform == id);
+            return _context.GamesPlatforms.Include("PlatformGame").Include("GamePlatform").FirstOrDefault(p => p.IdGamePlatform == id);
         }
 
         public void UpdateGamesPlatform(GamesPlatform p)
         {
             _context.SaveChanges();
         }
-
     }
 }

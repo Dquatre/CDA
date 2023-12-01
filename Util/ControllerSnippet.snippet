@@ -64,30 +64,30 @@
 
         //POST api/GameConsoles
         [HttpPost]
-        public ActionResult<$classname$> Create$classname$($dtoph$ $varph$Dto)
+        public ActionResult<$classname$> Create$classname$($dtoph$ objectDto)
         {
-            $classname$ $varph$ = new $classname$() ;
-            _mapper.Map($varph$Dto, $varph$);
+            $classname$ object = new $classname$() ;
+            _mapper.Map(objectDto, object);
             //on ajoute l’objet à la base de données
-            _service.Add$classname$s($varph$);
+            _service.Add$classname$s(object);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(Get$classname$ById), new { Id = $varph$.Id$classname$ }, $varph$);
+            return CreatedAtRoute(nameof(Get$classname$ById), new { Id = object.Id$classname$ }, object);
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update$classname$(int id, $dtoph$ $varph$)
+        public ActionResult Update$classname$(int id, $dtoph$ object)
         {
-            var $varph$FromRepo = _service.Get$classname$ById(id);
-            if ($varph$FromRepo == null)
+            var objectFromRepo = _service.Get$classname$ById(id);
+            if (objectFromRepo == null)
             {
                 return NotFound();
             }
-            $varph$FromRepo.Dump();
-            _mapper.Map($varph$, $varph$FromRepo);
-            $varph$FromRepo.Dump();
-            $varph$.Dump();
+            objectFromRepo.Dump();
+            _mapper.Map(object, objectFromRepo);
+            objectFromRepo.Dump();
+            object.Dump();
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
-            _service.Update$classname$($varph$FromRepo);
+            _service.Update$classname$(objectFromRepo);
             return NoContent();
         }
 
@@ -96,17 +96,17 @@
         {
             try
             {
-                var $varph$FromRepo = _service.Get$classname$ById(id);
-                $varph$FromRepo.Dump();
+                var objectFromRepo = _service.Get$classname$ById(id);
+                objectFromRepo.Dump();
 
-                var $varph$ToPatch = _mapper.Map<$classname$>($varph$FromRepo);
+                var objectToPatch = _mapper.Map<$classname$>(objectFromRepo);
 
-                patchDoc.ApplyTo($varph$ToPatch, ModelState);
+                patchDoc.ApplyTo(objectToPatch, ModelState);
 
-                if (!TryValidateModel($varph$ToPatch)) return ValidationProblem(ModelState);
-                _mapper.Map($varph$ToPatch, $varph$FromRepo);
-                _service.Update$classname$($varph$FromRepo);
-                $varph$FromRepo.Dump();
+                if (!TryValidateModel(objectToPatch)) return ValidationProblem(ModelState);
+                _mapper.Map(objectToPatch, objectFromRepo);
+                _service.Update$classname$(objectFromRepo);
+                objectFromRepo.Dump();
             }
             catch (HttpRequestException error)
             {
@@ -123,12 +123,12 @@
         [HttpDelete("{id}")]
         public ActionResult Delete$classname$(int id)
         {
-            var $varph$ModelFromRepo = _service.Get$classname$ById(id);
-            if ($varph$ModelFromRepo == null)
+            var objectModelFromRepo = _service.Get$classname$ById(id);
+            if (objectModelFromRepo == null)
             {
                 return NotFound();
             }
-            _service.Delete$classname$($varph$ModelFromRepo);
+            _service.Delete$classname$(objectModelFromRepo);
             return NoContent();
         }
     }
