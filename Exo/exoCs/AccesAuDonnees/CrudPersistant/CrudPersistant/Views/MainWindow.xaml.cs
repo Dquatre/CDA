@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using CrudPersistant.Controller;
 using CrudPersistant.Models;
 using CrudPersistant.Models.Data;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,38 +33,20 @@ namespace CrudPersistant.Views
     public partial class MainWindow : Window
     {
 
-        
+        public ProductsController ProductsController { get; set; } = new ProductsController();
         public MainWindow()
         {
-
-            var builder = WebApplication.CreateBuilder();
-            builder.Services.AddDbContext<ProductDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
-
-            builder.Services.AddTransient<ProductsServices>();
-
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            builder.Services.AddControllers().AddNewtonsoftJson();
-
-            builder.Services.AddControllers();
-            
-
             InitializeComponent();
-
             dgdProd.ItemsSource = CreerListe();
         }
 
-        private List<ProductDtoOut> CreerListe( )
+        private List<ProductDtoOut> CreerListe()
         {
-            List<ProductDtoOut> liste = new List<ProductDtoOut>();
+            List<ProductDtoOut> liste = (List<ProductDtoOut>)ProductsController.getAllProducts();
+            //List<ProductDtoOut> liste = new List<ProductDtoOut>();
             //@"c:\temp\Personne.json"
             return liste;
         }
 
-        private void ButtonAjout_Click(object sender, RoutedEventArgs e)
-        {
-            FenetreGestion fg = new FenetreGestion(this);
-            fg.ShowDialog();
-        }
     }
 }

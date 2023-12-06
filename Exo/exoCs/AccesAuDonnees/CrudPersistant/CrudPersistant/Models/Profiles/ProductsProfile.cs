@@ -9,12 +9,25 @@ using System.Threading.Tasks;
 
 namespace CrudPersistant.Models.Profiles
 {
-    internal class ProductsProfile : Profile
+    public class ProductsProfile
     {
-        public ProductsProfile() 
-        { 
-            CreateMap<Product, ProductDtoOut>();
-            CreateMap<ProductDtoOut, Product>();
+        public IEnumerable<ProductDtoOut> ListPocoToDto(List<Product> listProduit)
+        {
+            List<ProductDtoOut> listProdDto = new List<ProductDtoOut>();
+            foreach (var item in listProduit)
+            {
+                listProdDto.Add(PocoToDto(item));
+            }
+            return listProdDto;
+        }
+        public ProductDtoOut PocoToDto(Product produit)
+        {
+            ProductDtoOut prodDto = new ProductDtoOut();
+            prodDto.NameProduct = produit.NameProduct;
+            prodDto.Quantity = produit.Quantity;
+            prodDto.Price = produit.Price;
+            prodDto.ReleaseDate = produit.ReleaseDate;
+            return prodDto;
         }
     }
 }

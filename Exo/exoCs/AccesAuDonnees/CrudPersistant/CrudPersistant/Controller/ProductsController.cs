@@ -2,6 +2,7 @@
 using CrudPersistant.Helpers;
 using CrudPersistant.Models.Data;
 using CrudPersistant.Models.Dtos;
+using CrudPersistant.Models.Profiles;
 using CrudPersistant.Models.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -15,63 +16,63 @@ using System.Threading.Tasks;
 namespace CrudPersistant.Controller
 {
     [Route("api/[controller]")]
-    [ApiController] 
+    [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ProductsServices _service;
-        private readonly IMapper _mapper;
-        public ProductsController(ProductsServices service, IMapper mapper)
+        public ProductsServices Service { get; set; }
+        public ProductsProfile ProfileProd { get; set; }
+        public ProductsController()
         {
-            _service = service;
-            _mapper = mapper;
+            Service = new ProductsServices();
+            ProfileProd = new ProductsProfile();
         }
 
         //GET api/Products
-        [HttpGet]
-        public List<ProductDtoOut> getAllProducts()
+        [HttpGet] 
+        public IEnumerable<ProductDtoOut> getAllProducts()
         {
-            var listeProducts = _service.GetAllProducts();
-            return (List<ProductDtoOut>)_mapper.Map<IEnumerable<ProductDtoOut>>(listeProducts);
+            var listeProducts = Service.GetAllProducts();
+            return ProfileProd.ListPocoToDto((List<Product>)listeProducts);
         }
 
         //GET api/Products/{id}
         [HttpGet("{id}", Name = "GetProductById")]
-        public ActionResult<ProductDtoOut> GetProductById(int id)
+        public ProductDtoOut GetProductById(int id)
         {
-            var commandItem = _service.GetProductById(id);
+            var commandItem = Service.GetProductById(id);
             if (commandItem != null)
             {
-                return Ok(_mapper.Map<ProductDtoOut>(commandItem));
+                return ProfileProd.PocoToDto(commandItem);
             }
-            return NotFound();
+            return null;
         }
 
         //POST api/GameConsoles
-        [HttpPost]
-        public ActionResult<Product> CreateProduct(ProductDtoOut productDto)
+        /*[HttpPost]
+        public ActionResult<Product> CreateProduct(ProductDtoOut objDto)
         {
-            Product product = new Product();
-            _mapper.Map(productDto, product);
+            Product obj = new Product();
+            ProfileProd.Map(objDto, obj);
             //on ajoute l’objet à la base de données
-            _service.AddProducts(product);
+            Service.AddProducts(obj);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(GetProductById), new { Id = product.IdProduct }, product);
+            return CreatedAtRoute(nameof(GetProductById), new { Id = obj.IdProduct }, obj);
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateProduct(int id, ProductDtoOut product)
+        public ActionResult UpdateProduct(int id, ProductDtoOut obj)
         {
-            var productFromRepo = _service.GetProductById(id);
-            if (productFromRepo == null)
+            var objFromRepo = Service.GetProductById(id);
+            if (objFromRepo == null)
             {
                 return NotFound();
             }
-            productFromRepo.Dump();
-            _mapper.Map(product, productFromRepo);
-            productFromRepo.Dump();
-            product.Dump();
+            objFromRepo.Dump();
+            ProfileProd.Map(obj, objFromRepo);
+            objFromRepo.Dump();
+            obj.Dump();
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
-            _service.UpdateProduct(productFromRepo);
+            Service.UpdateProduct(objFromRepo);
             return NoContent();
         }
 
@@ -80,17 +81,17 @@ namespace CrudPersistant.Controller
         {
             try
             {
-                var productFromRepo = _service.GetProductById(id);
-                productFromRepo.Dump();
+                var objFromRepo = Service.GetProductById(id);
+                objFromRepo.Dump();
 
-                var productToPatch = _mapper.Map<Product>(productFromRepo);
+                var objToPatch = ProfileProd.Map<Product>(objFromRepo);
 
-                patchDoc.ApplyTo(productToPatch, ModelState);
+                patchDoc.ApplyTo(objToPatch, ModelState);
 
-                if (!TryValidateModel(productToPatch)) return ValidationProblem(ModelState);
-                _mapper.Map(productToPatch, productFromRepo);
-                _service.UpdateProduct(productFromRepo);
-                productFromRepo.Dump();
+                if (!TryValidateModel(objToPatch)) return ValidationProblem(ModelState);
+                ProfileProd.Map(objToPatch, objFromRepo);
+                Service.UpdateProduct(objFromRepo);
+                objFromRepo.Dump();
             }
             catch (HttpRequestException error)
             {
@@ -107,14 +108,13 @@ namespace CrudPersistant.Controller
         [HttpDelete("{id}")]
         public ActionResult DeleteProduct(int id)
         {
-            var productModelFromRepo = _service.GetProductById(id);
-            if (productModelFromRepo == null)
+            var objModelFromRepo = Service.GetProductById(id);
+            if (objModelFromRepo == null)
             {
                 return NotFound();
             }
-            _service.DeleteProduct(productModelFromRepo);
+            Service.DeleteProduct(objModelFromRepo);
             return NoContent();
-        }
+        }*/
     }
-
 }

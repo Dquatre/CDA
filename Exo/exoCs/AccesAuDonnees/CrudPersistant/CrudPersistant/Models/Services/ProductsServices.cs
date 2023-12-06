@@ -9,11 +9,10 @@ namespace CrudPersistant.Models.Services
 {
     public class ProductsServices
     {
-
-        private readonly ProductDbContext _context;
-        public ProductsServices(ProductDbContext context)
+        public ProductDbContext Context { get; set; }
+        public ProductsServices()
         {
-            _context = context;
+            Context = new ProductDbContext();
         }
 
         public void AddProducts(Product p)
@@ -22,8 +21,8 @@ namespace CrudPersistant.Models.Services
             {
                 throw new ArgumentNullException(nameof(p));
             }
-            _context.Products.Add(p);
-            _context.SaveChanges();
+            Context.Products.Add(p);
+            Context.SaveChanges();
         }
 
         public void DeleteProduct(Product p)
@@ -34,23 +33,23 @@ namespace CrudPersistant.Models.Services
                 throw new ArgumentNullException(nameof(p));
             }
             // on met à jour le context
-            _context.Products.Remove(p);
-            _context.SaveChanges();
+            Context.Products.Remove(p);
+            Context.SaveChanges();
         }
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _context.Products.ToList();
+            return Context.Products.ToList();
         }
 
         public Product GetProductById(int id)
         {
-            return _context.Products.FirstOrDefault(p => p.IdProduct == id);
+            return Context.Products.FirstOrDefault(p => p.IdProduct == id);
         }
 
         public void UpdateProduct(Product p)
         {
-            _context.SaveChanges();
+            Context.SaveChanges();
         }
 
     }

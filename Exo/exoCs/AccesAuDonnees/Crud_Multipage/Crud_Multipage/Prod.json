@@ -1,0 +1,61 @@
+{
+  "NextId": 11,
+  "Liste": [
+    {
+      "IdProduct": 1,
+      "NameProduct": "Pelle Necroutil",
+      "Price": 42.99,
+      "Quantity": 120,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 2,
+      "NameProduct": "Pelle Necroutil",
+      "Price": 42.99,
+      "Quantity": 120,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 4,
+      "NameProduct": "porte bleu",
+      "Price": 142.99,
+      "Quantity": 10,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 5,
+      "NameProduct": "manche",
+      "Price": 26.0,
+      "Quantity": 25,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 7,
+      "NameProduct": "pelle",
+      "Price": 26.45,
+      "Quantity": 564,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 8,
+      "NameProduct": "dalle",
+      "Price": 52.14,
+      "Quantity": 554,
+      "IdCategorie": 1
+    },
+    {
+      "IdProduct": 9,
+      "NameProduct": "Dynamo",
+      "Price": 5.45,
+      "Quantity": 5,
+      "IdCategorie": 2
+    },
+    {
+      "IdProduct": 10,
+      "NameProduct": "damier",
+      "Price": 45.55,
+      "Quantity": 45,
+      "IdCategorie": 2
+    }
+  ]
+}

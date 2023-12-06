@@ -2,7 +2,7 @@
 <CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Models Services</Title>
+			<Title>Controller</Title>
 			<Shortcut>controller</Shortcut>
 			<Description>Service template for ASP.NET Core</Description>
 			<Author>DIV</Author>
@@ -12,6 +12,11 @@
 		</Header>
 		<Snippet>
 			<Declarations>
+                <Literal Editable="true">
+				    <ID>rootfilename</ID>
+				    <ToolTip>root file name</ToolTip>
+				    <Default>RootFilePlaceholder</Default>
+			    </Literal>
 			    <Literal Editable="true">
 				    <ID>classname</ID>
 				    <ToolTip>Class name</ToolTip>
@@ -22,14 +27,25 @@
 					<Default>DTOPlaceholder</Default>
 					<ToolTip>DTO name</ToolTip>
 				</Literal>
-                <Literal Editable="true">
-					<ID>varph</ID>
-					<Default>varPlaceholder</Default>
-					<ToolTip>Poco name</ToolTip>
-				</Literal>
 			</Declarations>
 			<Code Language="csharp">
 				<![CDATA[
+using AutoMapper;
+using $rootfilename$.Helpers;
+using $rootfilename$.Models.Data;
+using $rootfilename$.Models.Dtos;
+using $rootfilename$.Models.Services;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace $rootfilename$.Controller
+{
 	[Route("api/[controller]")]
     [ApiController]
     public class $classname$sController : ControllerBase
@@ -64,30 +80,30 @@
 
         //POST api/GameConsoles
         [HttpPost]
-        public ActionResult<$classname$> Create$classname$($dtoph$ objectDto)
+        public ActionResult<$classname$> Create$classname$($dtoph$ objDto)
         {
-            $classname$ object = new $classname$() ;
-            _mapper.Map(objectDto, object);
+            $classname$ obj = new $classname$() ;
+            _mapper.Map(objDto, obj);
             //on ajoute l’objet à la base de données
-            _service.Add$classname$s(object);
+            _service.Add$classname$s(obj);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(Get$classname$ById), new { Id = object.Id$classname$ }, object);
+            return CreatedAtRoute(nameof(Get$classname$ById), new { Id = obj.Id$classname$ }, obj);
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update$classname$(int id, $dtoph$ object)
+        public ActionResult Update$classname$(int id, $dtoph$ obj)
         {
-            var objectFromRepo = _service.Get$classname$ById(id);
-            if (objectFromRepo == null)
+            var objFromRepo = _service.Get$classname$ById(id);
+            if (objFromRepo == null)
             {
                 return NotFound();
             }
-            objectFromRepo.Dump();
-            _mapper.Map(object, objectFromRepo);
-            objectFromRepo.Dump();
-            object.Dump();
+            objFromRepo.Dump();
+            _mapper.Map(obj, objFromRepo);
+            objFromRepo.Dump();
+            obj.Dump();
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
-            _service.Update$classname$(objectFromRepo);
+            _service.Update$classname$(objFromRepo);
             return NoContent();
         }
 
@@ -96,17 +112,17 @@
         {
             try
             {
-                var objectFromRepo = _service.Get$classname$ById(id);
-                objectFromRepo.Dump();
+                var objFromRepo = _service.Get$classname$ById(id);
+                objFromRepo.Dump();
 
-                var objectToPatch = _mapper.Map<$classname$>(objectFromRepo);
+                var objToPatch = _mapper.Map<$classname$>(objFromRepo);
 
-                patchDoc.ApplyTo(objectToPatch, ModelState);
+                patchDoc.ApplyTo(objToPatch, ModelState);
 
-                if (!TryValidateModel(objectToPatch)) return ValidationProblem(ModelState);
-                _mapper.Map(objectToPatch, objectFromRepo);
-                _service.Update$classname$(objectFromRepo);
-                objectFromRepo.Dump();
+                if (!TryValidateModel(objToPatch)) return ValidationProblem(ModelState);
+                _mapper.Map(objToPatch, objFromRepo);
+                _service.Update$classname$(objFromRepo);
+                objFromRepo.Dump();
             }
             catch (HttpRequestException error)
             {
@@ -123,15 +139,16 @@
         [HttpDelete("{id}")]
         public ActionResult Delete$classname$(int id)
         {
-            var objectModelFromRepo = _service.Get$classname$ById(id);
-            if (objectModelFromRepo == null)
+            var objModelFromRepo = _service.Get$classname$ById(id);
+            if (objModelFromRepo == null)
             {
                 return NotFound();
             }
-            _service.Delete$classname$(objectModelFromRepo);
+            _service.Delete$classname$(objModelFromRepo);
             return NoContent();
         }
     }
+}
 				]]>
 			</Code>
 		</Snippet>

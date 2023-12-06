@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CrudPersistant.Views"
         mc:Ignorable="d"
-        Title="Qui l'u crud" Height="450" Width="400">
+        Title="qui l'us CRUD" Height="700" Width="800" MinWidth="400" MinHeight="700" MaxHeight="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,36 +19,28 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="32*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="16*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10px"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="10px"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="10px"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgdProd" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
+        <DataGrid x:Name="dgdProd" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" Binding="{Binding NameProduct}" Width="*"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding NameProduct}" Width="2*"/>
                 <DataGridTextColumn Header="Prix" Binding="{Binding Price}" Width="*"/>
                 <DataGridTextColumn Header="Quantité" Binding="{Binding Quantity}" Width="*"/>
                 <DataGridTextColumn Header="Date de Sortie" Binding="{Binding ReleaseDate}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Column="1" Content="Ajouter"  Grid.Row="3" Background="#FF41A26E" Click="ButtonAjout_Click" >
-            <Button.BorderBrush>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF276946" Offset="1"/>
-                    <GradientStop Color="#FF41A46F" Offset="0.98"/>
-                    <GradientStop Color="#FF41A46F " Offset="0.02"/>
-                    <GradientStop Color="#FF68C895"/>
-                </LinearGradientBrush>
-            </Button.BorderBrush>
-        </Button>
-        <Button Grid.Column="3" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" >
+        <Button Grid.Column="4" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" >
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6D1A1A" Offset="1"/>
@@ -58,5 +50,55 @@
                 </LinearGradientBrush>
             </Button.BorderBrush>
         </Button>
+        <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="100px"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="100px"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="40px"/>
+            </Grid.RowDefinitions>
+            <Label Content="Annuler" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="16" Grid.Column="2"  Grid.Row="4"/>
+            <Button Grid.Column="4" Content="Valider"  Grid.Row="10" Background="#FF419568" FontFamily="Arial" FontSize="16"   >
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF276946" Offset="1"/>
+                        <GradientStop Color="#FF419568" Offset="0.97"/>
+                        <GradientStop Color="#FF419568" Offset="0.03"/>
+                        <GradientStop Color="#FF46C783"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+
+            </Button>
+            <Grid Grid.Column="1" Grid.ColumnSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Nom" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" />
+                <TextBox x:Name="txtName" Grid.Row="1" FontFamily="Arial" FontSize="14" VerticalContentAlignment="Center" Grid.ColumnSpan="5" />
+                <Label Content="Prix" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Row="2"  />
+                <TextBox x:Name="txtPrix" Grid.Row="3" FontFamily="Arial" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Quantité" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Column="2" Grid.Row="2" />
+                <TextBox x:Name="cbCat" Grid.Column="2"  Grid.Row="3" FontFamily="Arial" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Date de sortie" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Column="4" Grid.Row="2" />
+                <DatePicker x:Name="dpReleseDate" VerticalAlignment="Center" Grid.Column="4"  Grid.Row="3" FontFamily="Arial" FontSize="14" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

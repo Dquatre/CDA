@@ -1,0 +1,73 @@
+﻿<Window x:Class="Crud_Multipage.Gestion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crud_Multipage"
+        mc:Ignorable="d"
+        Title="Gestion" Height="300" Width="500"
+        ResizeMode="NoResize"
+        >
+    <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCDD0E4"/>
+                <GradientStop Color="#FF161E4C" Offset="1"/>
+                <GradientStop Color="#FF4356C1" Offset="0.98"/>
+                <GradientStop Color="#FFA9B0DD" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Annuler" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="16" Grid.Column="2"  Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}" Click="annuler_Click"/>
+        <Button x:Name="btnVal" Grid.Column="4" Content="Valider"  Grid.Row="2" Background="#FF419568" FontFamily="Arial" FontSize="16"   Click="valider_Click">
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF276946" Offset="1"/>
+                    <GradientStop Color="#FF419568" Offset="0.97"/>
+                    <GradientStop Color="#FF419568" Offset="0.03"/>
+                    <GradientStop Color="#FF46C783"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+
+        </Button>
+        <Grid Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="idProduct" Visibility="Hidden"/>
+            <Label Content="Nom" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" />
+            <TextBox x:Name="txtName" Grid.Row="1" FontFamily="Arial" FontSize="14" VerticalContentAlignment="Center" Grid.ColumnSpan="5" TextChanged="txtName_TextChanged" />
+            <Label Content="Prix" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Row="2"  />
+            <TextBox x:Name="txtPrice" Grid.Row="3" FontFamily="Arial" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" TextChanged="txtPrice_TextChanged"/>
+            <Label Content="Quantité" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Column="2" Grid.Row="2" />
+            <TextBox x:Name="txtQuatity" Grid.Column="2"  Grid.Row="3" FontFamily="Arial" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" TextChanged="txtQuatity_TextChanged"/>
+            <Label Content="Categorie" VerticalAlignment="Bottom" FontFamily="Arial" FontSize="14" Grid.Column="4" Grid.Row="2" />
+            <ComboBox x:Name="cbxCat" Grid.Column="4"  Grid.Row="3" FontFamily="Arial" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+
+        </Grid>
+    </Grid>
+</Window>
