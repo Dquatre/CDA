@@ -1,6 +1,4 @@
-﻿using CrudWithBdd.Controller;
-using CrudWithBdd.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfCrud01.Controller;
+using WpfCrud01.Models;
+using WpfCrud01.Models.Services;
 
-namespace CrudWithBdd
+namespace WpfCrud01
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ComplexDbContext _context;
-        private BatimentsController _controller;
+        private LivreDbContext _context;
+        private LivresController _controller;
         public MainWindow()
         {
             InitializeComponent();
-            _context = new ComplexDbContext();
-            _controller = new BatimentsController(_context);
-            dtgSalle.ItemsSource = _controller.getAllBatiments();
+            _context = new LivreDbContext();
+            _controller = new LivresController(_context);
+            dtgCentre.ItemsSource = _controller.GetAllLivres();
         }
     }
 }

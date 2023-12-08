@@ -11,7 +11,7 @@ Affichage -> Autres fenetres -> Console du gestionnaire de package
 Commande scaffold:
 
 Scaffold-DbContext -Connection Name=Default -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context PlatformDbContext -ContextDir ./Models
-Scaffold-DbContext -Connection "Server=localhost;Database=produitdb;User=root;Password=;port=3306;ssl mode=none" -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context ProductDbContext -ContextDir ./Models
+Scaffold-DbContext -Connection "Server=localhost;Database=complexdb;User=root;Password=;port=3306;ssl mode=none" -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context ComplexDbContext -ContextDir ./Models
 
 
 CREATE TABLE platforms(

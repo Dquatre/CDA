@@ -25,4 +25,10 @@
 		<PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Models\Dtos\" />
+	  <Folder Include="Models\Profiles\" />
+	  <Folder Include="Models\Services\NewFolder\" />
+	</ItemGroup>
+
 </Project>
