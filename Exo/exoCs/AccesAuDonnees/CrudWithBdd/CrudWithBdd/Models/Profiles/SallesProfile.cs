@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace CrudWithBdd.Models.Profiles
 {
-    public class BatimentsProfile : Profile
+    public class SallesProfile : Profile
     {
-        public BatimentsProfile() 
-        { 
-            CreateMap<Salle, BatimentsDtoOut>();
-            CreateMap<BatimentsDtoOut, Salle>();
+        public SallesProfile() 
+        {
+            CreateMap<Salle, SallesDtoOut>();
+            CreateMap<SallesDtoOut, Salle>();
         }
     }
 }

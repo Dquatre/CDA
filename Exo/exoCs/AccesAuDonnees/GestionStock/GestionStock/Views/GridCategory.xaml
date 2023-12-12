@@ -1,11 +1,11 @@
-﻿<Window x:Class="WpfCrud01.MainWindow"
+﻿<Window x:Class="GestionStock.Views.GridCategory"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfCrud01"
+        xmlns:local="clr-namespace:GestionStock.Views"
         mc:Ignorable="d"
-                Title="qui l'us CRUD" Height="400" Width="600" MinWidth="400" MinHeight="200">
+                Title="qui l'us CRUD" Height="400" Width="600" MinWidth="100" MinHeight="200">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,13 +24,18 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10px"/>
-            <ColumnDefinition Width="1*"/>
+
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="1*"/>
+
+            <ColumnDefinition Width="200px"/>
+            <ColumnDefinition Width="20px"/>
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="False"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
+        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="false"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
@@ -39,13 +44,25 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Titre" Binding="{Binding TitreLivre}" Width="2*"/>
-                <DataGridTextColumn Header="Auteur" Binding="{Binding Auteur}" Width="*"/>
-                <DataGridTextColumn Header="Editeur" Binding="{Binding Editeur}" Width="*"/>
-                <DataGridTextColumn Header="Nombre de page" Binding="{Binding NombrePage}" Width="*"/>
+                <DataGridTextColumn Header="Libelle" Binding="{Binding LibelleCategorie}" Width="*"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding LibelleTypeProduit}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnAjouter"  Grid.Column="2" Content="Ajouter"  Grid.Row="3" Background="#FF419568" FontFamily="Arial" FontSize="16" Click="ButtonAction_Click" >
+
+        <Button x:Name="btnFermer"  Grid.Column="7" Content="Fermer"  Grid.Row="3" FontFamily="Arial" FontSize="16" Click="ButtonGestTpProd_Click" Background="#FFA194D2" BorderBrush="{x:Null}" />
+
+        <Button x:Name="btnAjCat"  Grid.Column="5" Content="Gestion types de produits"  Grid.Row="3" FontFamily="Arial" FontSize="16" Click="ButtonGestTpProd_Click" Background="#FFFFBB00" >
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAF7205" Offset="1"/>
+                    <GradientStop Color="#FFFFBB00" Offset="0.97"/>
+                    <GradientStop Color="#FFFFBB00" Offset="0.03"/>
+                    <GradientStop Color="#FFFFDA98"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+        </Button>
+
+        <Button x:Name="btnAjouter"  Grid.Column="1" Content="Ajouter"  Grid.Row="3" Background="#FF419568" FontFamily="Arial" FontSize="16" Click="ButtonAction_Click" >
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF276946" Offset="1"/>
@@ -54,9 +71,8 @@
                     <GradientStop Color="#FF46C783"/>
                 </LinearGradientBrush>
             </Button.BorderBrush>
-
         </Button>
-        <Button x:Name="btnSuppr" Grid.Column="4" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" IsEnabled="False" Click="ButtonAction_Click">
+        <Button x:Name="btnSuppr" Grid.Column="3" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" IsEnabled="False" Click="ButtonAction_Click">
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6D1A1A" Offset="1"/>

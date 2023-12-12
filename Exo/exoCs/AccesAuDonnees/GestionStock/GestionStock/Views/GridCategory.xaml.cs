@@ -1,8 +1,8 @@
 ﻿using GestionStock.Controller;
 using GestionStock.Models;
 using GestionStock.Models.Dtos;
-using GestionStock.Views;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,53 +15,56 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GestionStock
+namespace GestionStock.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logique d'interaction pour GridCategory.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GridCategory : Window
     {
         private GestionStockDbContext _context;
-        private ArticlesController _controller;
-        public MainWindow()
+        private CategoriesController _controller;
+
+        public GridCategory(GestionStockDbContext context)
         {
             InitializeComponent();
-            _context = new GestionStockDbContext();
-            _controller = new ArticlesController(_context);
+            _context = context;
+            _controller = new CategoriesController(_context);
+
             FillGrid();
+
         }
         private void FillGrid()
         {
-            dtgCentre.ItemsSource = _controller.GetAllArticles();
+            dtgCentre.ItemsSource = _controller.GetAllCategories();
         }
+
 
         private void ButtonAction_Click(object sender, RoutedEventArgs e)
         {
-            ArticlesDtoOut itemDto;
+            CategoriesDtoOut itemDto;
 
             if (((Button)sender).Name == "btnAjouter")
             {
-                itemDto = new ArticlesDtoOut();
+                itemDto = new CategoriesDtoOut();
             }
             else
             {
-                itemDto = (ArticlesDtoOut)dtgCentre.SelectedItem;
+                itemDto = (CategoriesDtoOut)dtgCentre.SelectedItem;
             }
 
-            Window w = new GestionArticle(itemDto, this, (string)((Button)sender).Content, _controller, _context);
+            Window w = new GestionCategory(itemDto, this, (string)((Button)sender).Content, _controller, _context);
             w.ShowDialog();
             FillGrid();
         }
 
         private void Row_DoubleClick(object sender, EventArgs e)
         {
-            ArticlesDtoOut itemDto = (ArticlesDtoOut)((DataGridRow)sender).Item;
+            CategoriesDtoOut itemDto = (CategoriesDtoOut)((DataGridRow)sender).Item;
 
-            Window w = new GestionArticle(itemDto, this, "Modifier", _controller, _context);
+            Window w = new GestionCategory(itemDto, this, "Modifier", _controller,_context);
             w.ShowDialog();
             FillGrid();
         }
@@ -74,11 +77,9 @@ namespace GestionStock
             btnSuppr.IsEnabled = false;
         }
 
-        private void ButtonGestCat_Click(object sender, RoutedEventArgs e)
+        private void ButtonGestTpProd_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new GridCategory(_context);
-            w.ShowDialog();
-            FillGrid();
+            this.Close();
         }
     }
 }

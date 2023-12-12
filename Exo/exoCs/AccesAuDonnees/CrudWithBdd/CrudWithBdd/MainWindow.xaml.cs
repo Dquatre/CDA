@@ -23,13 +23,15 @@ namespace CrudWithBdd
     public partial class MainWindow : Window
     {
         private ComplexDbContext _context;
-        private BatimentsController _controller;
+        private BatimentsController _batimentController;
+        private SallesController _salleController;
         public MainWindow()
         {
             InitializeComponent();
             _context = new ComplexDbContext();
-            _controller = new BatimentsController(_context);
-            dtgSalle.ItemsSource = _controller.getAllBatiments();
+            _batimentController = new BatimentsController(_context);
+            _salleController = new SallesController(_context);
+            dtgSalle.ItemsSource = _salleController.getAllSalles();
         }
     }
 }

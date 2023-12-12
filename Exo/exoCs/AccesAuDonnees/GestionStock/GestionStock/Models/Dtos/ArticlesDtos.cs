@@ -17,19 +17,21 @@ namespace GestionStock.Models.Dtos
 
         public int IdCategorie { get; set; }
 
-        public virtual Category TheCategory { get; set; } = null!;
+        public String LibelleCategorie { get; set; }
+
+       
 
         public ArticlesDtoOut()
         {
         }
 
-        public ArticlesDtoOut(int idArticle, string libelleArticle, int quantiteStockee, int idCategorie, Category theCategory)
+        public ArticlesDtoOut(int idArticle, string libelleArticle, int quantiteStockee, int idCategorie)
         {
             IdArticle = idArticle;
             LibelleArticle = libelleArticle;
             QuantiteStockee = quantiteStockee;
             IdCategorie = idCategorie;
-            TheCategory = theCategory;
         }
     }
+
 }

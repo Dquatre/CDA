@@ -16,7 +16,7 @@ namespace CrudWithBdd.Models.Services
             _context = context;
         }
 
-        public void AddBatiments(Batiment p)
+        public void AddBatiments(Salle p)
         {
             if (p == null)
             {
@@ -26,7 +26,7 @@ namespace CrudWithBdd.Models.Services
             _context.SaveChanges();
         }
 
-        public void DeleteBatiment(Batiment p)
+        public void DeleteBatiment(Salle p)
         {
             //si l'objet personne est null, on renvoi une exception
             if (p == null)
@@ -38,17 +38,17 @@ namespace CrudWithBdd.Models.Services
             _context.SaveChanges();
         }
 
-        public IEnumerable<Batiment> GetAllBatiments()
+        public IEnumerable<Salle> GetAllBatiments()
         {
             return _context.Batiments.ToList();
         }
 
-        public Batiment GetBatimentById(int id)
+        public Salle GetBatimentById(int id)
         {
             return _context.Batiments.FirstOrDefault(p => p.IdBatiment == id);
         }
 
-        public void UpdateBatiment(Batiment p)
+        public void UpdateBatiment(Salle p)
         {
             _context.SaveChanges();
         }

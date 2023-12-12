@@ -13,8 +13,8 @@ namespace GestionStock.Models.Profiles
     {
         public TypesproduitsProfiles() 
         {
-            CreateMap<Typesproduit, TypesproduitsDtos>();
-            CreateMap<TypesproduitsDtos, Typesproduit>();
+            CreateMap<Typesproduit, TypesproduitsDtoOut>();
+            CreateMap<TypesproduitsDtoOut, Typesproduit>();
 
         }
     }

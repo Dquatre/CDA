@@ -1,4 +1,5 @@
 ﻿using GestionStock.Models.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace GestionStock.Models.Services
 
         public IEnumerable<Category> GetAllCategorys()
         {
-            return _context.Categories.ToList();
+            return _context.Categories.Include("TheTypesproduit").ToList();
         }
 
         public Category GetCategoryById(int id)

@@ -47,41 +47,34 @@ namespace WpfCrud01.Controller
         }
 
 
-        public ActionResult<LivresDtoOut> CreateLivre(LivresDtoOut LivreDTO)
+        public void CreateLivre(LivresDtoOut LivreDTO)
         {
             Livre LivrePOCO = _mapper.Map<Livre>(LivreDTO);
             //on ajoute l’objet à la base de données
             _service.AddLivres(LivrePOCO);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(GetLivreById), new { Id = LivrePOCO.IdLivre }, LivrePOCO);
-
         }
 
 
-        public ActionResult UpdateLivre(int id, LivresDtoOut Livre)
+        public void UpdateLivre(int id, LivresDtoOut Livre)
         {
             var LivreFromRepo = _service.GetLivreById(id);
-            if (LivreFromRepo == null)
+            if (LivreFromRepo != null)
             {
-                return NotFound();
-            }
-            _mapper.Map(Livre, LivreFromRepo);
+                _mapper.Map(Livre, LivreFromRepo);
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
-            _service.UpdateLivre(LivreFromRepo);
-
-            return NoContent();
+                 _service.UpdateLivre(LivreFromRepo); 
+            }
+            
         }
 
-        public ActionResult DeleteLivre(int id)
+        public void DeleteLivre(int id)
         {
             var LivreModelFromRepo = _service.GetLivreById(id);
-            if (LivreModelFromRepo == null)
+            if (LivreModelFromRepo != null)
             {
-                return NotFound();
+                _service.DeleteLivre(LivreModelFromRepo);
             }
-            _service.DeleteLivre(LivreModelFromRepo);
-
-            return NoContent();
         }
 
     }

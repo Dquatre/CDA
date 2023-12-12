@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestionStock.Models.Dtos
 {
-    public class TypesproduitsDtos
+    public class TypesproduitsDtoOut
     {
         public int IdTypeProduit { get; set; }
 
@@ -15,14 +15,14 @@ namespace GestionStock.Models.Dtos
 
         public virtual ICollection<Category> ListCategories { get; set; } = new List<Category>();
 
-        public TypesproduitsDtos(int idTypeProduit, string libelleTypeProduit, ICollection<Category> listCategories)
+        public TypesproduitsDtoOut(int idTypeProduit, string libelleTypeProduit, ICollection<Category> listCategories)
         {
             IdTypeProduit = idTypeProduit;
             LibelleTypeProduit = libelleTypeProduit;
             ListCategories = listCategories;
         }
 
-        public TypesproduitsDtos()
+        public TypesproduitsDtoOut()
         {
         }
     }

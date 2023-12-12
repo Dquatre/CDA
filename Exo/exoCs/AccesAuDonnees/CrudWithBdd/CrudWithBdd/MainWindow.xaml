@@ -30,7 +30,7 @@
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dtgSalle" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
+        <DataGrid x:Name="dtgSalle" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
             <DataGrid.Resources>
             </DataGrid.Resources>
             

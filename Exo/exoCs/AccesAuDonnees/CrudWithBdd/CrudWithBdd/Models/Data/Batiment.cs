@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CrudWithBdd.Models.Data;
 
-public partial class Batiment
+public partial class Salle
 {
     public int IdBatiment { get; set; }
 

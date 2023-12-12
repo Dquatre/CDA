@@ -13,7 +13,7 @@ public partial class Salle
 
     public int NombrePlace { get; set; }
 
-    public int IdBatiment { get; set; }
+    public int IdBatimentSalle { get; set; }
 
-    public virtual Batiment IdBatimentNavigation { get; set; } = null!;
+    public virtual Salle IdBatimentNavigation { get; set; } = null!;
 }

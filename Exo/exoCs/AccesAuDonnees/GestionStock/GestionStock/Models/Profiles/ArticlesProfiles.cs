@@ -13,7 +13,7 @@ namespace GestionStock.Models.Profiles
     {
         public ArticlesProfiles() 
         {
-            CreateMap<Article, ArticlesDtoOut>();
+            CreateMap<Article, ArticlesDtoOut>().ForMember(aDto => aDto.LibelleCategorie, option => option.MapFrom(a => a.TheCategory.LibelleCategorie));
             CreateMap<ArticlesDtoOut, Article>();
         }
     }

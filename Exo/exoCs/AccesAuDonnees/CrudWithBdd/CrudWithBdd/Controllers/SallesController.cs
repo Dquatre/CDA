@@ -15,66 +15,65 @@ using System.Threading.Tasks;
 
 namespace CrudWithBdd.Controller
 {
-    public class BatimentsController : ControllerBase
+    public class SallesController : ControllerBase
     {
-        private readonly BatimentsServices _service;
+        private readonly SallesServices _service;
         private readonly IMapper _mapper;
-        public BatimentsController(ComplexDbContext context)
+        public SallesController(ComplexDbContext context)
         {
-            _service = new BatimentsServices(context);
+            _service = new SallesServices(context);
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<BatimentsProfile>();
                 cfg.AddProfile<SallesProfile>();
             });
             _mapper = config.CreateMapper();
         }
 
-        public IEnumerable<BatimentsDtoOut> getAllBatiments()
+        public IEnumerable<SallesDtoOut> getAllSalles()
         {
-            var listeBatiments = _service.GetAllBatiments();
-            return _mapper.Map<IEnumerable<BatimentsDtoOut>>(listeBatiments);
+            var listeSalles = _service.GetAllSalles();
+            return _mapper.Map<IEnumerable<SallesDtoOut>>(listeSalles);
         }
 
 
-        public ActionResult<BatimentsDtoOut> GetBatimentById(int id)
+        public ActionResult<SallesDtoOut> GetSalleById(int id)
         {
-            var commandItem = _service.GetBatimentById(id);
+            var commandItem = _service.GetSalleById(id);
             if (commandItem != null)
             {
-                return Ok(_mapper.Map<BatimentsDtoOut>(commandItem));
+                return Ok(_mapper.Map<SallesDtoOut>(commandItem));
             }
             return NotFound();
         }
 
-        public ActionResult<Salle> CreateBatiment(BatimentsDtoOut objDto)
+        public ActionResult<Salle> CreateSalle(SallesDtoOut objDto)
         {
             Salle obj = new Salle();
             _mapper.Map(objDto, obj);
             //on ajoute l’objet à la base de données
-            _service.AddBatiments(obj);
+            _service.AddSalles(obj);
             //on retourne le chemin de findById avec l'objet créé
-            return CreatedAtRoute(nameof(GetBatimentById), new { Id = obj.IdBatiment }, obj);
+            return CreatedAtRoute(nameof(GetSalleById), new { Id = obj.IdSalle }, obj);
         }
 
-        public ActionResult UpdateBatiment(int id, BatimentsDtoOut obj)
+        public ActionResult UpdateSalle(int id, SallesDtoOut obj)
         {
-            var objFromRepo = _service.GetBatimentById(id);
+            var objFromRepo = _service.GetSalleById(id);
             if (objFromRepo == null)
             {
                 return NotFound();
             }
             _mapper.Map(obj, objFromRepo);
             // inutile puisque la fonction ne fait rien, mais garde la cohérence
-            _service.UpdateBatiment(objFromRepo);
+            _service.UpdateSalle(objFromRepo);
             return NoContent();
         }
 
-        public ActionResult PartialBatimentUpdate(int id, JsonPatchDocument<Salle> patchDoc)
+        public ActionResult PartialSalleUpdate(int id, JsonPatchDocument<Salle> patchDoc)
         {
             try
             {
-                var objFromRepo = _service.GetBatimentById(id);
+                var objFromRepo = _service.GetSalleById(id);
 
                 var objToPatch = _mapper.Map<Salle>(objFromRepo);
 
@@ -82,7 +81,7 @@ namespace CrudWithBdd.Controller
 
                 if (!TryValidateModel(objToPatch)) return ValidationProblem(ModelState);
                 _mapper.Map(objToPatch, objFromRepo);
-                _service.UpdateBatiment(objFromRepo);
+                _service.UpdateSalle(objFromRepo);
             }
             catch (HttpRequestException error)
             {
@@ -96,14 +95,14 @@ namespace CrudWithBdd.Controller
         }
 
 
-        public ActionResult DeleteBatiment(int id)
+        public ActionResult DeleteSalle(int id)
         {
-            var objModelFromRepo = _service.GetBatimentById(id);
+            var objModelFromRepo = _service.GetSalleById(id);
             if (objModelFromRepo == null)
             {
                 return NotFound();
             }
-            _service.DeleteBatiment(objModelFromRepo);
+            _service.DeleteSalle(objModelFromRepo);
             return NoContent();
         }
     }

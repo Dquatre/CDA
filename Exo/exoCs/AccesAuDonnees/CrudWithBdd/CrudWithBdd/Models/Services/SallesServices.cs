@@ -1,33 +1,32 @@
-﻿using GestionStock.Models.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using CrudWithBdd.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionStock.Models.Services
+namespace CrudWithBdd.Models.Services
 {
-    public class ArticlesServices
+    public class SallesServices
     {
 
-        private readonly GestionStockDbContext _context;
-        public ArticlesServices(GestionStockDbContext context)
+        private readonly ComplexDbContext _context;
+        public SallesServices(ComplexDbContext context)
         {
             _context = context;
         }
 
-        public void AddArticles(Article p)
+        public void AddSalles(Salle p)
         {
             if (p == null)
             {
                 throw new ArgumentNullException(nameof(p));
             }
-            _context.Articles.Add(p);
+            _context.Salles.Add(p);
             _context.SaveChanges();
         }
 
-        public void DeleteArticle(Article p)
+        public void DeleteSalle(Salle p)
         {
             //si l'objet personne est null, on renvoi une exception
             if (p == null)
@@ -35,21 +34,21 @@ namespace GestionStock.Models.Services
                 throw new ArgumentNullException(nameof(p));
             }
             // on met à jour le context
-            _context.Articles.Remove(p);
+            _context.Salles.Remove(p);
             _context.SaveChanges();
         }
 
-        public IEnumerable<Article> GetAllArticles()
+        public IEnumerable<Salle> GetAllSalles()
         {
-            return _context.Articles.Include("TheCategory").ToList();
+            return _context.Salles.ToList();
         }
 
-        public Article GetArticleById(int id)
+        public Salle GetSalleById(int id)
         {
-            return _context.Articles.FirstOrDefault(p => p.IdArticle == id);
+            return _context.Salles.FirstOrDefault(p => p.IdSalle == id);
         }
 
-        public void UpdateArticle(Article p)
+        public void UpdateSalle(Salle p)
         {
             _context.SaveChanges();
         }

@@ -16,7 +16,7 @@ public partial class ComplexDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Batiment> Batiments { get; set; }
+    public virtual DbSet<Salle> Batiments { get; set; }
 
     public virtual DbSet<Salle> Salles { get; set; }
 
@@ -25,7 +25,7 @@ public partial class ComplexDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Batiment>(entity =>
+        modelBuilder.Entity<Salle>(entity =>
         {
             entity.HasKey(e => e.IdBatiment).HasName("PRIMARY");
 
@@ -45,13 +45,13 @@ public partial class ComplexDbContext : DbContext
 
             entity.ToTable("salle");
 
-            entity.HasIndex(e => e.IdBatiment, "idBatiment");
+            entity.HasIndex(e => e.IdBatimentSalle, "idBatiment");
 
             entity.Property(e => e.IdSalle).HasColumnType("int(11)");
             entity.Property(e => e.CodeSalle)
                 .HasMaxLength(50)
                 .HasColumnName("codeSalle");
-            entity.Property(e => e.IdBatiment)
+            entity.Property(e => e.IdBatimentSalle)
                 .HasColumnType("int(11)")
                 .HasColumnName("idBatiment");
             entity.Property(e => e.NombrePlace)

@@ -15,17 +15,14 @@ namespace GestionStock.Models.Dtos
 
         public int IdTypeProduit { get; set; }
 
-        public virtual ICollection<Article> ListArticles { get; set; } = new List<Article>();
+        public String LibelleTypeProduit { get; set; }
 
-        public virtual Typesproduit TheTypesproduit { get; set; } = null!;
 
-        public CategoriesDtoOut(int idCategorie, string libelleCategorie, int idTypeProduit, ICollection<Article> listArticles, Typesproduit theTypesproduit)
+        public CategoriesDtoOut(int idCategorie, string libelleCategorie, int idTypeProduit)
         {
             IdCategorie = idCategorie;
             LibelleCategorie = libelleCategorie;
             IdTypeProduit = idTypeProduit;
-            ListArticles = listArticles;
-            TheTypesproduit = theTypesproduit;
         }
 
         public CategoriesDtoOut()

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionStock"
         mc:Ignorable="d"
-                Title="qui l'us CRUD" Height="400" Width="600" MinWidth="400" MinHeight="200">
+        Title="qui l'us CRUD" Height="400" Width="800" MinWidth="500" MinHeight="200">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,13 +24,15 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10px"/>
-            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
             <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="20px"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="150px"/>
             <ColumnDefinition Width="10px"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="False"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" >
+        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="false"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8" Background="White" >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
@@ -39,13 +41,26 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Titre" Binding="{Binding TitreLivre}" Width="2*"/>
-                <DataGridTextColumn Header="Auteur" Binding="{Binding Auteur}" Width="*"/>
-                <DataGridTextColumn Header="Editeur" Binding="{Binding Editeur}" Width="*"/>
-                <DataGridTextColumn Header="Nombre de page" Binding="{Binding NombrePage}" Width="*"/>
+                <DataGridTextColumn Header="Libelle" Binding="{Binding LibelleArticle}" Width="3*"/>
+                <DataGridTextColumn Header="Nombre en stock" Binding="{Binding QuantiteStockee}" Width="*"/>
+                <DataGridTextColumn Header="Catégorie" Binding="{Binding LibelleCategorie}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnAjouter"  Grid.Column="2" Content="Ajouter"  Grid.Row="3" Background="#FF419568" FontFamily="Arial" FontSize="16" Click="ButtonAction_Click" >
+
+
+
+        <Button x:Name="btnAjCat"  Grid.Column="6" Content="Gestion Categorie"  Grid.Row="3" FontFamily="Arial" FontSize="16" Click="ButtonGestCat_Click" Background="#FFFFBB00" >
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAF7205" Offset="1"/>
+                    <GradientStop Color="#FFFFBB00" Offset="0.97"/>
+                    <GradientStop Color="#FFFFBB00" Offset="0.03"/>
+                    <GradientStop Color="#FFFFDA98"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+        </Button>
+
+        <Button x:Name="btnAjouter"  Grid.Column="1" Content="Ajouter"  Grid.Row="3" Background="#FF419568" FontFamily="Arial" FontSize="16" Click="ButtonAction_Click" >
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF276946" Offset="1"/>
@@ -54,9 +69,8 @@
                     <GradientStop Color="#FF46C783"/>
                 </LinearGradientBrush>
             </Button.BorderBrush>
-
         </Button>
-        <Button x:Name="btnSuppr" Grid.Column="4" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" IsEnabled="False" Click="ButtonAction_Click">
+        <Button x:Name="btnSuppr" Grid.Column="3" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" IsEnabled="False" Click="ButtonAction_Click">
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6D1A1A" Offset="1"/>

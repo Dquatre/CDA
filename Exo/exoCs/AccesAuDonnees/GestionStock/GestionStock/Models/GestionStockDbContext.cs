@@ -42,7 +42,7 @@ public partial class GestionStockDbContext : DbContext
 
             entity.HasOne(d => d.TheCategory).WithMany(p => p.ListArticles)
                 .HasForeignKey(d => d.IdCategorie)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Articles_Categories");
         });
 
@@ -60,7 +60,7 @@ public partial class GestionStockDbContext : DbContext
 
             entity.HasOne(d => d.TheTypesproduit).WithMany(p => p.ListCategories)
                 .HasForeignKey(d => d.IdTypeProduit)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Categories_TypesProduits");
         });
 
