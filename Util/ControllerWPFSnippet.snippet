@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>ControllerWPF</Title>
+			<Shortcut>cntrwpf</Shortcut>
+			<Description>Service template for ASP.NET Core</Description>
+			<Author>DIV</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+                <Literal Editable="true">
+				    <ID>rootfilename</ID>
+				    <ToolTip>root file name</ToolTip>
+				    <Default>RootFilePlaceholder</Default>
+			    </Literal>
+			    <Literal Editable="true">
+				    <ID>classname</ID>
+				    <ToolTip>Class name</ToolTip>
+				    <Default>ClassNamePlaceholder</Default>
+			    </Literal>
+				<Literal Editable="true">
+					<ID>dtoph</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using $rootfilename$.Models;
+using $rootfilename$.Models.Data;
+using $rootfilename$.Models.Dtos;
+using $rootfilename$.Models.Profiles;
+using $rootfilename$.Models.Services;
+
+namespace $rootfilename$.Controller
+{
+
+    public class $classname$sController : ControllerBase
+    {
+        private readonly $classname$sServices _service;
+        private readonly IMapper _mapper;
+
+        public $classname$sController($classname$DbContext context)
+        {
+            _service = new $classname$sServices(context);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<$classname$sProfiles>();
+            });
+            _mapper = config.CreateMapper();
+        }
+
+
+        public IEnumerable<$dtoph$> GetAll$classname$s()
+        {
+            IEnumerable<$classname$> liste$classname$s = _service.GetAll$classname$s();
+            return _mapper.Map<IEnumerable<$dtoph$>>(liste$classname$s);
+        }
+
+
+
+        public $classname$sDtoOut Get$classname$ById(int id)
+        {
+            var item = _service.Get$classname$ById(id);
+            if (item != null)
+            {
+                return _mapper.Map<$dtoph$>(item);
+            }
+            return null;
+        }
+
+
+        public void Create$classname$($dtoph$ itemDto)
+        {
+            $classname$ itemPOCO = _mapper.Map<$classname$>(itemDto);
+            _service.Add$classname$s(itemPOCO);
+        }
+
+
+        public void Update$classname$(int id, $dtoph$ item)
+        {
+            var itemFromRepo = _service.Get$classname$ById(id);
+            if (itemFromRepo != null)
+            {
+                _mapper.Map(item, itemFromRepo);
+                 _service.Update$classname$(itemFromRepo); 
+            }
+            
+        }
+
+        public void Delete$classname$(int id)
+        {
+            var itemFromRepo = _service.Get$classname$ById(id);
+            if (itemFromRepo != null)
+            {
+                _service.Delete$classname$(itemFromRepo);
+            }
+        }
+    }
+}
+				]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

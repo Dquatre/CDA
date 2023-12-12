@@ -12,7 +12,8 @@ Commande scaffold:
 
 Scaffold-DbContext -Connection Name=Default -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context PlatformDbContext -ContextDir ./Models
 Scaffold-DbContext -Connection "Server=localhost;Database=complexdb;User=root;Password=;port=3306;ssl mode=none" -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context ComplexDbContext -ContextDir ./Models
-
+Scaffold-DbContext -Connection "Server=localhost;Database=livre;User=root;Password=;port=3306;ssl mode=none" -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context LivreDbContext -ContextDir ./Models
+Scaffold-DbContext -Connection "Server=localhost;Database=gestionstockdb;User=root;Password=;port=3306;ssl mode=none" -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context GestionStockDbContext -ContextDir ./Models
 
 CREATE TABLE platforms(
    idPlatform INT,
@@ -47,3 +48,32 @@ Alter table games_platforms modify idGame_Platform INT AUTO_INCREMENT PRIMARY KE
 ALTER TABLE games ADD CONSTRAINT FK_game_serie FOREIGN KEY (idSerie) REFERENCES series(idSerie);
 ALTER TABLE games_platforms ADD CONSTRAINT FK_games_games_platforms FOREIGN KEY (idGame) REFERENCES games(idGame);
 ALTER TABLE games_platforms ADD CONSTRAINT FK_platforms_games_platforms FOREIGN KEY (idPlatform) REFERENCES platforms(idPlatform);
+
+
+
+
+
+CREATE TABLE TypesProduits(
+   IdTypeProduit INT,
+   LibelleTypeProduit VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Categories(
+   IdCategorie INT,
+   LibelleCategorie VARCHAR(50) NOT NULL,
+   IdTypeProduit INT NOT NULL
+);
+
+CREATE TABLE Articles(
+   IdArticle INT,
+   LibelleArticle VARCHAR(50) NOT NULL,
+   QuantiteStockee INT NOT NULL,
+   IdCategorie INT NOT NULL
+);
+
+Alter table TypesProduits modify IdTypeProduit INT AUTO_INCREMENT PRIMARY KEY;
+Alter table Categories modify IdCategorie INT AUTO_INCREMENT PRIMARY KEY;
+Alter table Articles modify IdArticle INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE Categories ADD CONSTRAINT FK_Categories_TypesProduits FOREIGN KEY(IdTypeProduit) REFERENCES TypesProduits(IdTypeProduit);
+ALTER TABLE Articles ADD CONSTRAINT FK_Articles_Categories FOREIGN KEY(IdCategorie) REFERENCES Categories(IdCategorie);
