@@ -26,19 +26,35 @@ namespace GestionStock.Views
     {
         private GestionStockDbContext _context;
         private CategoriesController _controller;
+        private TypesproduitsController _tpController;
 
+        public TypesproduitsDtoOut TypesproduitsDtoOut { get; set; } = null!;
         public GridCategory(GestionStockDbContext context)
         {
             InitializeComponent();
             _context = context;
             _controller = new CategoriesController(_context);
-
+            _tpController = new TypesproduitsController(context);
+            cbTypeProduit.SelectedValuePath = "Key";
+            cbTypeProduit.DisplayMemberPath = "Value";
+            foreach (var item in _tpController.GetAllTypesproduits())
+            {
+                cbTypeProduit.Items.Add(new KeyValuePair<int, string>(item.IdTypeProduit, item.LibelleTypeProduit));
+            }
             FillGrid();
-
         }
+
         private void FillGrid()
         {
-            dtgCentre.ItemsSource = _controller.GetAllCategories();
+            if (TypesproduitsDtoOut == null)
+            {
+                dtgCentre.ItemsSource = _controller.GetAllCategories();
+            }
+            else
+            {
+                dtgCentre.ItemsSource = TypesproduitsDtoOut.ListCategories;
+            }
+
         }
 
 
@@ -79,7 +95,20 @@ namespace GestionStock.Views
 
         private void ButtonGestTpProd_Click(object sender, RoutedEventArgs e)
         {
+            Window window = new GridTypesProduit(_context);
+            window.ShowDialog();
+            FillGrid();
+        }
+
+        private void ButtonFermer(object sender, RoutedEventArgs e)
+        {
             this.Close();
+        }
+
+        private void cbTypeProduit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TypesproduitsDtoOut = _tpController.GetTypesproduitById((int)cbTypeProduit.SelectedValue);
+            FillGrid();
         }
     }
 }

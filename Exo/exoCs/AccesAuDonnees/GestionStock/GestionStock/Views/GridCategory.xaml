@@ -17,6 +17,8 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="32*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="40px"/>
@@ -24,18 +26,16 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10px"/>
-
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="1*"/>
-
             <ColumnDefinition Width="200px"/>
             <ColumnDefinition Width="20px"/>
             <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="10px"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="false"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" >
+        <DataGrid x:Name="dtgCentre" AutoGenerateColumns="false"  IsReadOnly="True" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
@@ -49,9 +49,11 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnFermer"  Grid.Column="7" Content="Fermer"  Grid.Row="3" FontFamily="Arial" FontSize="16" Click="ButtonGestTpProd_Click" Background="#FFA194D2" BorderBrush="{x:Null}" />
+        <ComboBox x:Name="cbTypeProduit" Grid.Row="1" Grid.Column="5" SelectionChanged="cbTypeProduit_SelectionChanged"/>
 
-        <Button x:Name="btnAjCat"  Grid.Column="5" Content="Gestion types de produits"  Grid.Row="3" FontFamily="Arial" FontSize="16" Click="ButtonGestTpProd_Click" Background="#FFFFBB00" >
+        <Button x:Name="btnFermer"  Grid.Column="7" Content="Fermer"  Grid.Row="5" FontFamily="Calibri" FontSize="18" Click="ButtonFermer" Background="#FFA194D2" BorderBrush="{x:Null}" />
+
+        <Button x:Name="btnAjCat"  Grid.Column="5" Content="Gestion types de produits"  Grid.Row="5" FontFamily="Calibri" FontSize="18" Click="ButtonGestTpProd_Click" Background="#FFFFBB00" >
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAF7205" Offset="1"/>
@@ -62,7 +64,7 @@
             </Button.BorderBrush>
         </Button>
 
-        <Button x:Name="btnAjouter"  Grid.Column="1" Content="Ajouter"  Grid.Row="3" Background="#FF419568" FontFamily="Arial" FontSize="16" Click="ButtonAction_Click" >
+        <Button x:Name="btnAjouter"  Grid.Column="1" Content="Ajouter"  Grid.Row="5" Background="#FF419568" FontFamily="Calibri" FontSize="18" Click="ButtonAction_Click" >
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF276946" Offset="1"/>
@@ -72,7 +74,7 @@
                 </LinearGradientBrush>
             </Button.BorderBrush>
         </Button>
-        <Button x:Name="btnSuppr" Grid.Column="3" Content="Supprimer"  Grid.Row="3"  Background="#FFC73232" FontFamily="Arial" FontSize="16" IsEnabled="False" Click="ButtonAction_Click">
+        <Button x:Name="btnSuppr" Grid.Column="3" Content="Supprimer"  Grid.Row="5"  Background="#FFC73232" FontFamily="Calibri" FontSize="18" IsEnabled="False" Click="ButtonAction_Click">
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6D1A1A" Offset="1"/>

@@ -1,11 +1,11 @@
-﻿<Window x:Class="GestionStock.Views.GestionCategory"
+﻿<Window x:Class="GestionStock.Views.GestionTypesProduit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestionStock.Views"
         mc:Ignorable="d"
-        Title="Gestion" Height="300" Width="800"
+        Title="Gestion" Height="150" Width="800"
         ResizeMode="NoResize">
 
     <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4">
@@ -26,10 +26,10 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="40px"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Button Content="Annuler" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="18" Grid.Column="4"  Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}"  Click="annuler_Click"/>
         <Button x:Name="btnVal" Grid.Column="2" Content="Valider"  Grid.Row="2" Background="#FF419568" FontFamily="Calibri" FontSize="18" Click="valider_Click">
@@ -45,10 +45,9 @@
         </Button>
         <Grid Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="4*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="8*"/>
@@ -56,11 +55,9 @@
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="idCategorie" Visibility="Hidden"/>
-            <Label Content="Libelle" VerticalAlignment="Center" FontFamily="Calibri" FontSize="18"   />
-            <TextBox x:Name="txtLibelle" Grid.Column="2"   FontFamily="Calibri" FontSize="18" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TextChanged="txtLibelle_TextChanged"/>
-            <Label Content="Type de prduit" Grid.Row="2" VerticalAlignment="Center" FontFamily="Calibri" FontSize="18"  />
-            <ComboBox x:Name="cbbTypeProd"  Grid.Column="2" Grid.Row="2" FontFamily="Calibri" FontSize="18" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
+            <Label x:Name="idTypesproduit" Visibility="Hidden"/>
+            <Label Content="Libelle" VerticalAlignment="Center" Grid.Row="1" FontFamily="Calibri" FontSize="18"   />
+            <TextBox x:Name="txtLibelle" Grid.Column="2" Grid.Row="1"   FontFamily="Calibri" FontSize="18" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TextChanged="txtLibelle_TextChanged"/>
         </Grid>
     </Grid>
 </Window>

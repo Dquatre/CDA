@@ -23,6 +23,7 @@ namespace GestionStock.Controller
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<TypesproduitsProfiles>();
+                cfg.AddProfile<CategoriesProfiles>();
             });
             _mapper = config.CreateMapper();
         }
@@ -34,8 +35,6 @@ namespace GestionStock.Controller
             return _mapper.Map<IEnumerable<TypesproduitsDtoOut>>(listeTypesproduits);
         }
 
-
-
         public TypesproduitsDtoOut GetTypesproduitById(int id)
         {
             var item = _service.GetTypesproduitById(id);
@@ -45,7 +44,6 @@ namespace GestionStock.Controller
             }
             return null;
         }
-
 
         public void CreateTypesproduit(TypesproduitsDtoOut itemDto)
         {
@@ -62,7 +60,6 @@ namespace GestionStock.Controller
                 _mapper.Map(item, itemFromRepo);
                 _service.UpdateTypesproduit(itemFromRepo);
             }
-
         }
 
         public void DeleteTypesproduit(int id)

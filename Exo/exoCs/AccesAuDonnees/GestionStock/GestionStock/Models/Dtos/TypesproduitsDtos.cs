@@ -13,13 +13,12 @@ namespace GestionStock.Models.Dtos
 
         public string LibelleTypeProduit { get; set; } = null!;
 
-        public virtual ICollection<Category> ListCategories { get; set; } = new List<Category>();
+        public virtual ICollection<CategoriesDtoOut> ListCategories { get; set; } = new List<CategoriesDtoOut>();
 
-        public TypesproduitsDtoOut(int idTypeProduit, string libelleTypeProduit, ICollection<Category> listCategories)
+        public TypesproduitsDtoOut(int idTypeProduit, string libelleTypeProduit)
         {
             IdTypeProduit = idTypeProduit;
             LibelleTypeProduit = libelleTypeProduit;
-            ListCategories = listCategories;
         }
 
         public TypesproduitsDtoOut()
