@@ -1,0 +1,163 @@
+Exercice 1
+db.salles.find({"smac": true}, {"nom": 1})
+Exercice 2
+db.salles.find({"capacite": {$gt: 1000}}, {"_id": 0, "nom": 1}) 
+Exercice 3
+db.salles.find({"adresse.numero": {$exists: false}}, {"_id": 1}) 
+Exercice 4
+db.salles.find({"avis": {$size: 1}}, {"_id": 1, "nom": 1}) 
+ou
+db.salles.find({"avis": {$size: 1}}, {"nom": 1}) 
+Exercice 5
+db.salles.find({"styles": "blues"}, {"_id": 0, "styles": 1}) 
+Exercice 6
+db.salles.find({"styles.0": "blues"}, {"_id": 0, "styles": 1})
+
+Exercice 7
+db.salles.find({ 
+   $and: [{ 
+       "adresse.codePostal": /^84/, 
+       "capacite": {$lt: 500} 
+   }] 
+}, { 
+   "_id": 0, 
+   "adresse.ville": 1 
+}) 
+ou, plus simplement :
+db.salles.find({ 
+   "adresse.codePostal": /^84/, 
+   "capacite": {$lt: 500} 
+}, { 
+   "_id": 0, 
+   "adresse.ville": 1 
+}) 
+Exercice 8
+db.salles.find({ 
+   $or: [{ 
+       "_id": { 
+           $mod: [2, 0] 
+       } 
+   }, { 
+       "avis": { 
+           $exists: false 
+       } 
+   }] 
+}, { 
+       "_id": 1 
+}) 
+Exercice 9
+db.salles.find({ 
+   "avis": { 
+       $elemMatch: { 
+           "note": { 
+               $gte: 8, 
+               $lte: 10 
+           } 
+       } 
+   } 
+}, { 
+   "_id": 0, 
+   "nom": 1 
+}) 
+Exercice 10
+db.salles.find({"avis.date": { 
+   $gt: new Date('2019-11-15')} 
+}, { 
+   "_id": 0,
+   "nom": 1 
+}) 
+Ou bien, sur le modèle de l’exercice précédent :
+db.salles.find({ 
+   "avis": { 
+       $elemMatch: { 
+           "date": { $gt: new Date('2019-11-15')} 
+       } 
+   } 
+}, { 
+   "_id": 0, 
+   "nom": 1 
+}) 
+Exercice 11
+db.salles.find({ 
+   $expr: { $gt: [ {$multiply: ["$_id", 100]}, "$capacite"]}
+}, { 
+   "_id": 0, 
+   "nom": 1, 
+   "capacite": 1 
+}) 
+Exercice 12
+db.salles.find({ 
+   $and: [{ 
+       "styles": { 
+           $exists: true 
+       } 
+   }, { 
+       "smac": true 
+   }] 
+}, { 
+   $where: 'this.styles.length > 2', 
+   "_id": 0, 
+   "nom": 1 
+}) 
+Exercice 13
+db.salles.distinct("adresse.codePostal") 
+Exercice 14
+db.salles.updateMany({}, {$inc: {"capacite": NumberInt(100)}}) 
+Attention, si vous omettez de préciser le type NumberInt, votre champ capacite sera transtypé en double.
+
+Exercice 15
+db.salles.updateMany({"styles": {$ne: "jazz"}}, {$push: 
+{"styles": "jazz"}}) 
+Exercice 16
+db.salles.updateMany({"_id": {$nin: [2,3]}}, {$pull: 
+{"styles": "funk"}}) 
+Exercice 17
+db.salles.updateOne( 
+   {"_id": 3},
+   {$addToSet: {"styles": {$each: [ "techno", "reggae" ]}}} 
+) 
+Exercice 18
+db.salles.updateMany( 
+   {"nom": /^p/i},
+   {
+     $inc: {"capacite" : NumberInt(150)},
+     $set: { "contact.telephone" : "04 11 94 00 10" } 
+   } 
+) 
+Exercice 19
+db.salles.updateMany( 
+   {"nom": /[^aeiou]+$/i},
+   { $push: { "avis" : {"date": new Date(), "note": 10} } } 
+) 
+Si vous souhaitez que la note soit de type entier, utilisez NumberInt.
+Exercice 20
+db.salles.updateOne( 
+   {"nom": /^z/i},
+   { $set: { "nom" : "Pub Z", "smac": false, "capacite": NumberInt(50) } }, 
+   { "upsert": true} 
+) 
+Exercice 21
+db.salles.find({"_id": {$type: "objectId"}}).count() 
+Exercice 22
+db.salles.find({ 
+   "_id": { 
+       $not: { 
+           $type: "objectId" 
+       } 
+   } 
+}, { 
+   "_id": 0, 
+   "nom": 1 
+}).sort({"capacite": -1}).limit(1) 
+Exercice 23
+db.salles.replaceOne( 
+   {"_id": ObjectId("5d32f67d81d43db61fc73696")},
+   {"nom" : "Pub Z", "capacite": NumberInt(60)} 
+) 
+Exercice 24
+db.salles.remove({"_id": {$type: "objectId"}, "capacite": {$lte: 60}}, true) 
+Exercice 25
+db.salles.findOneAndUpdate( 
+  { "adresse.ville" : "Nîmes" }, 
+  { $inc: { "capacite" : NumberInt(-15) } } 
+)

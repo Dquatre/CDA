@@ -1,0 +1,13 @@
+[{
+    "_id": {"$oid" : "659fe97628fbf04e6078d86c"}
+    ,
+    "styles": [
+      "jazz",
+      "soul",
+      "funk",
+      "blues",
+      "rock",
+      "metal",
+      "disco"
+    ]
+  }]

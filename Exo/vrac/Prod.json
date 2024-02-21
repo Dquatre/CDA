@@ -1,0 +1,41 @@
+{
+    "NextId": 8,
+    "Liste": [ 
+        {
+          "IdProduct": 1,
+          "NameProduct": "Pelle Necroutil",
+          "Price": 42.99,
+          "Quantity": 120
+        },
+        {
+          "IdProduct": 2,
+          "NameProduct": "Pelle Necroutil",
+          "Price": 42.99,
+          "Quantity": 120
+        },
+        {
+          "IdProduct": 3,
+          "NameProduct": "Pelle Necroutil",
+          "Price": 42.99,
+          "Quantity": 120
+        },
+        {
+          "IdProduct": 4,
+          "NameProduct": "Pelle Necroutil",
+          "Price": 42.99,
+          "Quantity": 120
+        },
+        {
+          "IdProduct": 5,
+          "NameProduct": "asdfs",
+          "Price": 26.0,
+          "Quantity": 25
+        },
+        {
+          "IdProduct": 7,
+          "NameProduct": "pelle",
+          "Price": 26.45,
+          "Quantity": 564
+        }
+    ]
+  }
